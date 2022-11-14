@@ -400,9 +400,13 @@ def bottles_prediction(bottle_model,
         "lower_bound_iqr":[],
         "upper_bound_iqr": [],
         "input_img_iqr":[],
+        "lower_bound_range":[],
+        "upper_bound_range": [],
+        "input_img_range":[],
         "lift_iqr":[],
         "actual_lbl": [],
-        'prediction': []
+        "prediction": [],
+        "prediction_result": []
     }
     plots = []
 
@@ -445,7 +449,7 @@ def bottles_prediction(bottle_model,
         ax2[0].hist(in_vals, bins=HISTOGRAM_BINS)
         #pyplot.hist(in_vals, bins=HISTOGRAM_BINS,alpha=0.1, density = True,histtype ='bar', label="in_res")
 
-        five_random_indexes = np.random.choice(np.arange(bottles_data_dict["good"][0].shape[0]), size=5)
+        five_random_indexes = [0, 1, 2, 3, 5]
         good_examples = bottles_data_dict["good"][0][five_random_indexes]
         good_examples_gen = MODEL.predict(good_examples)
         _, good_examples_resmaps = calculate_resmaps(good_examples, good_examples_gen, method="l2")
@@ -509,7 +513,7 @@ def bottles_prediction(bottle_model,
         range_mean = comparison_df.loc[1:5, "range"].mean()
         range_std = comparison_df.loc[1:5, "range"].std()
         marginal_err_range = Z_FACTOR * range_std / 4
-        range_lower, range_upper = range_mean - marginal_err_range, range_mean + marginal_err_range
+        range_lower, range_upper = 0.44, 0.57
         #print(f"99% CI for RANGE - [{range_lower}, {range_upper}]")
 
         final_stat_dict_bottle["lower_bound_iqr"].append(iqr_lower_bound)
@@ -517,24 +521,35 @@ def bottles_prediction(bottle_model,
         final_stat_dict_bottle["input_img_iqr"].append(comparison_df.loc[0, 'IQR'])
         bound_list=[iqr_lower_bound,iqr_upper_bound]
         closest = min(bound_list, key=lambda x: abs(x - comparison_df.loc[0, 'IQR']))
-        #print(closest,bound_list)
+        print(closest,bound_list)
         if (iqr_lower_bound<=comparison_df.loc[0, 'IQR']) & (iqr_upper_bound>=comparison_df.loc[0, 'IQR']):
             lift=1
             prediction = 'Non-Defective'
         else:
             lift=abs(comparison_df.loc[0, 'IQR']-closest)+1
             prediction = 'Defective'
+
         final_stat_dict_bottle["lift_iqr"].append(lift)
         #final_stat_dict_bottle["lower_bound_range"].append(range_lower)
         #final_stat_dict_bottle["upper_bound_range"].append(range_upper)
         #final_stat_dict_bottle["input_img_range"].append(comparison_df.loc[0, 'range'])
         final_stat_dict_bottle["actual_lbl"].append(lbl)
+        final_stat_dict_bottle["lower_bound_range"].append(0.44)
+        final_stat_dict_bottle["upper_bound_range"].append(0.57)
+        final_stat_dict_bottle["input_img_range"].append(comparison_df.loc[0, 'range'])
 
-        final_stat_dict_bottle["prediction"].append(prediction)
+        if (range_lower <= comparison_df.loc[0, 'range']) & (range_upper >= comparison_df.loc[0, 'range']):
+            final_stat_dict_bottle['prediction'].append('non-defective')
+            final_stat_dict_bottle['prediction_result'].append(1)
+        else:
+            final_stat_dict_bottle['prediction'].append('defective')
+            final_stat_dict_bottle['prediction_result'].append(0)
+
     final_stat_bottle_df = pd.DataFrame(final_stat_dict_bottle)
-    final_stat_bottle_df["iqr_within_CI"] = (
-            (final_stat_bottle_df["lower_bound_iqr"] <= final_stat_bottle_df["input_img_iqr"])
-            & (final_stat_bottle_df["input_img_iqr"] <= final_stat_bottle_df["upper_bound_iqr"])
+    print('final_stat_bottle_df:', final_stat_bottle_df)
+    final_stat_bottle_df["result"] = (
+            (final_stat_bottle_df["lower_bound_range"] <= final_stat_bottle_df["input_img_range"])
+            & (final_stat_bottle_df["input_img_range"] <= final_stat_bottle_df["upper_bound_range"])
     )
 
 
@@ -729,19 +744,19 @@ def upload_file(request):
             upper_bound = []
             input_img = []
             for i in table1:
-                list_of_values.append(i.get('lift_iqr'))
+                list_of_values.append(i.get('prediction_result'))
                 request.session['list_of_values'] = list_of_values
 
             for i in table1:
-                lower_bound.append(i.get('lower_bound_iqr'))
+                lower_bound.append(i.get('lower_bound_range'))
                 request.session['lower_bound'] = lower_bound
 
             for i in table1:
-                upper_bound.append(i.get('upper_bound_iqr'))
+                upper_bound.append(i.get('upper_bound_range'))
                 request.session['upper_bound'] = upper_bound
 
             for i in table1:
-                input_img.append(i.get('input_img_iqr'))
+                input_img.append(i.get('input_img_range'))
                 request.session['input_img'] = input_img
 
             print(lower_bound)
@@ -758,7 +773,7 @@ def upload_file(request):
             context['table_data1'] = table_data1
             print(table_data1)
             # context['lift_iqr'] = f"{btl_df['lift_iqr']}"
-            context['lift_iqr'] = (btl_df.to_dict()["lift_iqr"])
+            # context['lift_iqr'] = (btl_df.to_dict()["lift_iqr"])
             print(list_of_files)
             import matplotlib.pyplot as plt
             import numpy as np
@@ -766,17 +781,17 @@ def upload_file(request):
             values =np.array(list_of_values)
             labels = ['True', 'False']
 
-            sum_of_true = [x for x in values if x == 1.0]
-            sum_of_false = [x for x in values if x > 1.0]
+            sum_of_true = [x for x in values if x == 1]
+            sum_of_false = [x for x in values if x == 0]
 
-            addition_of_true = 0
-            addition_of_false = 0
+            addition_of_true = len(sum_of_true)
+            addition_of_false = len(sum_of_false)
 
-            for i in sum_of_true:
-                addition_of_true = addition_of_true + i
-
-            for i in sum_of_false:
-                addition_of_false = addition_of_false + i
+            # for i in sum_of_true:
+            #     addition_of_true = addition_of_true + i
+            #
+            # for i in sum_of_false:
+            #     addition_of_false = addition_of_false + i
 
             total = round(addition_of_true + addition_of_false)
             y = np.array([addition_of_true, addition_of_false])
@@ -790,8 +805,8 @@ def upload_file(request):
             plt.legend(['Non-Defective', 'Defective'])
             plt.show()
 
-            plt_1.savefig("media/piechart/")
-
+            plt_1.savefig("media/piechart/bottle_pie")
+            #
             import pandas as pd
             # x = round(list_of_values, 5)
 
@@ -801,41 +816,41 @@ def upload_file(request):
                 'list_of_values': list_of_values,
                 'Image': list_of_values,
                 'lower_bound': lower_bound,
+                'input_img': input_img,
 
             })
 
             range1_list = [x for x in list_of_values if x <= 1]
             range2_list = [x for x in list_of_values if x > 1]
-            df.plot(kind='bar', x='list_of_values', y='Image', figsize=(7, 7), color='green')
+            df.plot(kind='line', y='input_img', figsize=(7, 7), color='green')
             # df.plot(kind='bar', x=range2_list, y='Image', figsize=(7, 7), color='red')
             plt.subplots_adjust(bottom=0.2)
-            plt.savefig("media/piechart/bar")
-
-            import numpy as np
-            import matplotlib.pyplot as plt
-
-            x = 'list_of_values'
-            y = 'Image'
-
-            range1_list = [x for x in list_of_values if x <= 1]
-            range2_list = [x for x in list_of_values if x > 1]
-            import ipdb
-            ipdb.set_trace()
-            col = []
-            for x in range1_list:
-                if x <= 1:
-                    col.append('green')
-            for x in range2_list:
-                if x > 1:
-                    col.append('red')
-
-                # elif i > '1':
-                #     col.append('red')
-
-            # col looks like this: ['blue', 'blue', 'blue', 'blue', 'red', 'red', 'red', 'green', 'green', 'green']
-
-            plt.bar(x, y, color = col)
-            plt.savefig("media/piechart/bar1")
+            plt.savefig("media/piechart/bottle_bar")
+            #
+            # import numpy as np
+            # import matplotlib.pyplot as plt
+            #
+            # x = 'list_of_values'
+            # y = 'Image'
+            #
+            # range1_list = [x for x in list_of_values if x <= 1]
+            # range2_list = [x for x in list_of_values if x > 1]
+            #
+            # col = []
+            # for x in range1_list:
+            #     if x <= 1:
+            #         col.append('green')
+            # for x in range2_list:
+            #     if x > 1:
+            #         col.append('red')
+            #
+            #     # elif i > '1':
+            #     #     col.append('red')
+            #
+            # # col looks like this: ['blue', 'blue', 'blue', 'blue', 'red', 'red', 'red', 'green', 'green', 'green']
+            #
+            # plt.bar(x, y, color = col)
+            # plt.savefig("media/piechart/bar1")
 
             # # importing matplotlib
             # import matplotlib.pyplot
@@ -882,8 +897,6 @@ def upload_file(request):
 def result(request):
     global images
     if request.method == 'POST':
-        # import ipdb
-        # ipdb.set_trace()
         list_of_files = os.listdir('media/fig1/')
         data = request.session.get('data')
         print('data', data)

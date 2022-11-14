@@ -350,7 +350,15 @@ def capsules_prediction(cap_model,
         "upper_bound_iqr_right": [],
         "lift_iqr_right":[],
         "input_img_iqr_right":[],
-        "actual_lbl": []
+        "actual_lbl": [],
+        "lower_bound_range_right":[],
+        "upper_bound_range_right":[],
+        "input_img_range_right":[],
+        "lower_bound_range_left":[],
+        "upper_bound_range_left":[],
+        "input_img_range_left":[],
+        "prediction": [],
+        "prediction_result": []
     }
 
     plots = []
@@ -418,7 +426,6 @@ def capsules_prediction(cap_model,
         ax2[1].title.set_text("in_res_r")
         ax2[1].hist(in_vals_right, bins=HISTOGRAM_BINS)
 
-
         five_random_indexes = np.random.choice(np.arange(capsules_data_dict["good"][0].shape[0]), size=5)
         good_examples = capsules_data_dict["good"][0][five_random_indexes]
         good_examples_gen = cap_model.predict(good_examples)
@@ -458,7 +465,6 @@ def capsules_prediction(cap_model,
             vals_right_list.append(vals_right)
             labels_left_list.append(f"g_res_{idx}_l")
             labels_right_list.append(f"g_res_{idx}_r")
-
 
         ax2[2].hist(vals_left_list, bins=HISTOGRAM_BINS,label=labels_left_list,histtype ='step')
         ax2[2].legend(loc='upper right')
@@ -510,14 +516,14 @@ def capsules_prediction(cap_model,
         range_mean_left = comparison_df.loc[1:5, "left_range"].mean()
         range_std_left = comparison_df.loc[1:5, "left_range"].std()
         marginal_err_range_left = Z_FACTOR * range_std_left / 4
-        left_lower_range, left_upper_range = range_mean_left - marginal_err_range_left, range_mean_left + marginal_err_range_left
+        left_lower_range, left_upper_range = 0.027, 0.063
         #print(f"99% CI for left RANGE - [{left_lower_range}, {left_upper_range}]")
         #print(f"left_input_range - {comparison_df.loc[0, 'left_range']}")
 
         range_mean_right = comparison_df.loc[1:5, "right_range"].mean()
         range_std_right = comparison_df.loc[1:5, "right_range"].std()
         marginal_err_range_right = Z_FACTOR * range_std_right / 4
-        right_lower_range, right_upper_range = range_mean_right - marginal_err_range_right, range_mean_right + marginal_err_range_right
+        right_lower_range, right_upper_range = 0.031, 0.058
         #print(f"99% CI for right RANGE - [{right_lower_range}, {right_upper_range}]")
         #print(f"right_input_range - {comparison_df.loc[0, 'right_range']}")
 
@@ -531,7 +537,6 @@ def capsules_prediction(cap_model,
         else:
             lift_left=abs(comparison_df.loc[0, 'left_IQR']-closest_left)+1
         final_stat_dict["lift_iqr_left"].append(lift_left)
-
 
         final_stat_dict["lower_bound_iqr_right"].append(right_lower_iqr)
         final_stat_dict["upper_bound_iqr_right"].append(right_upper_iqr)
@@ -549,6 +554,19 @@ def capsules_prediction(cap_model,
         #final_stat_dict["input_img_range_right"].append(comparison_df.loc[0, 'right_range'])
 
         final_stat_dict["actual_lbl"].append(lbl)
+        final_stat_dict["lower_bound_range_right"].append(0.031)
+        final_stat_dict["upper_bound_range_right"].append(0.058)
+        final_stat_dict["input_img_range_right"].append(comparison_df.loc[0, 'right_range'])
+        final_stat_dict["lower_bound_range_left"].append(0.027)
+        final_stat_dict["upper_bound_range_left"].append(0.063)
+        final_stat_dict["input_img_range_left"].append(comparison_df.loc[0, 'left_range'])
+
+        if (right_lower_range <= comparison_df.loc[0, 'right_range']) & (right_upper_range >= comparison_df.loc[0, 'right_range']) & (left_lower_range <= comparison_df.loc[0, 'left_range']) & (left_upper_range >= comparison_df.loc[0, 'left_range']):
+            final_stat_dict['prediction'].append('non-defective')
+            final_stat_dict['prediction_result'].append(1)
+        else:
+            final_stat_dict['prediction'].append('defective')
+            final_stat_dict['prediction_result'].append(0)
 
     final_stats_df = pd.DataFrame(final_stat_dict)
 
@@ -669,31 +687,31 @@ def upload_capsule(request):
             upper_bound_right = []
             input_img = []
             for i in table:
-                list_of_values_right.append(i.get('lift_iqr_right'))
+                list_of_values_right.append(i.get('prediction_result'))
                 request.session['list_of_values_right'] = list_of_values_right
 
             for i in table:
-                list_of_values_left.append(i.get('lift_iqr_left'))
+                list_of_values_left.append(i.get('input_img_range_left'))
                 request.session['list_of_values_left'] = list_of_values_left
 
             for i in table:
-                lower_bound_left.append(i.get('lower_bound_iqr_left'))
+                lower_bound_left.append(i.get('lower_bound_range_left'))
                 request.session['lower_bound_left'] = lower_bound_left
 
             for i in table:
-                lower_bound_right.append(i.get('lower_bound_iqr_right'))
+                lower_bound_right.append(i.get('lower_bound_range_right'))
                 request.session['lower_bound_right'] = lower_bound_right
 
             for i in table:
-                upper_bound_left.append(i.get('upper_bound_iqr_left'))
+                upper_bound_left.append(i.get('upper_bound_range_left'))
                 request.session['upper_bound_left'] = upper_bound_left
 
             for i in table:
-                upper_bound_right.append(i.get('upper_bound_iqr_right'))
+                upper_bound_right.append(i.get('upper_bound_range_right'))
                 request.session['upper_bound_right'] = upper_bound_right
 
             for i in table:
-                input_img.append(i.get('input_img_iqr'))
+                input_img.append(i.get('input_img_range_left'))
                 request.session['input_img'] = input_img
 
             data = table
@@ -708,17 +726,11 @@ def upload_capsule(request):
             values =np.array(list_of_values)
             labels = ['True', 'False']
 
-            sum_of_true = [x for x in values if x == 1.0]
-            sum_of_false = [x for x in values if x > 1.0]
+            sum_of_true = [x for x in values if x == 1]
+            sum_of_false = [x for x in values if x == 0]
 
-            addition_of_true = 0
-            addition_of_false = 0
-
-            for i in sum_of_true:
-                addition_of_true = addition_of_true + i
-
-            for i in sum_of_false:
-                addition_of_false = addition_of_false + i
+            addition_of_true = len(sum_of_true)
+            addition_of_false = len(sum_of_false)
 
             total = round(addition_of_true + addition_of_false)
             y = np.array([addition_of_true, addition_of_false])
@@ -732,7 +744,7 @@ def upload_capsule(request):
             plt.legend(['Non-Defective', 'Defective'])
             plt.show()
 
-            plt_1.savefig("media/piechart/pie2")
+            plt_1.savefig("media/piechart/capsule_pie")
 
             import pandas as pd
             # x = round(list_of_values, 5)
@@ -743,40 +755,31 @@ def upload_capsule(request):
                 'list_of_values': list_of_values,
                 'Image': list_of_values,
                 'lower_bound_right': lower_bound_right,
+                'list_of_values_left': list_of_values_left,
 
             })
 
             range1_list = [x for x in list_of_values if x <= 1]
             range2_list = [x for x in list_of_values if x > 1]
-            df.plot(kind='bar', x='list_of_values', y='Image', figsize=(7, 7), color='green')
+            df.plot(kind='line', y='list_of_values_left', figsize=(7, 7), color='green')
             # df.plot(kind='bar', x=range2_list, y='Image', figsize=(7, 7), color='red')
             plt.subplots_adjust(bottom=0.2)
-            plt.savefig("media/piechart/bar2")
+            plt.savefig("media/piechart/capsule_bar")
 
-            # import numpy as np
-            # import matplotlib.pyplot as plt
-            #
-            # x = 'list_of_values'
-            # y = 'Image'
-            #
-            # range1_list = [x for x in list_of_values if x <= 1]
-            # range2_list = [x for x in list_of_values if x > 1]
+            df = pd.DataFrame({
+                'list_of_values': list_of_values,
+                'Image': list_of_values,
+                'lower_bound_right': lower_bound_right,
+                'list_of_values_right': list_of_values_right,
 
-            # col = []
-            # for x in range1_list:
-            #     if x <= 1:
-            #         col.append('green')
-            # for x in range2_list:
-            #     if x > 1:
-            #         col.append('red')
-            #
-            #     # elif i > '1':
-            #     #     col.append('red')
-            #
-            # # col looks like this: ['blue', 'blue', 'blue', 'blue', 'red', 'red', 'red', 'green', 'green', 'green']
-            #
-            # plt.bar(x, y, color = col)
-            # plt.savefig("media/piechart/bar2")
+            })
+
+            range1_list = [x for x in list_of_values if x <= 1]
+            range2_list = [x for x in list_of_values if x > 1]
+            df.plot(kind='line', y='list_of_values_right', figsize=(7, 7), color='green')
+            # df.plot(kind='bar', x=range2_list, y='Image', figsize=(7, 7), color='red')
+            plt.subplots_adjust(bottom=0.2)
+            plt.savefig("media/piechart/capsule_bar2")
 
             context['lift_iqr_left'] = f"{cpl_df['lift_iqr_left'][0]}"
             context['lift_iqr_right'] = f"{cpl_df['lift_iqr_right'][0]}"

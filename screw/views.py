@@ -340,8 +340,13 @@ def screw_prediction(screw_model,
         "lower_bound_iqr":[],
         "upper_bound_iqr": [],
         "input_img_iqr":[],
+        "lower_bound_range":[],
+        "upper_bound_range": [],
+        "input_img_range":[],
         "lift_iqr":[],
-        "actual_lbl": []
+        "actual_lbl": [],
+        "prediction": [],
+        "prediction_result": []
     }
     plots = []
 
@@ -450,7 +455,7 @@ def screw_prediction(screw_model,
         range_mean = comparison_df.loc[1:5, "range"].mean()
         range_std = comparison_df.loc[1:5, "range"].std()
         marginal_err_range = Z_FACTOR * range_std / 4
-        range_lower, range_upper = range_mean - marginal_err_range, range_mean + marginal_err_range
+        range_lower, range_upper = 0.82, 0.85
         #print(f"99% CI for RANGE - [{range_lower}, {range_upper}]")
 
         final_stat_dict_screw["lower_bound_iqr"].append(iqr_lower_bound)
@@ -465,6 +470,16 @@ def screw_prediction(screw_model,
             lift=abs(comparison_df.loc[0, 'IQR']-closest)+1
         final_stat_dict_screw["lift_iqr"].append(lift)
         final_stat_dict_screw["actual_lbl"].append(lbl)
+        final_stat_dict_screw["lower_bound_range"].append(0.82)
+        final_stat_dict_screw["upper_bound_range"].append(0.85)
+        final_stat_dict_screw["input_img_range"].append(comparison_df.loc[0, 'range'])
+
+        if (range_lower <= comparison_df.loc[0, 'range']) & (range_upper >= comparison_df.loc[0, 'range']):
+            final_stat_dict_screw['prediction'].append('non-defective')
+            final_stat_dict_screw['prediction_result'].append(1)
+        else:
+            final_stat_dict_screw['prediction'].append('defective')
+            final_stat_dict_screw['prediction_result'].append(0)
 
     final_stat_screw_df = pd.DataFrame(final_stat_dict_screw)
     final_stat_screw_df["iqr_within_CI"] = (
@@ -576,19 +591,19 @@ def upload_screw(request):
             upper_bound = []
             input_img = []
             for i in table1:
-                list_of_values.append(i.get('lift_iqr'))
+                list_of_values.append(i.get('prediction_result'))
                 request.session['list_of_values'] = list_of_values
 
             for i in table1:
-                lower_bound.append(i.get('lower_bound_iqr'))
+                lower_bound.append(i.get('lower_bound_range'))
                 request.session['lower_bound'] = lower_bound
 
             for i in table1:
-                upper_bound.append(i.get('upper_bound_iqr'))
+                upper_bound.append(i.get('upper_bound_range'))
                 request.session['upper_bound'] = upper_bound
 
             for i in table1:
-                input_img.append(i.get('input_img_iqr'))
+                input_img.append(i.get('input_img_range'))
                 request.session['input_img'] = input_img
 
             print(lower_bound)
@@ -613,17 +628,11 @@ def upload_screw(request):
             values =np.array(list_of_values)
             labels = ['True', 'False']
 
-            sum_of_true = [x for x in values if x == 1.0]
-            sum_of_false = [x for x in values if x > 1.0]
+            sum_of_true = [x for x in values if x == 1]
+            sum_of_false = [x for x in values if x == 0]
 
-            addition_of_true = 0
-            addition_of_false = 0
-
-            for i in sum_of_true:
-                addition_of_true = addition_of_true + i
-
-            for i in sum_of_false:
-                addition_of_false = addition_of_false + i
+            addition_of_true = len(sum_of_true)
+            addition_of_false = len(sum_of_false)
 
             total = round(addition_of_true + addition_of_false)
             y = np.array([addition_of_true, addition_of_false])
@@ -648,12 +657,12 @@ def upload_screw(request):
                 'list_of_values': list_of_values,
                 'Image': list_of_values,
                 'lower_bound': lower_bound,
-
+                'input_img': input_img,
             })
 
             range1_list = [x for x in list_of_values if x <= 1]
             range2_list = [x for x in list_of_values if x > 1]
-            df.plot(kind='bar', x='list_of_values', y='Image', figsize=(7, 7), color='green')
+            df.plot(kind='line', y='input_img', figsize=(7, 7), color='green')
             # df.plot(kind='bar', x=range2_list, y='Image', figsize=(7, 7), color='red')
             plt.subplots_adjust(bottom=0.2)
             plt.savefig("media/piechart/screw_bar3")

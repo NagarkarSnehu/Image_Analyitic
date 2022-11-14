@@ -334,7 +334,12 @@ def transistor_prediction(transistor_model,
         "upper_bound_iqr": [],
         "input_img_iqr":[],
         "lift_iqr":[],
-        "actual_lbl": []
+        "actual_lbl": [],
+        "lower_bound_range":[],
+        "upper_bound_range": [],
+        "input_img_range":[],
+        "prediction": [],
+        "prediction_result": []
     }
     plots = []
 
@@ -439,7 +444,7 @@ def transistor_prediction(transistor_model,
         range_mean = comparison_df.loc[1:5, "range"].mean()
         range_std = comparison_df.loc[1:5, "range"].std()
         marginal_err_range = Z_FACTOR * range_std / 4
-        range_lower, range_upper = range_mean - marginal_err_range, range_mean + marginal_err_range
+        range_lower, range_upper = 0.915, 0.93
         #print(f"99% CI for RANGE - [{range_lower}, {range_upper}]")
 
         final_stat_dict_transistor["lower_bound_iqr"].append(iqr_lower_bound)
@@ -454,6 +459,16 @@ def transistor_prediction(transistor_model,
             lift=abs(comparison_df.loc[0, 'IQR']-closest)+1
         final_stat_dict_transistor["lift_iqr"].append(lift)
         final_stat_dict_transistor["actual_lbl"].append(lbl)
+        final_stat_dict_transistor["lower_bound_range"].append(0.915)
+        final_stat_dict_transistor["upper_bound_range"].append(0.93)
+        final_stat_dict_transistor["input_img_range"].append(comparison_df.loc[0, 'range'])
+
+        if (range_lower <= comparison_df.loc[0, 'range']) & (range_upper >= comparison_df.loc[0, 'range']):
+            final_stat_dict_transistor['prediction'].append('non-defective')
+            final_stat_dict_transistor['prediction_result'].append(1)
+        else:
+            final_stat_dict_transistor['prediction'].append('defective')
+            final_stat_dict_transistor['prediction_result'].append(0)
 
     final_stat_transistor_df = pd.DataFrame(final_stat_dict_transistor)
     final_stat_transistor_df["iqr_within_CI"] = (
@@ -467,8 +482,8 @@ def transistor_prediction(transistor_model,
 
 
 model_path = f"{os.getcwd()}\\transistor/model/mvtecCAE_b8_e2.hdf5"
-cap_model, info, _ = load_model_HDF5(model_path)
-cap_model.summary()
+tra_model, info, _ = load_model_HDF5(model_path)
+tra_model.summary()
 
 from django.conf import settings
 
@@ -498,7 +513,7 @@ def upload_transistor(request):
             print(f"Imag url is {testimage}")
 
             transistor_imgs = get_img_dict(Path(r"./transistor/data"))
-            transistor_data_dict = create_in_pred_res_dict(cap_model, transistor_imgs)
+            transistor_data_dict = create_in_pred_res_dict(tra_model, transistor_imgs)
             all_merged_transistor, all_merged_transistor_label = create_images_batch_from_dict(transistor_data_dict)
             for idx, k in enumerate(transistor_data_dict.keys()):
                 f, h, r = transistor_data_dict[k]
@@ -529,7 +544,7 @@ def upload_transistor(request):
             print(list_of_files)
             transistor_imgs = get_img_dict(Path(r"./transistor/data"))
             print(transistor_imgs.keys())
-            transistor_data_dict = create_in_pred_res_dict(cap_model, transistor_imgs)
+            transistor_data_dict = create_in_pred_res_dict(tra_model, transistor_imgs)
             all_merged_transistor, all_merged_transistor_label = create_images_batch_from_dict(transistor_data_dict)
             for idx, k in enumerate(transistor_data_dict.keys()):
                 f, h, r = transistor_data_dict[k]
@@ -542,7 +557,7 @@ def upload_transistor(request):
             pass
         else:
             transistor_imgs_input = get_img_dict_mutiple(Path(rf"{'media/transistor'}"))
-            transistor_data_dict_input = create_in_pred_res_dict(cap_model, transistor_imgs_input)
+            transistor_data_dict_input = create_in_pred_res_dict(tra_model, transistor_imgs_input)
             all_merged_transistor_input, all_merged_transistor_label_input = create_images_batch_from_dict(transistor_data_dict_input)
             for idx, k in enumerate(transistor_data_dict_input.keys()):
                 f_input, h_input, r_input = transistor_data_dict_input[k]
@@ -551,7 +566,7 @@ def upload_transistor(request):
                 print(f"resi - {r_input.shape}")
                 print()
 
-            tpl_df, tpl_plots = transistor_prediction(cap_model, all_merged_transistor[0], all_merged_transistor_input[0], all_merged_transistor_label_input,
+            tpl_df, tpl_plots = transistor_prediction(tra_model, all_merged_transistor[0], all_merged_transistor_input[0], all_merged_transistor_label_input,
                                                       all_merged_transistor_label,
                                                       transistor_data_dict, transistor_data_dict_input,
                                                       Z_FACTOR = 1.96 # 95 %CI, use 2.57 for 99% CI
@@ -565,19 +580,19 @@ def upload_transistor(request):
             upper_bound = []
             input_img = []
             for i in table1:
-                list_of_values.append(i.get('lift_iqr'))
+                list_of_values.append(i.get('prediction_result'))
                 request.session['list_of_values'] = list_of_values
 
             for i in table1:
-                lower_bound.append(i.get('lower_bound_iqr'))
+                lower_bound.append(i.get('lower_bound_range'))
                 request.session['lower_bound'] = lower_bound
 
             for i in table1:
-                upper_bound.append(i.get('upper_bound_iqr'))
+                upper_bound.append(i.get('upper_bound_range'))
                 request.session['upper_bound'] = upper_bound
 
             for i in table1:
-                input_img.append(i.get('input_img_iqr'))
+                input_img.append(i.get('input_img_range'))
                 request.session['input_img'] = input_img
 
             print(lower_bound)
@@ -602,17 +617,11 @@ def upload_transistor(request):
             values =np.array(list_of_values)
             labels = ['True', 'False']
 
-            sum_of_true = [x for x in values if x == 1.0]
-            sum_of_false = [x for x in values if x > 1.0]
+            sum_of_true = [x for x in values if x == 1]
+            sum_of_false = [x for x in values if x == 0]
 
-            addition_of_true = 0
-            addition_of_false = 0
-
-            for i in sum_of_true:
-                addition_of_true = addition_of_true + i
-
-            for i in sum_of_false:
-                addition_of_false = addition_of_false + i
+            addition_of_true = len(sum_of_true)
+            addition_of_false = len(sum_of_false)
 
             total = round(addition_of_true + addition_of_false)
             y = np.array([addition_of_true, addition_of_false])
@@ -626,7 +635,7 @@ def upload_transistor(request):
             plt.legend(['Non-Defective', 'Defective'])
             plt.show()
 
-            plt_1.savefig("media/piechart/pie3")
+            plt_1.savefig("media/piechart/transistor_pie3")
 
             import pandas as pd
             # x = round(list_of_values, 5)
@@ -637,15 +646,16 @@ def upload_transistor(request):
                 'list_of_values': list_of_values,
                 'Image': list_of_values,
                 'lower_bound': lower_bound,
+                'input_img': input_img,
 
             })
 
             range1_list = [x for x in list_of_values if x <= 1]
             range2_list = [x for x in list_of_values if x > 1]
-            df.plot(kind='bar', x='list_of_values', y='Image', figsize=(7, 7), color='green')
+            df.plot(kind='line', y='input_img', figsize=(7, 7), color='green')
             # df.plot(kind='bar', x=range2_list, y='Image', figsize=(7, 7), color='red')
             plt.subplots_adjust(bottom=0.2)
-            plt.savefig("media/piechart/bar2")
+            plt.savefig("media/piechart/transistor_bar")
 
             # # importing matplotlib
             # import matplotlib.pyplot
