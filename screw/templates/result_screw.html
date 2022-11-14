@@ -69,18 +69,18 @@ overflow-x: hidden;
                 </center>
             </div>
             <div class="design" style=" margin-left:50px; width:200px; height:auto;">
-                <p class="text-white" style="width:300px; height:50px; background-color: #0070AD; " ><b>Score(lift-IQR)</b></p>
+                <p class="text-white" style="width:300px; height:50px; background-color: #0070AD; " ><b>Score(range)</b></p>
                 {% for i in data %}
-                <p class="text-black" style="margin-top:45px;">{{i.lift_iqr}}</p>
+                <p class="text-black" style="margin-top:45px;">{{i.input_img_range}}</p>
                 {% endfor %}
             </div>
             <div class="design" style=" margin-left:50px; width:200px; height:auto;">
                 <p class="dropdown-content" style="color:white; width:200px; height:50px; background-color: #0070AD; "><b>Prediction</b></p>
                 {% for i in data %}
-                {% if i.iqr_within_CI == False %}
-                <p class="text" style="color:red; margin-top:45px;" name="result"><b>{{i.iqr_within_CI}}</b></p>
-                {% elif i.iqr_within_CI == True %}
-                <p class="text" style="color:green; margin-top:45px;" name="result"><b>{{i.iqr_within_CI}}</b></p>
+                {% if i.prediction_result == False %}
+                <p class="text" style="color:red; margin-top:45px;" name="result"><b>{{i.prediction}}</b></p>
+                {% elif i.prediction_result == True %}
+                <p class="text" style="color:green; margin-top:45px;" name="result"><b>{{i.prediction}}</b></p>
                 {% endif %}
                 {% endfor %}
             </div>

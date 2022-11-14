@@ -37,7 +37,7 @@ overflow-x: hidden;
     <p class="text-white" style="margin-top:20px; margin-left:500px;Font-size:20px;"><b>Image Analytics</b></p>
     <div style="margin-left:150px; width:960px; height:350px; background-color:white;">
         <div style="float:left;">
-            <img src="media/piechart/pie3.png" height="300" width="300">
+            <img src="media/piechart/transistor_pie3.png" height="300" width="300">
             <p style="margin-left:300px; margin-top:-200px; width:200px; color:#7249AE;"><strong>Uploaded Images: {{total}} </strong></p>
             <p style="margin-left:300px; width:200px; color:#7249AE;"><strong>Non-Defective: {{good}} </strong></p>
             <p style="margin-left:300px; width:200px; color:#7249AE;"><strong>Defective: {{bad}} </strong></p>
@@ -46,7 +46,7 @@ overflow-x: hidden;
         <!--            <img src="media/fig1/{{i}}" style="margin-left:50px;" height="200" width="300">-->
         <!--        {% endfor %}-->
         <div style="float:right;">
-            <img src="media/piechart/bar2.png" height="300" width=400">
+            <img src="media/piechart/transistor_bar.png" height="300" width=400">
         </div>
     </div>
     <form method="POST" class="form-horizontal" action="result_transistor">
@@ -69,18 +69,18 @@ overflow-x: hidden;
                 </center>
             </div>
             <div class="design" style=" margin-left:50px; width:200px; height:auto;">
-                <p class="text-white" style="width:300px; height:50px; background-color: #0070AD; " ><b>Score(lift-IQR)</b></p>
+                <p class="text-white" style="width:300px; height:50px; background-color: #0070AD; " ><b>Score(range)</b></p>
                 {% for i in data %}
-                <p class="text-black" style="margin-top:45px;">{{i.lift_iqr}}</p>
+                <p class="text-black" style="margin-top:45px;">{{i.input_img_range}}</p>
                 {% endfor %}
             </div>
             <div class="design" style=" margin-left:50px; width:200px; height:auto;">
                 <p class="dropdown-content" style="color:white; width:200px; height:50px; background-color: #0070AD; "><b>Prediction</b></p>
                 {% for i in data %}
-                {% if i.iqr_within_CI == False %}
-                <p class="text" style="color:red; margin-top:45px;" name="result"><b>{{i.iqr_within_CI}}</b></p>
-                {% elif i.iqr_within_CI == True %}
-                <p class="text" style="color:green; margin-top:45px;" name="result"><b>{{i.iqr_within_CI}}</b></p>
+                {% if i.prediction_result == False %}
+                <p class="text" style="color:red; margin-top:45px;" name="result"><b>{{i.prediction}}</b></p>
+                {% elif i.prediction_result == True %}
+                <p class="text" style="color:green; margin-top:45px;" name="result"><b>{{i.prediction}}</b></p>
                 {% endif %}
                 {% endfor %}
             </div>
