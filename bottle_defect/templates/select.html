@@ -1,0 +1,132 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+
+
+<link href="static/assets/css/style.css" rel="stylesheet">
+<link href="static/assets/css/index_user_figma.css" rel="stylesheet">
+<link href="static/assets/css/style-figma.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="background-image: linear-gradient(3.47deg, #00649B 13.28%, #66A9CD 93.28%);
+height: 600px;
+overflow-y: hidden;
+">
+
+
+<style>
+    .form-select {
+        width: 500px;
+        height: 35px;
+        font-size:12px;
+      }
+</style>
+
+<script>
+function colorChange() {
+       if (document.getElementById("one1").value == "") {
+        var x = document.getElementById("button1").style.background = "#CBCBCB";
+       }
+       else {
+           document.getElementById("button1").style.background = "#418B46";
+           document.getElementById("button1").style.color = "white";
+           document.getElementById("button1").style.border = "#418B46";
+       }
+}
+</script>
+<main id="main">
+    <div style="padding-top:20px;">
+        <div class="float-container text-white" style="height: 800px; margin-left: 420px">
+<!--            <form method="POST" action="select">-->
+<!--                {% csrf_token %}-->
+                <div style="padding-top:10px;">
+                    <div style=" width:35rem;">
+                        <h5 class="index-generic-left-margin" style="font-size:20px; color:white; margin-left:-250px;"><strong>Objective</strong></h5>
+                        <h5 class ="index-generic" style="font-size:12px; color:white; margin-left:-250px;">Developing an AI based defect detection and classification for manufacturing sector
+                            :AI based Assistance  would help the QA team to reduce time on manual inspection both in-line and out-line process .</h5>
+                        <b class="index-generic" style="font-size:12px; color:white; margin-left:-250px;"> Target Audience:</b>
+                        <p class="index-generic"  style="font-size:12px; color:white; margin-left:-250px;">Identified defects and finding out location of defects faster with better perception, Automating labeling for conforming and nonconforming
+                            product by pulling information from defect detection database will prevent nonconforming product entering  the supply chain.</p>
+                        <b class="index-generic" style="font-size:12px; color:white; margin-left:-250px;">Instructions:</b>
+                        <div class="index-generic" style="font-size:12px; color:white; margin-left:-250px;">
+                            <ol>
+                                <li>
+                                    User has to select single file selected or multi file selected.
+                                </li>
+                                <li>
+                                    If user select single selected file then upload file or else User select multi-file then goes to multifile select
+                                </li>
+                                <li>
+                                    After that user will get result that product is good or bad
+                                </li>
+                                <li>
+                                    And then, Analyis the result.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+<!--                <label class="select_html1" style="font-family: 'Ubuntu'; font-size: 18px;margin-left:-100px; "><strong>Select Models to Proceed</strong></label><br>-->
+                <label style="color: #797979; font-family: 'Ubuntu'; font-size: 14px; margin-top:10px; margin-left: -250px; color:white;"><b>Select a model</b></label><br>
+                <div class="card" style="width: 15rem; height:170px; margin-left:-250px;">
+                    <div class="card-body" style="background-image: url('static/assets/img/bottle1.jpg')">
+                        <h5 class="card-title" style=" font-size:15px; text-shadow:1px 1px black;"><b>Bottle</b></h5>
+                        <h6 class="card-subtitle mb-2" style="color:yellow; font-size:12px; text-shadow:1px 1px black;">Defect Detection</h6>
+                        <p class="card-text" style=" font-size:12px; text-shadow:1px 1px black;">Upload Images of Bottles to perform image analysis</p>
+                        <a href="{% url 'introduction' %}" class="card-link" style="font-size:12px;"><b>Real Time</b></a>
+                        <a href="{% url 'upload_file' %}" class="card-link" style="font-size:12px;"><b>Batch Upload</b></a>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem; height:170px; margin-left:10px; margin-top:-170px;">
+                    <div class="card-body" style="background-image: url('static/assets/img/capsule1.jpg')";>
+                        <h5 class="card-title" style=" font-size:15px; text-shadow:1px 1px black;"><b>Capsule</b></h5>
+                        <h6 class="card-subtitle mb-2" style="color:yellow; font-size:12px; text-shadow:1px 1px black;">Defect Detection</h6>
+                        <p class="card-text" style=" font-size:12px; text-shadow:1px 1px black;">Upload Images of capsule to perform image analysis</p>
+                        <a href="{% url 'introduction' %}" class="card-link" style="font-size:12px;"><b>Real Time</b></a>
+                        <a href="{% url 'upload_capsule' %}" class="card-link" style="font-size:12px;"><b>Batch Upload</b></a>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem; height:170px; margin-left:270px; margin-top:-170px;">
+                    <div class="card-body" style="background-image: url('static/assets/img/transistor.jpg')">
+                        <h5 class="card-title" style=" font-size:15px; text-shadow:1px 1px black;"><b>Transistor</b></h5>
+                        <h6 class="card-subtitle mb-2" style="color:yellow; font-size:12px; text-shadow:1px 1px black;">Defect Detection</h6>
+                        <p class="card-text" style=" font-size:12px; text-shadow:1px 1px black;">Upload Images of transistor to perform image analysis</p>
+                        <a href="{% url 'introduction' %}" class="card-link" style="font-size:12px;"><b>Real Time</b></a>
+                        <a href="{% url 'upload_transistor' %}" class="card-link" style="font-size:12px;"><b>Batch Upload</b></a>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem; height:170px; margin-left:530px; margin-top:-170px;">
+                    <div class="card-body" style="background-image: url('static/assets/img/screw1.jpg')">
+                        <h5 class="card-title" style=" font-size:15px; text-shadow:1px 1px black;"><b>Screw</b></h5>
+                        <h6 class="card-subtitle mb-2" style="color:yellow; font-size:12px; text-shadow:1px 1px black;">Defect Detection</h6>
+                        <p class="card-text" style=" font-size:12px; text-shadow:1px 1px black;">Upload Images of screw to perform image analysis</p>
+                        <a href="{% url 'introduction' %}" class="card-link" style="font-size:12px;"><b>Real Time</b></a>
+                        <a href="{% url 'upload_screw' %}" class="card-link" style="font-size:12px;"><b>Batch Upload</b></a>
+                    </div>
+                </div>
+<!--                <div class="card" style="width: 12rem;">-->
+<!--                    <img class="card-img-top" src="static/assets/img/bottle.jpg" alt="Card image cap">-->
+<!--                    <div class="card-body">-->
+<!--                        <a href="{% url 'introduction' %}" class="btn btn-primary">Bottle</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="cards" id="one1" onclick="colorChange()">-->
+<!--                    <input type="radio" style="margin-top:10px; font-size: 12px; margin-left: -250px;" id="one" name="bot" value="1" /> Bottle <br>-->
+<!--                    <input type="radio" style="margin-top:10px; font-size: 12px; margin-left: -250px;" id="two" name="cap" value="2" /> Capsule <br>-->
+<!--                    <input type="radio" style="margin-top:10px; font-size: 12px; margin-left: -250px;" id="three" name="tra" value="3" /> Transistor <br>-->
+<!--                    <input type="radio" style="margin-top:10px; font-size: 12px; margin-left: -250px;" id="four" name="scr" value="4" /> Screws <br>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    &lt;!&ndash;                    <button type="reset" class=" btn-reset btn-text" style="color:white; margin-bottom: 50px; margin-top:20px; margin-left: 450px;" onclick="Change()"  id="button">RESET</button>&ndash;&gt;-->
+<!--                    <button type="submit" class=" btn-proceed btn-text" style=" margin-bottom: 50px; margin-top:-30px; margin-left: 450px;" onclick="Change()"  id="button1"><b>PROCEED</b></button>-->
+<!--                </div>-->
+<!--            </form>-->
+        </div>
+    </div>
+</main>
+<!-- End #main -->
+{% endblock %}
+</body>
+
+</html>

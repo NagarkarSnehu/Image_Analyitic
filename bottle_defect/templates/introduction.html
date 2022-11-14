@@ -1,0 +1,101 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+
+
+<link href="static/assets/css/style.css" rel="stylesheet">
+<link href="static/assets/css/index_user_figma.css" rel="stylesheet">
+<link href="static/assets/css/style-figma.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="background-color: #000000;
+overflow-y: hidden;">
+
+
+<script>
+    function colorChange() {
+           if (document.getElementById("one1").value == "") {
+            var x = document.getElementById("button1").style.background = "#CBCBCB";
+           }
+           else {
+               document.getElementById("button1").style.background = "#418B46";
+               document.getElementById("button1").style.color = "white";
+               document.getElementById("button1").style.border = "#418B46";
+           }
+    }
+</script>
+<main id="main">
+    <div style="padding-top:50px;">
+        <div class="float-container text-white" style="height: 800px; margin-left: 420px;">
+            <button type="button" onclick="history.back()" style="display: none;" id="back-btn" ></button>
+            <a href="#" style="color:white; margin-left:-290px; margin-top:60px;" onclick="document.getElementById('back-btn').click()"  alt="Back"><b>BACK</b></a>
+            <form method="POST" action="introduction">
+            {% csrf_token %}
+                <div style="padding-top:10px; ">
+                    <div style=" width:35rem;">
+                        <h5 class="index-generic-left-margin" style="font-size:20px; color:white; margin-left:-250px;"><strong>Objective</strong></h5>
+                        <h5 class ="index-generic" style="font-size:12px; color:white; margin-left:-250px;">Developing an AI based defect detection and classification for manufacturing sector
+                            :AI based Assistance  would help the QA team to reduce time on manual inspection both in-line and out-line process .</h5>
+                        <b class="index-generic" style="font-size:12px; color:white; margin-left:-250px;">Instructions:</b>
+                        <div class="index-generic" style="font-size:12px; color:white; margin-left:-250px;">
+                            <ol>
+                                <li>
+                                    User has to select single file selected or multi file selected.
+                                </li>
+                                <li>
+                                    If user select single selected file then upload file or else User select multi-file then goes to multifile select
+                                </li>
+                                <li>
+                                   After that user will get result that product is good or bad
+                                </li>
+                                <li>
+                                    And then, Analyis the result.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 13px; font-family: 'Ubuntu'; font-weight: bold; margin-left:-250px;" onclick="colorChange()">
+                    Select Type *</p>
+                <div class="card" style="width: 15rem; height:170px; margin-left:-250px;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:black; font-size:15px;"><b>Real Time</b></h5>
+                        <h6 class="card-subtitle mb-2" style="color:black; font-size:12px;">Defect Detection</h6>
+                        <p class="card-text" style="color:black; font-size:12px;">Upload Images of Bottles to perform image analysis</p>
+                        <a href="{% url 'upload_file' %}" class="card-link" style="font-size:12px;"><b>Proceed</b></a>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem; height:170px; margin-left:10px; margin-top:-170px;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:black; font-size:15px;"><b>Batch Upload</b></h5>
+                        <h6 class="card-subtitle mb-2" style="color:black; font-size:12px;">Defect Detection</h6>
+                        <p class="card-text" style="color:black; font-size:12px;">Upload Images of capsule to perform image analysis</p>
+                        <a href="{% url 'upload_file' %}" class="card-link" style="font-size:12px;"><b>Proceed</b></a>
+                    </div>
+                </div>
+<!--                <div class="question-box" style="margin-left:-250px;" >-->
+<!--                    <input type="radio" class="question-radio" onclick="Change()" value="1" style="margin-left: 25px; margin-top: -25px;" name="assessment_portfolio" required="required">-->
+<!--                    <label class="label-font" style="color:white; font-size:12px; font-family: 'Ubuntu';">-->
+<!--                        Real Time Upload-->
+<!--                    </label><br>-->
+<!--                </div>-->
+<!--                <div class="question-box"  style="margin-left:-250px;">-->
+<!--                    <input type="radio" class="question-radio" onclick="Change()" value="2" style="margin-left: 25px; margin-top: -25px;" name="assessment_portfolio" required="required">-->
+<!--                    <label class="label-font" style="color:white; font-size:12px; font-family: 'Ubuntu';">-->
+<!--                        Batch Upload-->
+<!--                    </label><br>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--&lt;!&ndash;                    <button type="reset" class=" btn-reset btn-text" style="color:white; margin-bottom: 50px; margin-top:20px; margin-left: 450px;" onclick="Change()"  id="button">RESET</button>&ndash;&gt;-->
+<!--                    <button type="submit" class=" btn-proceed btn-text" style=" margin-bottom: 50px; margin-top:20px; margin-left: 450px;" onclick="Change()"  id="button1"><b>PROCEED</b></button>-->
+<!--                </div>-->
+            </form>
+        </div>
+        </div>
+</main>
+<!-- End #main -->
+{% endblock %}
+</body>
+
+</html>

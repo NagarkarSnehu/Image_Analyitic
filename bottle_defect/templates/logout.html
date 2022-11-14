@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container text-white rounded-top" style="background-color: rgba(245, 245, 248, 0.7);">
+    <div class ="form-group;" style =" width: 500px; padding-bottom: 210px; margin-top: 100px">
+        <br>
+        <h1 class="text-black" style="border-color:white">You have been logged out.</h1>
+        <a href="{% url 'login' %}"><button type="button" class="btn btn-primary rounded-pill"><i class="fa fa-lock fa-lg "></i>Login Again</button></a>
+    </div>
+</div>
+
+{% endblock %}

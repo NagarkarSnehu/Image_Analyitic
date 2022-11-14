@@ -1,0 +1,20 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: win-64
+django=3.2.15=pypi_0
+djangorestframework=3.13.1=pypi_0
+joblib=1.1.0=pypi_0
+keras=2.4.3=pypi_0
+ktrain=0.31.7=pypi_0
+matplotlib=3.5.3=pypi_0
+numpy=1.21.6=pypi_0
+opencv-python=4.6.0.66=pypi_0
+pandas=1.3.5=pypi_0
+pillow=9.2.0=pypi_0
+pip=22.2.2=pypi_0
+python=3.7.13=h6244533_0
+scikit-image=0.18.3=pypi_0
+scikit-learn=1.0.2=pypi_0
+tensorflow=2.2.0=pypi_0
+torch=1.12.1=pypi_0
+torchvision=0.13.1=pypi_0

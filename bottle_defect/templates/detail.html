@@ -1,0 +1,404 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body style="background-image: linear-gradient(to bottom, #003399 0%, #ff99cc 100%);
+height: auto;
+overflow-x: hidden;
+">
+<div style="padding-top:50px;">
+    <button type="button" onclick="history.back()" style="display: none;" id="back-btn" ></button>
+    <a href="#" style="color:white; margin-left:150px; margin-top:60px;" onclick="document.getElementById('back-btn').click()"  alt="Back"><b>BACK</b></a>
+<!--    <p class="text-white" style="margin-top:50px; margin-left:600px;Font-size:20px;"><b>Details</b></p>-->
+    <div style="background-color:white; margin-left:200px; margin-top:30px; width:900px; height:400px; ">
+<!--        <p class="text-black" style="margin-left:400px; Font-size:20px;"><b>Graph</b></p>-->
+        {% if number == '000.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_000.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.0}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.0}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.0}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.0}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_000.png" height="300" width="420">
+            </div>
+
+        {% elif number == '001.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_001.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.1}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.1}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.1}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.1}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_001.png" height="300" width="420">
+            </div>
+
+        {% elif number == '002.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_002.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.2}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.2}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.2}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.2}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_002.png" height="300" width="420">
+            </div>
+
+        {% elif number == '003.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_003.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.3}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.3}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.3}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.3}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_003.png" height="300" width="420">
+            </div>
+
+        {% elif number == '004.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_004.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.4}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.4}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.4}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.4}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_004.png" height="300" width="420">
+            </div>
+
+        {% elif number == '005.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_005.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.5}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.5}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.5}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.5}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_005.png" height="300" width="420">
+            </div>
+
+        {% elif number == '006.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_006.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.6}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.6}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.6}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.6}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_006.png" height="300" width="420">
+            </div>
+
+<!--            <div style="margin-top:-100px; margin-left:80px;">-->
+<!--                <p style="color:Black;"><b>lower_bound_iqr: {{lower_bound.6}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.6}}</b></p>-->
+<!--                <p style="color:Black;"><b>Input Img Iqr: {{input_img.6}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lift Iqr: {{list_of_values.6}}</b></p>-->
+<!--            </div>-->
+        {% elif number == '007.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_007.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.7}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.7}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.7}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.7}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_007.png" height="300" width="420">
+            </div>
+
+        {% elif number == '008.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_008.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.8}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.8}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.8}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.8}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_008.png" height="300" width="420">
+            </div>
+
+        {% elif number == '009.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_009.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.9}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.9}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.9}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.9}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_009.png" height="300" width="420">
+            </div>
+
+        {% elif number == '010.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_010.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.10}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.10}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.10}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.10}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_010.png" height="300" width="420">
+            </div>
+
+        {% elif number == '011.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_011.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.11}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.11}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.11}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.11}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_011.png" height="300" width="420">
+            </div>
+
+        {% elif number == '012.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_012.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.12}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.12}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.12}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.12}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_012.png" height="300" width="420">
+            </div>
+
+        {% elif number == '013.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_013.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.13}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.13}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.13}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.13}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_013.png" height="300" width="420">
+            </div>
+
+        {% elif number == '014.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_014.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.14}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.14}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.14}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.14}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_014.png" height="300" width="420">
+            </div>
+
+        {% elif number == '015.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_015.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.15}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.15}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.15}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.15}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_015.png" height="300" width="420">
+            </div>
+
+        {% elif number == '016.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_016.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.16}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.16}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.16}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.16}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_016.png" height="300" width="420">
+            </div>
+
+        {% elif number == '017.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_017.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.17}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.17}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.17}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.17}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_017.png" height="300" width="420">
+            </div>
+
+        {% elif number == '018.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_018.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.18}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.18}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.18}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.18}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_018.png" height="300" width="420">
+            </div>
+
+        {% elif number == '019.png' %}
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <img src="media/fig1/my_resmap_019.png" height="290" width="380">
+                <div style="margin-top:-50px; margin-left:45px;">
+                    <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.19}}</b></p>
+                    <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.19}}</b></p>
+                    <p style="color:Black;"><b>Input Img Iqr: {{input_img.19}}</b></p>
+                    <p style="color:Black;"><b>Lift Iqr: {{list_of_values.19}}</b></p>
+                </div>
+            </div>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <img src="media/fig2/my_graph_019.png" height="300" width="420">
+            </div>
+
+        {% elif number == '020.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <img src="media/fig1/my_resmap_020.png" height="290" width="380">
+            <div style="margin-top:-50px; margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.20}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.20}}</b></p>
+                <p style="color:Black;"><b>Input Img Iqr: {{input_img.20}}</b></p>
+                <p style="color:Black;"><b>Lift Iqr: {{list_of_values.20}}</b></p>
+            </div>
+        </div>
+        <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+            <img src="media/fig2/my_graph_020.png" height="300" width="420">
+        </div>
+
+        {% elif number == '021.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <img src="media/fig1/my_resmap_021.png" height="290" width="380">
+            <div style="margin-top:-50px; margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound Iqr: {{lower_bound.21}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.21}}</b></p>
+                <p style="color:Black;"><b>Input Img Iqr: {{input_img.21}}</b></p>
+                <p style="color:Black;"><b>Lift Iqr: {{list_of_values.21}}</b></p>
+            </div>
+        </div>
+        <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+            <img src="media/fig2/my_graph_021.png" height="300" width="420">
+        </div>
+
+        {% endif %}
+    </div>
+<!--    <img src="media/fig1/my_resmap_001.png" style="margin-left:10px;" height="200" width="300">-->
+<!--    <img src="media/fig1/my_resmap_002.png" style="margin-left:10px;" height="200" width="300">-->
+<!--    <img src="media/fig1/my_resmap_003.png" style="margin-top:20px; margin-left:-60px;" height="200" width="300">-->
+<!--    <form method="POST" class="form-horizontal" action="result">-->
+<!--        {% csrf_token %}-->
+<!--        <div style="background-color:#8A8989; margin-top: 30px; margin-left:80px;">-->
+<!--            <div style="margin-left:250px; width:200px;">-->
+<!--                <p class="text-white"><b>Score of Input (Lift: IQR)</b></p>-->
+<!--                &lt;!&ndash;            {% for i in lift_iqr.values %}&ndash;&gt;-->
+<!--                &lt;!&ndash;                <p class="text-white" style="margin-top:20px; margin-left:120px;">{{i}}</p><p class="text-white" style="margin-left:560px; margin-top:-40px;">Bad</p>&ndash;&gt;-->
+<!--                &lt;!&ndash;            {% endfor %}&ndash;&gt;-->
+<!--                {% for i in data %}-->
+<!--                    <p class="text-white">{{i.lift_iqr}}</p>-->
+<!--                {% endfor %}-->
+<!--                <div style="margin-left:-120px; margin-top:-840px;">-->
+<!--                    <p class="text-white" ><b>Image</b></p>-->
+<!--                    {% for i in data %}-->
+<!--                        <p class="text-white">{{i.actual_lbl}}</p>-->
+<!--                    {% endfor %}-->
+<!--                </div>-->
+<!--                <div style="margin-left:320px; margin-top:-840px;">-->
+<!--                    <p class="text-white" ><b>lower_bound_iqr</b></p>-->
+<!--                    {% for i in data %}-->
+<!--                        <p class="text-white">{{i.lower_bound_iqr}}</p>-->
+<!--                    {% endfor %}-->
+<!--                </div>-->
+<!--                <div style="margin-left:520px; margin-top:-840px;">-->
+<!--                    <p class="text-white" ><b>upper_bound_iqr</b></p>-->
+<!--                    {% for i in data %}-->
+<!--                    <p class="text-white">{{i.upper_bound_iqr}}</p>-->
+<!--                    {% endfor %}-->
+<!--                </div>-->
+<!--                <div style="margin-left:700px; width:200px;margin-top:-840px;">-->
+<!--                    <p class="text-white"><b>Predicted Result</b></p>-->
+<!--                    {% for i in data %}-->
+<!--                    {% if i.iqr_within_CI == False %}-->
+<!--                    <p class="text" style="color:red;" name="result"><b>{{i.iqr_within_CI}}</b></p>-->
+<!--                    {% elif i.iqr_within_CI == True %}-->
+<!--                        <p class="text" style="color:green;" name="result"><b>{{i.iqr_within_CI}}</b></p>-->
+<!--                    {% endif %}-->
+<!--                    {% endfor %}-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+</div>
+<!--    <table class="text-white" style="margin-left:30px;">-->
+<!--        <tr>-->
+<!--            <th>Score of input(Lift: IQR)</th>-->
+<!--            <th>Result</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            {% for i in data %}-->
+<!--                <td>{{i.lift_iqr}}</td>-->
+<!--                <td>{{i.iqr_within_CI}}</td>-->
+<!--            {% endfor %}-->
+<!--        </tr>-->
+<!--&lt;!&ndash;        <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;            {% for i in data %}&ndash;&gt;-->
+<!--&lt;!&ndash;                <td>{{i.iqr_within_CI}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;            {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--    </table>-->
+
+{% endblock %}
+</body>
+
+</html>

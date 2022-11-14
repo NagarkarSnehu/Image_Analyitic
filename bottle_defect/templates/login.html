@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--background-image: url(static/assets/img/jason.png')-->
+<body style="background-image: url('static/assets/img/temp4.jpg');
+background-repeat: no-repeat;
+position: absolute;
+width: 100%;
+height:100%;
+overflow-x: hidden;">
+<style>
+
+</style>
+
+<script>
+    function colorChange() {
+      if (document.getElementById("p1").value == "") {
+         var x = document.getElementById("button").style.background = "green";
+      }
+      else {
+         document.getElementById("button").style.background = "green";
+      }
+   }
+</script>
+
+<div class="text-black  text-center">
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container col-sm-4 text-white rounded-top" style=" background-color: rgba(245, 245, 248, 1.7); height: 430px; width:344px; padding:10px; margin-top:80px; margin-left:800px;">
+    <h3 style="font-family:ubuntu; margin-left:60px; color: black; font-size:24px; margin-top: 30px;"><strong >Defect Detection</strong></h3>
+    <p style="font-family:ubuntu; margin-left:72px; color: #979797; font-size:14px;">Please login to your account</p>
+    <!--    <button type="submit" style="margin-left:1px; margin-top:5px; height:50px; width:198px; border-radius: 8px; border-color: #E6E6EA;"><a href="{% url 'login' %}" style="color:black">Self Assessment</a></button><button type="submit"  style="margin-left:1px; margin-top:1px; height:50px; width:195px; border-radius: 8px; border-color: #E6E6EA;"><a href="{% url 'login' %}" style="color:black">Client Assessment</a></button>-->
+    <div class ="form-group" style =" width: 350px; margin-left:10px; padding-bottom: 20px; margin-top: 2px">
+        <div class="col-md-8 text-black;">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-dismissible fade show" role="alert" style="height:30px; justify-content:center">
+                <p1 style="padding:-10px; font-size:10px; color:red;">{{ message }}.</p1>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="height:10px; width:10px;"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            <!--            {% if msg %}-->
+            <!--            <div role="alert">-->
+            <!--                <p1 style="font-size:10px; color:red;">Invalid Username or Password</p1>-->
+            <!--                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>-->
+            <!--            </div>-->
+            <!--            {% endif %}-->
+
+            <form method="POST" action="">
+                {% csrf_token %}
+                <center>
+                    <fieldset class="form-group">
+                        <br>
+                        <p class="login-heading1">Username</p>
+                        <div class="form-group">
+                            <!--                                <label class="text-black" for="exampleInputEmail1"></label>-->
+                            <input type="text" class="form-control" style="width:296px; font-size:14px; line-height:16.09px; color:#606060; inner-border-radius:1px; margin-top:-10px;" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <p class="login-heading1" style="margin-top:10px;" for="exampleInputPassword1">Password</p>
+                            <input type="password" class="form-control" id="p1" onchange="colorChange()" style="width:296px; height:31px; margin-left:-2px; font-size:14px; line-height:16.09px; box-sizing: border-box; color:#606060; inner-border-radius:4px; margin-top:-10px;" name="password" required>
+                        </div>
+
+                        <div style="width: 103px; height: 14px; margin-left: 198px; margin-top: 5px;">
+                            <!--                    <button type="submit" class="login-submit">Login</button>-->
+                            <a href="#"><div style="font-size:10px; font-weight: 300px; font-family: 'Ubuntu';">FORGOT PASSWORD?</div></a>
+                        </div>
+                        <input type="checkbox" value="lsRememberMe" id="rememberMe" style="margin-left: -120px; margin-top:20px;"><label for="rememberMe" style="margin-left:5px; margin-top:10px; width: 85px;height: 14px; font-family: 'Ubuntu'; font-style: normal; font-weight: 300; font-size: 12px; line-height: 14px; letter-spacing: 0.5px; color: #000000;">Remember me</label>
+                        <input type="submit" value="Login" onclick="lsRememberMe()" hidden>
+                        <button type="submit" class="button_login" id="button"><a class="sign" style="color=White">SIGN IN</a></button>
+                    </fieldset>
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

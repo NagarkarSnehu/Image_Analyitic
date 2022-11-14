@@ -1,0 +1,1268 @@
+/*--------------------self index page--------------------------*/
+
+.back{
+    color:#418B46;
+}
+
+.firm-details{
+    /* Investment Firm Details */
+
+
+    position: absolute;
+    width: 275px;
+    height: 28px;
+    margin-left: 80px;
+    margin-top: 20px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+
+    color: #121212;
+}
+
+.col-title{
+    /*
+    position: absolute;
+    left: 0%;
+    right: 51.22%;
+    top: 0%;
+    bottom: 75.38%;
+    */
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #525252;
+}
+
+.p-text{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    color: #424242;
+}
+
+.objective-text{
+    position: absolute;
+    width: 1032px;
+    height: 54px;
+    left: 204px;
+    top: 636px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #424242;
+
+}
+
+.btn-reset{
+     /* Auto layout */
+    height: 44px;
+    width: 132px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    background: white;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.btn-text{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+
+    color: #868686;
+}
+
+.btn-proceed{
+    height: 44px;
+    width: 132px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #CBCBCB;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+}
+
+.box{
+    box-sizing: border-box;
+    height: 44px;
+    width: 325px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+
+    border: 1px solid #A0A0A0;
+    border-radius: 4px;
+/*
+    height: 50px;
+    width: 290px;
+    left: 0px;
+    top: 0px;
+
+   box-sizing: border-box;
+
+    border: 1px solid #606060;
+    border-radius: 4px;
+    */
+}
+
+.box-content{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #797979;
+
+}
+
+.box-title{
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #525252;
+
+
+}
+
+
+.required{
+    content:"*";
+    color: #EB3C3C;
+}
+
+
+.button_ass{
+    /* Auto layout */
+    height: 44px;
+    width: 132px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: gray;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.index-generic-left-margin{
+    margin-left:80px;
+}
+
+.objective{
+    width: 1032px;
+    height: 54px;
+    left: 204px;
+    top: 636px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+}
+
+.target{
+    width: 1032px;
+    height: 72px;
+    left: 204px;
+    top: 714px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+
+}
+
+.instruction{
+    width: 1032px;
+    height: 126px;
+    left: 204px;
+    margin-top: 5px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+}
+
+.label{
+    color: #424242;
+}
+
+.main-container{
+    width: 1032px;
+    left: 204px;
+    margin-top: 5px;
+
+}
+
+
+/*--------------------self assessment 2(Requirements- General )--------------------------*/
+.main-heading{
+    /* The Part - A set of questions are related to the Investment Manager */
+    width: 738px;
+    position: absolute;
+    height: 25px;
+    left: 32.5%;
+    right: 16.25%;
+    top: 126px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+
+}
+
+
+.sub-heading{
+    /* Part A(I) : If the investment manager chooses to apply the Global ESG Disclosure Standards
+     for Investment Products to a specific investment product, */
+    position: absolute;
+    height: 42px;
+    left: 32.5%;
+    right: 16.25%;
+    top: 170px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+}
+
+/*---for first div of question --*/
+.question-box-1{
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 708px;
+    height: 233px;
+    left: 428px;
+    top: 230px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+
+.que_1{
+    /* 1. Does it provide details like name of the investment product and name of the investment manager? */
+    width: 680px;
+    height: 36px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #121212;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.option_1{
+    /* Choose your answer* */
+    width: 143px;
+    height: 16px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height */
+    letter-spacing: 0.25px;
+
+    color: #121212;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.star{
+ color: #EB3C3C;
+}
+
+.yes{
+    /* Yes */
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-size: 14px;
+    color: #121212;
+}
+
+.comment{
+    /* Comments */
+    position: absolute;
+    left: 0%;
+    right: 77.43%;
+    top: 0%;
+    bottom: 87.3%;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.25px;
+
+    color: #525252;
+}
+
+/*----- for comment and exception box --*/
+comment-box{
+    /* Rectangle 39 */
+    box-sizing: border-box;
+    height: 80px;
+    width: 328px
+    left: 0px;
+    right: 0px;
+    top: 0px;
+
+    border: 1px solid #A0A0A0;
+    border-radius: 4px;
+}
+
+/* --for placeholder text-- */
+.place-holder{
+    /* Comments if any */
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-size: 12px;
+    color: #BDBDBD;
+}
+
+/*--------------------self index page--------------------------*/
+
+.back{
+    color:#418B46;
+}
+
+.firm-details{
+    /* Investment Firm Details */
+
+
+    position: absolute;
+    width: 275px;
+    height: 28px;
+    margin-left: 80px;
+    margin-top: 20px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+
+    color: #121212;
+}
+
+.col-title{
+    /*
+    position: absolute;
+    left: 0%;
+    right: 51.22%;
+    top: 0%;
+    bottom: 75.38%;
+    */
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #525252;
+}
+
+.p-text{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    color: #424242;
+}
+
+.objective-text{
+    position: absolute;
+    width: 1032px;
+    height: 54px;
+    left: 204px;
+    top: 636px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #424242;
+
+}
+
+.btn-reset{
+     /* Auto layout */
+    height: 44px;
+    width: 132px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    background: white;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.btn-text{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+
+    color: #868686;
+}
+
+.btn-proceed{
+    height: 44px;
+    width: 132px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #CBCBCB;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+}
+
+.box{
+    box-sizing: border-box;
+    height: 44px;
+    width: 325px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+
+    border: 1px solid #A0A0A0;
+    border-radius: 4px;
+/*
+    height: 50px;
+    width: 290px;
+    left: 0px;
+    top: 0px;
+
+   box-sizing: border-box;
+
+    border: 1px solid #606060;
+    border-radius: 4px;
+    */
+}
+
+.box-content{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #797979;
+
+}
+
+.box-title{
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #525252;
+
+
+}
+
+
+.required{
+    content:"*";
+    color: #EB3C3C;
+}
+
+
+.button_ass{
+    /* Auto layout */
+    height: 44px;
+    width: 132px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: gray;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.index-generic-left-margin{
+    margin-left:80px;
+}
+
+.objective{
+    width: 1032px;
+    height: 54px;
+    left: 204px;
+    top: 636px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+}
+
+.target{
+    width: 1032px;
+    height: 72px;
+    left: 204px;
+    top: 714px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+
+}
+
+.instruction{
+    width: 1032px;
+    height: 126px;
+    left: 204px;
+    margin-top: 5px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+}
+
+.label{
+    color: #424242;
+}
+
+.main-container{
+    width: 1032px;
+    left: 204px;
+    margin-top: 5px;
+
+}
+
+
+/*--------------------self assessment 2(Requirements- General )--------------------------*/
+.main-heading{
+    /* The Part - A set of questions are related to the Investment Manager */
+    width: 738px;
+    position: absolute;
+    height: 25px;
+    left: 32.5%;
+    right: 16.25%;
+    top: 126px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+
+}
+
+
+.sub-heading{
+    /* Part A(I) : If the investment manager chooses to apply the Global ESG Disclosure Standards
+     for Investment Products to a specific investment product, */
+    position: absolute;
+    width: 700px;
+    height: 42px;
+    left: 32.5%;
+    right: 16.25%;
+    top: 170px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+}
+
+/*---for first div of question --*/
+.question-box-1{
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 708px;
+    height: 233px;
+    left: 428px;
+    top: 230px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+
+.que_1{
+    /* 1. Does it provide details like name of the investment product and name of the investment manager? */
+    width: 680px;
+    height: 36px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #121212;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.option_1{
+    /* Choose your answer* */
+    width: 143px;
+    height: 16px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height */
+    letter-spacing: 0.25px;
+
+    color: #121212;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.star{
+ color: #EB3C3C;
+}
+
+.yes{
+    /* Yes */
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-size: 14px;
+    color: #121212;
+}
+
+.comment{
+    /* Comments */
+    position: absolute;
+    left: 0%;
+    right: 77.43%;
+    top: 0%;
+    bottom: 87.3%;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.25px;
+
+    color: #525252;
+}
+
+/*----- for comment and exception box --*/
+comment-box{
+    /* Rectangle 39 */
+    box-sizing: border-box;
+    height: 80px;
+    width: 328px
+    left: 0px;
+    right: 0px;
+    top: 0px;
+
+    border: 1px solid #A0A0A0;
+    border-radius: 4px;
+}
+
+/* --for placeholder text-- */
+.place-holder{
+    /* Comments if any */
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-size: 12px;
+    color: #BDBDBD;
+}
+
+.choose_2{
+   /* Score* */
+   width: 45px;
+   height: 16px;
+
+   font-family: 'Ubuntu';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 14px;
+   line-height: 16px;
+   /* identical to box height */
+   letter-spacing: 0.25px;
+
+   color: #121212;
+
+   /* Inside auto layout */
+   flex: none;
+   order: 0;
+   flex-grow: 0;
+}
+
+.score_interpretation1{
+    left: 428px;
+    top: 230px;
+    height: 1000px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+/*-------------------------self assessment 3----------------------------*/
+.main-header{
+
+    width: 700px;
+    height: 30px;
+    left: 32.5%;
+    right: 16.25%;
+    top: 166px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+}
+
+.question-box-2{
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 708px;
+    height: 255px;
+    left: 428px;
+    top: 163px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+
+/*------- interpretation for self assessment 3------*/
+.score_interpretation_client8{
+    left: 428px;
+    top: 230px;
+    height: 645px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/*------- interpretation for self assessment 11------*/
+.score_interpretation11{
+    left: 428px;
+    top: 230px;
+    height: 770px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+/*------- interpretation for self assessment 12------*/
+.score_interpretation12{
+    left: 428px;
+    top: 230px;
+    height: 770px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/*------- interpretation for self assessment 13------*/
+.score_interpretation13{
+    left: 428px;
+    top: 230px;
+    height: 712px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/*------- interpretation for self assessment 14------*/
+.score_interpretation14{
+    left: 428px;
+    top: 230px;
+    height: 2000px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/*-------- environment1_7 for cilent assessment -------*/
+
+.rect-box{
+/* Rectangle 3119 */
+
+
+    box-sizing: border-box;
+
+    width: 700px;
+    height: 32px;
+    margin-left: 15px;
+    margin-top: 22px;
+
+    background: #DBE5F5;
+    border: 2px solid #3669BA;
+    border-radius: 8px;
+
+}
+.key-box{
+    width: 550px;
+    height: 16px;
+    margin-left: 10px;
+    margin-top: 4px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.09px;
+    text-align: center;
+    /* identical to box height */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #3669BA;
+
+}
+
+.head_1{
+    position: absolute;
+    height: 25px;
+    left: 35.5%;
+    right: 16.25%;
+    top: 150px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+
+}
+
+.head_2{
+    position: absolute;
+    left: 35%;
+    right: 0%;
+    top: -70%;
+    bottom: 0%;
+    padding-top:20px;
+
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+
+}
+
+.q-box-1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 708px;
+    height: 260px;
+    left: 400px;
+    top: 230px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+
+.q-box-2{
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 708px;
+    height: 260px;
+    left: 430px;
+    top: 505px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+
+
+}
+
+/*----------------------- self assessment 1_7 --------------------------*/
+
+.box-1{
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 24px;
+
+    position: absolute;
+    width: 708px;
+    height: 260px;
+    left: 468px;
+    top: 200px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+
+.sub-head{
+    /* Scoring */
+
+position: absolute;
+    width: 700px;
+    height: 42px;
+    left: 32.5%;
+    right: 16.25%;
+    top: 700px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+}
+
+.score_interpretation1_7{
+    left: 428px;
+    top: 1900px;
+    height: 1000px;
+    width: px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.score_interpretation_client7{
+    left: 428px;
+    top: 230px;
+    height: 555px;
+    width: 718px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.score_interpretation_client9{
+    left: 428px;
+    top: 230px;
+    height: 690px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+.square-box{
+    position: absolute;
+    width: 728px;
+    height: 120px;
+    left: 380px;
+    top: 110px;
+
+    background: rgba(0, 0, 0, 0.27);
+    border-radius: 8px;
+
+}
+
+
+.score_interpretation_client1{
+     left: 428px;
+     top: 230px;
+     height: 605px;
+     width: 708px;
+     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+ }
+
+
+.score_interpretation_client2{
+    left: 438px;
+    top: 230px;
+    height: 685px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.score_interpretation_social1{
+    left: 428px;
+    top: 230px;
+    height: 590px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+.score_interpretation_social2{
+    left: 428px;
+    top: 230px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+.score_interpretation_social3{
+    left: 428px;
+    top: 230px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+
+

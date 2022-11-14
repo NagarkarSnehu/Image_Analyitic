@@ -1,0 +1,1703 @@
+.button_login{
+    height: 44px;
+    width: 296px;
+    left: 0px;
+    top: 0px;
+    padding: 0px, 20px, 0px, 20px;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+
+    width: 296px;
+    height: 44px;
+    margin-top:20px;
+
+    background: #CBCBCB;
+    border-radius: 4px;
+    border-color: #CBCBCB;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.sign{
+    /* sign in */
+    width: 70px;
+    height: 16px;
+    margin-top:10px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+
+    color: white;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.ass_header{
+    position: absolute;
+    width: 224px;
+    height: 41px;
+    left: 204px;
+    top: 144px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+
+    color: #121212;
+}
+
+.client_box{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 504px;
+    height: 180px;
+    left: 135px;
+    top: 200px;
+
+    border: 1px solid #B9B9B9;
+    border-radius: 12px;
+}
+.self_box{
+    /* Rectangle 3122 */
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 504px;
+    height: 259px;
+    left: 652px;
+    top: 200px;
+
+    border: 1px solid #B9B9B9;
+    border-radius: 12px;
+}
+.p1{
+    position: absolute;
+    width: 440px;
+    height: 126px;
+    left: 25px;
+    top: 48px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #434343;
+}
+.p2{
+    position: absolute;
+    width: 440px;
+    height: 234px;
+    left:25px;
+    top: 37px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #121212;
+}
+.button_ass{
+    /* Auto layout */
+    height: 44px;
+    width: 132px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: gray;
+    border-color: gray;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.head1{
+    font-family:ubuntu;
+    margin-left:150px;
+
+    font-size:33px;
+    margin-top: 50px;
+    width:224px;
+}
+
+.para1{
+    font-family:ubuntu;
+    margin-left:150px;
+    color: #797979;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    align-items: center;
+    display: flex;
+    width: 395px;
+    height: 21px;
+    font-size:15px;
+    margin-top:-15px;
+}
+
+.outer-div1{
+    color:#121212;
+    padding:10px;
+    height: 360px;
+    width:35%;
+    margin-left:550px;
+}
+
+.b1{
+    width: 74px;
+    height: 16px;
+    margin-top:10px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+/* ------------------login page----------------- */
+.login-heading1{
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.25px;
+    text-align: left;
+
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #525252;
+}
+
+
+/*   -----------self index page-----------  */
+.back{
+    color:#418B46;
+}
+
+.firm-details{
+    /* Investment Firm Details */
+
+
+    position: absolute;
+    width: 275px;
+    height: 28px;
+    margin-left: 80px;
+    margin-top: 20px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+
+    color: #121212;
+}
+
+.col-title{
+    /*
+    position: absolute;
+    left: 0%;
+    right: 51.22%;
+    top: 0%;
+    bottom: 75.38%;
+    */
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #525252;
+}
+
+.p-text{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    color: #424242;
+}
+
+.objective-text{
+    position: absolute;
+    width: 1032px;
+    height: 54px;
+    left: 204px;
+    top: 636px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #424242;
+
+}
+
+.btn-reset{
+     /* Auto layout */
+    height: 44px;
+    width: 132px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    background: white;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.btn-text{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+
+    color: #868686;
+}
+
+.btn-proceed{
+    height: 44px;
+    width: 132px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #CBCBCB;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+}
+
+.box{
+    box-sizing: border-box;
+    height: 44px;
+    width: 325px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+
+    border: 1px solid #A0A0A0;
+    border-radius: 4px;
+/*
+    height: 50px;
+    width: 290px;
+    left: 0px;
+    top: 0px;
+
+   box-sizing: border-box;
+
+    border: 1px solid #606060;
+    border-radius: 4px;
+    */
+}
+
+.box-content{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #797979;
+
+}
+
+.box-title{
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #525252;
+
+
+}
+
+
+.required{
+    content:"*";
+    color: #EB3C3C;
+}
+
+
+.button_ass{
+    /* Auto layout */
+    height: 44px;
+    width: 132px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: gray;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.index-generic-left-margin{
+    margin-left:80px;
+}
+
+.objective{
+    width: 1032px;
+    height: 54px;
+    left: 204px;
+    top: 636px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+}
+
+.target{
+    width: 1032px;
+    height: 72px;
+    left: 204px;
+    top: 714px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+
+}
+
+.instruction{
+    width: 1032px;
+    height: 126px;
+    left: 204px;
+    margin-top: 5px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+}
+
+.label{
+    color: #424242;
+}
+
+.main-container{
+    width: 1032px;
+    left: 204px;
+    margin-top: 5px;
+
+}
+
+/* -----------------Self_Assessment-1--------------------- */
+
+.self-user-header{
+    /* Investment Firm Details */
+    position: absolute;
+    width: 275px;
+    height: 28px;
+    left: 204px;
+    top: 166px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+
+    color: #121212;
+}
+
+.vertical-bar{
+    /* Line 12 */
+    height: 0px;
+    width: 1180.0000000000011px;
+    left: 432px;
+    top: 166px;
+    border-radius: nullpx;
+
+
+    position: absolute;
+
+    right: -11.94%;
+
+
+    border: 1px solid green;
+    transform: rotate(90deg);
+}
+
+
+.par_self_1{
+    /* The following set of questions are related to the Investment Manager */
+    position: absolute;
+    height: 25px;
+    left: 32.5%;
+    right: 16.25%;
+    top: 166px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+
+
+}
+
+.heading1{
+    position: absolute;
+    height: 25px;
+    left: 32.5%;
+    right: 56.74%;
+    top: 223px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+
+
+}
+
+.box-display{
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 10px;
+
+    position: absolute;
+    width: 738px;
+    height: 273px;
+    left: 468px;
+    top: 272px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+
+.question-width{
+    width: 600px;
+    height: 36px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #121212;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.center-box{
+    width: 670px;
+    height: 1200px;
+    margin-right:90px;
+    margin-top:10px;
+}
+
+.header_1{
+    /* The following set of questions are related to the Investment Manager */
+
+    width: 738px;
+    position: absolute;
+    height: 25px;
+    left: 32.5%;
+    right: 16.25%;
+    top: 126px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+}
+
+
+.header_2{
+    /* Requirements */
+    position: absolute;
+    height: 25px;
+    left: 32.5%;
+    right: 56.74%;
+    top: 173px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+}
+
+
+.outer-box-1{
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 708px;
+    height: 233px;
+    left: 428px;
+    top: 212px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+
+.par_1{
+    width: 680px;
+    height: 36px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #121212;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.main-heading{
+    /* The Part - A set of questions are related to the Investment Manager */
+    width: 738px;
+    position: absolute;
+    height: 25px;
+    left: 32.5%;
+    right: 16.25%;
+    top: 126px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+
+}
+
+.choose_1{
+    width: 143px;
+    height: 16px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #121212;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.text1{
+    /* Comments */
+
+
+    position: absolute;
+    left: 0%;
+    right: 77.43%;
+    top: 0%;
+    bottom: 87.3%;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.25px;
+
+    color: #525252;
+}
+
+.text2{
+
+   /* Exceptions */
+   position: absolute;
+   margin-left: 320px;
+   right: 76.8%;
+   top: 0%;
+   bottom: 87.3%;
+
+   font-family: 'Ubuntu';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 14px;
+   line-height: 16px;
+   letter-spacing: 0.25px;
+
+   color: #525252;
+
+}
+
+.header_3{
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+}
+
+.outer-box-3{
+    /* Frame 54 */
+
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 24px;
+
+    position: absolute;
+    width: 738px;
+    height: 221px;
+    left: 468px;
+    top: 1026px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+
+.choose_2{
+   /* Score* */
+   width: 45px;
+   height: 16px;
+
+   font-family: 'Ubuntu';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 14px;
+   line-height: 16px;
+   /* identical to box height */
+
+   letter-spacing: 0.25px;
+
+   color: #121212;
+
+
+   /* Inside auto layout */
+
+   flex: none;
+   order: 0;
+   flex-grow: 0;
+}
+
+.score_radio{
+    /* Ellipse 5 */
+
+
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 0px;
+    top: 28px;
+
+    background: #FFFFFF;
+}
+
+.score_0{
+    /* 0 */
+
+
+    position: absolute;
+    width: 8px;
+    height: 16px;
+    left: 10px;
+    top: 34px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #000000;
+}
+
+
+.score0{
+    /* Score 0 - Needs Immediate Action */
+    width: 226px;
+    height: 16px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #424242;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+
+.score_0{
+    /* The Investment Manager does not comply with any laws and Regulations that apply to the preparation and distribution of an ESG disclosure statement */
+
+
+    width: 706px;
+    height: 32px;
+
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: justify;
+    letter-spacing: 0.25px;
+
+    color: #6B6B6B;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.radio1{
+    margin-top:20px;
+}
+
+.radio2{
+    margin-top:10px;
+}
+
+.Score-Interpretations{
+    /* Score Interpretations */
+    position: absolute;
+    margin-left:10px;
+    margin-top:10px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.25px;
+
+    color: #424242;
+
+}
+
+.button_reset{
+    /* Auto layout */
+    height: 44px;
+    width: 132px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: transparent;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+/* class for Reset and Proceed button */
+.btn-reset{
+     /* Auto layout */
+    height: 44px;
+    width: 132px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    background: white;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.btn-text{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+
+    color: #868686;
+}
+
+.btn-proceed{
+    height: 44px;
+    width: 132px;
+    border-radius: 4px;
+    padding: 0px, 20px, 0px, 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #CBCBCB;
+    border-color: gray;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+}
+
+/* self Assessment 4 */
+.q1{
+    /* 1. How financially material ESG information is typically identified */
+
+
+    width: 680px;
+    height: 18px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #121212;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.header_s4{
+    /* If financially material ESG information is systematically considered in investment decisions, then does the investment manager disclose : */
+    position: absolute;
+    width:700px;
+    height: 50px;
+    left: 34.5%;
+    right: 16.25%;
+    top: 106px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+
+}
+
+.score_interpretation4{
+    height: 552px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    margin-top:950px;
+    margin-left:-10px;
+    margin-top:10px;
+}
+
+
+.cs4{
+    /* Choose your answer* */
+    width: 143px;
+    height: 16px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #121212;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+.q2{
+    width: 680px;
+    height: 36px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #121212;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.q3{
+    width: 680px;
+    height: 36px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #121212;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.outer-box-s4{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 708px;
+    height: 233px;
+    left: 390px;
+    top: 165px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+/*
+#ss1_4{
+    border-radius: 50%;
+    border: 1px solid #green;
+    border-color: green;
+    background-color:green;
+    padding: 10px;
+    width: 5px;
+    height: 5px;
+}
+*/
+
+.score_interpretation1{
+    height: 1052px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    margin-top:950px;
+    margin-left:-10px;
+    margin-top:10px;
+}
+
+.main-heading{
+    /* The Part - A set of questions are related to the Investment Manager */
+    width: 700px;
+    position: absolute;
+    height: 25px;
+    left: 32.5%;
+    right: 16.25%;
+    top: 126px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #444444;
+
+}
+
+
+.sub-heading{
+    /* Part A(I) : If the investment manager chooses to apply the Global ESG Disclosure Standards
+     for Investment Products to a specific investment product, */
+    position: absolute;
+
+    height: 42px;
+    left: 32.5%;
+    right: 16.25%;
+    top: 170px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #6B6B6B;
+}
+
+/*---for first div of question --*/
+.question-box-1{
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 708px;
+    height: 233px;
+    left: 428px;
+    top: 230px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+
+.que_1{
+    /* 1. Does it provide details like name of the investment product and name of the investment manager? */
+    width: 680px;
+    height: 36px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #121212;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.option_1{
+    /* Choose your answer* */
+    width: 143px;
+    height: 16px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height */
+    letter-spacing: 0.25px;
+
+    color: #121212;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.star{
+ color: #EB3C3C;
+}
+
+.yes{
+    /* Yes */
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-size: 14px;
+    color: #121212;
+}
+
+.comment{
+    /* Comments */
+    position: absolute;
+    left: 0%;
+    right: 77.43%;
+    top: 0%;
+    bottom: 87.3%;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.25px;
+
+    color: #525252;
+}
+
+/*----- for comment and exception box --*/
+comment-box{
+    /* Rectangle 39 */
+    box-sizing: border-box;
+    height: 80px;
+    width: 328px
+    left: 0px;
+    right: 0px;
+    top: 0px;
+
+    border: 1px solid #A0A0A0;
+    border-radius: 4px;
+}
+
+/* --for placeholder text-- */
+.place-holder{
+    /* Comments if any */
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-size: 12px;
+    color: #BDBDBD;
+}
+
+.choose_2{
+   /* Score* */
+   width: 45px;
+   height: 16px;
+
+   font-family: 'Ubuntu';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 14px;
+   line-height: 16px;
+   /* identical to box height */
+   letter-spacing: 0.25px;
+
+   color: #121212;
+
+   /* Inside auto layout */
+   flex: none;
+   order: 0;
+   flex-grow: 0;
+}
+
+.score_interpretation3{
+    left: 428px;
+    top: 230px;
+    height: 1100px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/*-------------------------self assessment 3----------------------------*/
+.question-box-2{
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 708px;
+    height: 255px;
+    left: 428px;
+    top: 190px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+
+.score_interpretation3{
+    left: 428px;
+    top: 230px;
+    height: 1050px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+/*-----------------------self assessment 5---------------------*/
+.score_interpretation5{
+    height: 582px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    margin-top:950px;
+    margin-left:-10px;
+    margin-top:10px;
+}
+
+
+/*--------------self assessment 8--------------*/
+.score_interpretation8{
+    left: 428px;
+    top: 230px;
+    height: 650px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/*------------------------self assessment 9---------------------*/
+.score_interpretation9{
+    height: 852px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    margin-top:950px;
+    margin-left:-10px;
+    margin-top:10px;
+}
+
+/*------------------------self_assessment 7--------------------*/
+.score_interpretation7{
+    height: 1360px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.yes{
+    /* Yes */
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-size: 14px;
+    color: #121212;
+}
+
+/*------- interpretation for self assessment 11------*/
+.score_interpretation11{
+    left: 428px;
+    top: 230px;
+    height: 770px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+/*-----------------self Assessment 15-----------------*/
+.score_interpretation15{
+    height: 1060px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+/*------------------------self_assessment 10--------------------*/
+.score_interpretation10{
+
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/*------------------------self_assessment_17--------------------*/
+.score_interpretation17{
+    height: 952px;
+    width: 708px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    margin-top:950px;
+    margin-left:-10px;
+    margin-top:10px;
+}
+
+
+/*--------------------self_ass_final_score--------------------*/
+.final_score_self_h1{
+    /* Score Details */
+    position: absolute;
+    width: 227px;
+    height: 41px;
+    margin-left:20px;
+    top: 166px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+
+    color: #121212;
+}
+
+.sub_head_final{
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0px;
+    text-align: left;
+
+}
+
+.progress_outer_box{
+    width: 416px;
+    height: 253px;
+
+
+    background: #FFFFFF;
+}
+
+
+.rates_feedback{
+    width: 416px;
+    height: 253px;
+    background: #FFFFFF;
+}
+
+.score_interpretation_final{
+    position: absolute;
+    width: 1034px;
+    height: 469px;
+    left: 60px;
+    top: 1200px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+
+}
+
+/*-----------------selection html-------------------*/
+
+.select_html{
+    /* Select Sector to Proceed */
+    position: absolute;
+    width: 425px;
+    height: 41px;
+    left: 204px;
+    top: 166px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+
+    color: #121212;
+
+}
+
+.select_html1{
+    /* Select Sector to Proceed */
+    position: absolute;
+    width: 425px;
+    height: 41px;
+    left: 144px;
+    top: 166px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+
+    color: #121212;
+
+}
+
+.score-interpretation-social-7{
+     left: 428px;
+     top: 230px;
+     height: 695px;
+     width: 708px;
+     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+ }
+
+
+ .score_interpretation_final_env{
+     position: absolute;
+     width: 1034px;
+     height: 469px;
+     left: 60px;
+     top: 950px;
+
+     background: #FFFFFF;
+     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+     border-radius: 8px;
+
+ }
+
+
+.score_interpretation_gov_final{
+     position: absolute;
+
+     border-radius: 8px;
+ }
+
+
+ .score_interpretation_final_social{
+     position: absolute;
+     background: #FFFFFF;
+
+     border-radius: 8px;
+
+ }
+
+ .design{
+    width:200px;
+    height:500px;
+    margin-left:30px;
+
+ }
+
+
+

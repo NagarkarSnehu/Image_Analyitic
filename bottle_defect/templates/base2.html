@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Krub:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/assets/css/style-figma.css">
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top" style=" background-color::#181515; height:auto; ">
+  <div class="container d-flex align-items-center justify-content-between" >
+    <a class="navbar-brand text-black" style="margin-left:50px;"><img src="static/assets/img/cg_invent.png" height=50>|<strong style="font-size:15px;">Intelligent Visual Inspection</strong></a>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index_client.html" class="logo"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        {%if user.is_authenticated%}
+        <li><a class="nav-linkscrollto" href="{%url 'logout' %}">Logout</a></li>
+
+        {%else%}
+        <li><a class="nav-linkscrollto" href="{%url 'logout' %}">Logout</a></li>
+        {% endif %}
+
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+<!-- Page Content -->
+
+<main id="main" style="
+      background-image: linear-gradient(3.47deg, #00649B 13.28%, #66A9CD 93.28%);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-size: cover;
+      width: 100%;
+      height: auto;">
+  <div class="py-5" >
+
+    {% block content %}
+
+
+    {% endblock %}
+  </div>
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer" style="height: 35px; position: fixed; left: 0; bottom: 0;  width: 100%; background:white;" >
+  <div class="container d-md-flex py-2">
+    <div class="me-md-auto text-center text-md-start text-black">
+<!--      <div class="copyright" style="margin-left: 38px;">-->
+<!--        &copy; Copyright <strong><span>Capgemini</span></strong>. All Rights Reserved.-->
+<!--      </div>-->
+    </div>
+  </div>
+</footer>
+
+
+<!-- End Footer -->
+
+<!-- Vendor JS Files -->
+<script src="static/assets/vendor/aos/aos.js"></script>
+<script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="static/assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

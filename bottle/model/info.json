@@ -1,0 +1,33 @@
+{
+    "data": {
+        "input_directory": "./MVTec-Anomaly-Detection/mvtec/bottle/",
+        "nb_training_images": 189,
+        "nb_validation_images": 20,
+        "validation_split": 0.1
+    },
+    "model": {
+        "architecture": "mvtecCAE",
+        "loss": "l2"
+    },
+    "preprocessing": {
+        "color_mode": "rgb",
+        "rescale": 0.00392156862745098,
+        "shape": [
+            256,
+            256
+        ],
+        "vmin": 0.0,
+        "vmax": 1.0,
+        "dynamic_range": 1.0,
+        "preprocessing": null
+    },
+    "lr_finder": {
+        "lr_base": 0.00021401033154688776,
+        "lr_opt": 0.0020976790692657232
+    },
+    "training": {
+        "batch_size": 8,
+        "epochs_trained": 6,
+        "nb_train_images_total": 1134
+    }
+}

@@ -1,0 +1,94 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<link href="static/assets/css/style-figma.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body style="background-color: #000000;
+height: auto;
+overflow-x: hidden;
+">
+
+<script>
+    window.onload = function(){
+            console.log('inside the function')
+
+
+            data = {{data|safe}}
+            console.log('data is:' + data)
+    }
+
+    function getNum(i){
+        console.log('I am in')
+        a = i
+        console.log(a)
+        window.location.href = "{% url 'detail_capsule' %}" + '?search='+i
+        console.log('clicked number' + i)
+    }
+</script>
+<div style="padding-top:50px;">
+    <button type="button" onclick="history.back()" style="display: none;" id="back-btn" ></button>
+    <a href="#" style="color:white; margin-left:100px; margin-top:60px;" onclick="document.getElementById('back-btn').click()"  alt="Back"><b>BACK</b></a>
+    <p class="text-white" style="margin-top:20px; margin-left:500px;Font-size:20px;"><b>Image Analytics</b></p>
+    <div style="margin-left:150px; width:960px; height:350px; background-color:white;">
+        <div style="float:left;">
+            <img src="media/piechart/pie2.png" height="300" width="300">
+            <p style="margin-left:300px; margin-top:-200px; width:200px; color:#7249AE;"><strong>Uploaded Images: {{total}} </strong></p>
+            <p style="margin-left:300px; width:200px; color:#7249AE;"><strong>Non-Defective: {{good}} </strong></p>
+            <p style="margin-left:300px; width:200px; color:#7249AE;"><strong>Defective: {{bad}} </strong></p>
+        </div>
+        <!--        {% for i in image %}-->
+        <!--            <img src="media/fig1/{{i}}" style="margin-left:50px;" height="200" width="300">-->
+        <!--        {% endfor %}-->
+        <div style="float:right;">
+            <img src="media/piechart/bar.png" height="300" width=400">
+        </div>
+    </div>
+    <form method="POST" class="form-horizontal" action="result_capsule">
+        {% csrf_token %}
+        <div style="display: flex; background-color:white; width:960px; margin-top: 30px; margin-left:150px;">
+            <div class="design" style=" margin-left:10px; width:200px; height:auto;">
+                <p class="text-white" style="margin-left:-10px; width:300px; height:50px; background-color: #0070AD; "><b> File Name</b></p>
+                {% for i in data %}
+                <a href="#"><div class="image" onclick="getNum('{{i.actual_lbl}}')">
+                    <p class="text-black" name="input_image" style="margin-top:45px;">{{i.actual_lbl}}</p>
+                </div></a>
+                {% endfor %}
+            </div>
+            <div class="design" style=" margin-left:50px; width:200px; height:auto;">
+                <center>
+                    <p class="text-white" style="margin-left:-10px; width:300px; height:50px; background-color:#0070AD; "><b>Input Images</b></p>
+                    {% for i in images %}
+                    <img src="media/capsule/{{i}}" height="70" width="70"><br>
+                    {% endfor %}
+                </center>
+            </div>
+            <div class="design" style=" margin-left:50px; width:200px; height:auto;">
+                <p class="text-white" style="width:300px; height:50px; background-color: #0070AD; " ><b>Score(Lift-IQR-Right)</b></p>
+                {% for i in data %}
+                <p class="text-black" style="margin-top:45px;">{{i.lift_iqr_right}}</p>
+                {% endfor %}
+            </div>
+            <div class="design" style=" margin-left:50px; width:200px; height:auto;">
+                <p class="dropdown-content" style="color:white; width:200px; height:50px; background-color: #0070AD; "><b>Prediction</b></p>
+                {% for i in data %}
+                {% if i.good_right == False %}
+                <p class="text" style="color:red; margin-top:45px;" name="result"><b>{{i.good_right}}</b></p>
+                {% elif i.good_right == True %}
+                <p class="text" style="color:green; margin-top:45px;" name="result"><b>{{i.good_right}}</b></p>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+</body>
+
+</html>
