@@ -473,7 +473,7 @@ def transistor_prediction(transistor_model,
             final_stat_dict_transistor['prediction_result'].append(0)
             bound_list=[range_lower, range_upper]
             closest = min(bound_list, key=lambda x: abs(x - comparison_df.loc[0, 'range']))
-            lift_range=abs(comparison_df.loc[0, 'range']-closest)+1
+            lift_range=abs((comparison_df.loc[0, 'range']-closest)/closest) * 100
             final_stat_dict_transistor['lift_range'].append(lift_range)
 
     final_stat_transistor_df = pd.DataFrame(final_stat_dict_transistor)

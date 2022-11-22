@@ -573,10 +573,10 @@ def capsules_prediction(cap_model,
             final_stat_dict['prediction_result'].append(0)
             bound_list_right=[right_lower_range, right_upper_range]
             closest_right = min(bound_list_right, key=lambda x: abs(x - comparison_df.loc[0, 'right_range']))
-            lift_range_right=abs(comparison_df.loc[0, 'right_range']-closest_right)+1
+            lift_range_right=abs((comparison_df.loc[0, 'right_range']-closest_right)/closest_right) * 100
             bound_list_left=[left_lower_range, left_upper_range]
             closest_left = min(bound_list_left, key=lambda x: abs(x - comparison_df.loc[0, 'left_range']))
-            lift_range_left=abs(comparison_df.loc[0, 'left_range']-closest_left)+1
+            lift_range_left=abs((comparison_df.loc[0, 'left_range']-closest_left)/closest_left) * 100
             final_stat_dict['lift_range_right'].append(lift_range_right)
             final_stat_dict['lift_range_left'].append(lift_range_left)
 
