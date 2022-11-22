@@ -358,7 +358,9 @@ def capsules_prediction(cap_model,
         "upper_bound_range_left":[],
         "input_img_range_left":[],
         "prediction": [],
-        "prediction_result": []
+        "prediction_result": [],
+        "lift_range_right": [],
+        "lift_range_left": []
     }
 
     plots = []
@@ -376,7 +378,7 @@ def capsules_prediction(cap_model,
         gen_img = gen_img[IMG_CROP_DIM[0]:IMG_CROP_DIM[1], :, :]
         resmap = resmap[IMG_CROP_DIM[0]:IMG_CROP_DIM[1], :]
 
-        fig1, ax1 = plt.subplots(1, 3, sharey=True)
+        fig1, ax1 = plt.subplots(1, 3, figsize=(7, 5))
         ax1[0].imshow(input_img)
         ax1[0].title.set_text("input("+lbl+")")
 
@@ -562,11 +564,21 @@ def capsules_prediction(cap_model,
         final_stat_dict["input_img_range_left"].append(comparison_df.loc[0, 'left_range'])
 
         if (right_lower_range <= comparison_df.loc[0, 'right_range']) & (right_upper_range >= comparison_df.loc[0, 'right_range']) & (left_lower_range <= comparison_df.loc[0, 'left_range']) & (left_upper_range >= comparison_df.loc[0, 'left_range']):
-            final_stat_dict['prediction'].append('non-defective')
+            final_stat_dict['prediction'].append('Non-Defective')
             final_stat_dict['prediction_result'].append(1)
+            final_stat_dict['lift_range_right'].append(1)
+            final_stat_dict['lift_range_left'].append(1)
         else:
-            final_stat_dict['prediction'].append('defective')
+            final_stat_dict['prediction'].append('Defective')
             final_stat_dict['prediction_result'].append(0)
+            bound_list_right=[right_lower_range, right_upper_range]
+            closest_right = min(bound_list_right, key=lambda x: abs(x - comparison_df.loc[0, 'right_range']))
+            lift_range_right=abs((comparison_df.loc[0, 'right_range']-closest_right)/closest_right) * 100
+            bound_list_left=[left_lower_range, left_upper_range]
+            closest_left = min(bound_list_left, key=lambda x: abs(x - comparison_df.loc[0, 'left_range']))
+            lift_range_left=abs((comparison_df.loc[0, 'left_range']-closest_left)/closest_left) * 100
+            final_stat_dict['lift_range_right'].append(lift_range_right)
+            final_stat_dict['lift_range_left'].append(lift_range_left)
 
     final_stats_df = pd.DataFrame(final_stat_dict)
 
@@ -685,6 +697,8 @@ def upload_capsule(request):
             upper_bound_left = []
             lower_bound_right = []
             upper_bound_right = []
+            lift_range_right = []
+            lift_range_left = []
             input_img = []
             for i in table:
                 list_of_values_right.append(i.get('prediction_result'))
@@ -714,6 +728,14 @@ def upload_capsule(request):
                 input_img.append(i.get('input_img_range_left'))
                 request.session['input_img'] = input_img
 
+            for i in table:
+                lift_range_right.append(i.get('lift_range_right'))
+                request.session['lift_range_right'] = lift_range_right
+
+            for i in table:
+                lift_range_left.append(i.get('lift_range_left'))
+                request.session['lift_range_left'] = lift_range_left
+
             data = table
             request.session['data'] = data
             print('DATA:', data)
@@ -739,7 +761,7 @@ def upload_capsule(request):
             good = round(addition_of_true)
             bad = round(addition_of_false)
             plt_1 = plt.figure(figsize=(5, 5))
-            colors = ['green', 'red']
+            colors = ['#12ABDB', '#0070AD']
             plt.pie(y, labels=mylabels, colors=colors)
             plt.legend(['Non-Defective', 'Defective'])
             plt.show()
@@ -751,32 +773,52 @@ def upload_capsule(request):
 
             print('list_of_values:', list_of_values)
             print('list_of_files:', list_of_files)
+
+            col_left = []
+            for x in list_of_values:
+                if x == 1:
+                    col_left.append('#12ABDB')
+                else:
+                    col_left.append('#FF6327')
             df = pd.DataFrame({
                 'list_of_values': list_of_values,
                 'Image': list_of_values,
                 'lower_bound_right': lower_bound_right,
                 'list_of_values_left': list_of_values_left,
+                'lift_range_left': lift_range_left,
 
             })
 
             range1_list = [x for x in list_of_values if x <= 1]
             range2_list = [x for x in list_of_values if x > 1]
-            df.plot(kind='line', y='list_of_values_left', figsize=(7, 7), color='green')
+            df.plot(kind='bar', y='lift_range_left', figsize=(7, 7), color=col_left)
+            plt.xlabel("Input Image", fontsize=14)
+            plt.ylabel("Lift Range Left", fontsize=14)
             # df.plot(kind='bar', x=range2_list, y='Image', figsize=(7, 7), color='red')
             plt.subplots_adjust(bottom=0.2)
             plt.savefig("media/piechart/capsule_bar")
+
+            col_right = []
+            for x in list_of_values_right:
+                if x == 1:
+                    col_right.append('#12ABDB')
+                else:
+                    col_right.append('#FF6327')
 
             df = pd.DataFrame({
                 'list_of_values': list_of_values,
                 'Image': list_of_values,
                 'lower_bound_right': lower_bound_right,
                 'list_of_values_right': list_of_values_right,
+                'lift_range_right': lift_range_right,
 
             })
 
             range1_list = [x for x in list_of_values if x <= 1]
             range2_list = [x for x in list_of_values if x > 1]
-            df.plot(kind='line', y='list_of_values_right', figsize=(7, 7), color='green')
+            df.plot(kind='bar', y='lift_range_right', figsize=(7, 7), color=col_right)
+            plt.xlabel("Input Image", fontsize=14)
+            plt.ylabel("Lift Range Right", fontsize=14)
             # df.plot(kind='bar', x=range2_list, y='Image', figsize=(7, 7), color='red')
             plt.subplots_adjust(bottom=0.2)
             plt.savefig("media/piechart/capsule_bar2")

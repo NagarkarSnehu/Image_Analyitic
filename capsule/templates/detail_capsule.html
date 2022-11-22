@@ -8,9 +8,12 @@
     <meta charset="UTF-8">
     <title>Details</title>
 </head>
-<body style="background-image: linear-gradient(to bottom, #003399 0%, #ff99cc 100%);
-height: auto;
-overflow-y: hidden;
+<body style="background-image: linear-gradient(3.47deg, #00649B 28.28%, #66A9CD 90.28%);
+overflow-x: hidden;
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-size:170%;
+max-height:700px;
 ">
 <div style="padding-top:50px;">
     <button type="button" onclick="history.back()" style="display: none;" id="back-btn" ></button>
@@ -20,26 +23,29 @@ overflow-y: hidden;
         <!--        <p class="text-black" style="margin-left:400px; Font-size:20px;"><b>Graph</b></p>-->
         {% if number == '000.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_000.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.0}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.0}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.0}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.0}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.0}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.0}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.0}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.0}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
+
             <img src="media/capsule_fig2/my_graph_000.png" height="200" width="900">
         </div>
 
         {% elif number == '001.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_001.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.1}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.1}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.1}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.1}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.1}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.1}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.1}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.1}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -48,26 +54,29 @@ overflow-y: hidden;
 
         {% elif number == '002.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_002.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.2}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.2}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.2}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.2}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.2}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.2}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.2}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.2}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig2/my_graph_002.png" height="300" width="900">
         </div>
 
         {% elif number == '003.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_003.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.3}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.3}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.3}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.3}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.3}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.3}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.3}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.3}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -76,12 +85,13 @@ overflow-y: hidden;
 
         {% elif number == '004.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_004.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.4}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.4}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.4}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.4}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.4}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.4}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.4}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.4}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -90,12 +100,13 @@ overflow-y: hidden;
 
         {% elif number == '005.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_005.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.5}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.5}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.5}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.5}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.5}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.5}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.5}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.5}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -104,12 +115,13 @@ overflow-y: hidden;
 
         {% elif number == '006.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_006.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.6}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.6}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.6}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.6}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.6}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.6}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.6}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.6}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -124,12 +136,13 @@ overflow-y: hidden;
         <!--            </div>-->
         {% elif number == '007.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_007.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.7}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.7}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.7}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.7}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.7}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.7}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.7}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.7}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -138,12 +151,13 @@ overflow-y: hidden;
 
         {% elif number == '008.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_008.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.8}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.8}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.8}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.8}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.8}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.8}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.8}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.8}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -152,12 +166,13 @@ overflow-y: hidden;
 
         {% elif number == '009.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_009.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.9}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.9}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.9}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.9}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.9}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.9}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.9}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.9}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -166,12 +181,13 @@ overflow-y: hidden;
 
         {% elif number == '010.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_010.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.10}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.10}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.10}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.10}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.10}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.10}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.10}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.10}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -180,12 +196,13 @@ overflow-y: hidden;
 
         {% elif number == '011.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_011.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.11}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.11}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.11}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.11}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.11}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.11}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.11}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.11}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -194,12 +211,13 @@ overflow-y: hidden;
 
         {% elif number == '012.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_012.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.12}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.12}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.12}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.12}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.12}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.12}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.12}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.12}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -208,12 +226,13 @@ overflow-y: hidden;
 
         {% elif number == '013.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_013.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.13}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.13}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.13}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.13}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.13}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.13}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.13}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.13}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -222,12 +241,13 @@ overflow-y: hidden;
 
         {% elif number == '014.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_014.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.14}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.14}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.14}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.14}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.14}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.14}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.14}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.14}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -236,12 +256,13 @@ overflow-y: hidden;
 
         {% elif number == '015.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_015.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.15}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.15}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.15}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.15}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.15}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.15}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.15}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.15}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -250,12 +271,13 @@ overflow-y: hidden;
 
         {% elif number == '016.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_016.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.16}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.16}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.16}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.16}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.16}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.16}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.16}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.16}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -264,12 +286,13 @@ overflow-y: hidden;
 
         {% elif number == '017.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_017.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.17}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.17}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.17}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.17}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.17}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.17}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.17}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.17}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -278,12 +301,13 @@ overflow-y: hidden;
 
         {% elif number == '018.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_018.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.18}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.18}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.18}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.18}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.18}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.18}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.18}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.18}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -292,12 +316,13 @@ overflow-y: hidden;
 
         {% elif number == '019.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_019.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.19}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.19}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.19}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.19}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.19}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.19}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.19}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.19}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -306,12 +331,13 @@ overflow-y: hidden;
 
         {% elif number == '020.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_020.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.20}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.20}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.20}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.20}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.20}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.20}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.20}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.20}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -320,12 +346,13 @@ overflow-y: hidden;
 
         {% elif number == '021.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_021.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.21}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.21}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.21}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.21}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.21}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.21}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.21}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.21}}</b></p>
             </div>
         </div>
         <div style=" margin-top:-200px;  width:425px; height:400px;">
@@ -334,19 +361,638 @@ overflow-y: hidden;
 
         {% elif number == '022.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
             <img src="media/capsule_fig1/my_resmap_022.png" height="290" width="380">
             <div style="margin-top:-250px; margin-left:450px; width:300px;">
-                <p style="color:Black;"><b>Lower Bound range Left: {{lower_bound_left.22}}</b></p>
-                <p style="color:Black;"><b>Lower Bound range Right: {{lower_bound_left.22}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Left: {{upper_bound_left.22}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range Right: {{upper_bound_right.22}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.22}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.22}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.22}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.22}}</b></p>
             </div>
         </div>;
         <div style=" margin-top:-200px;  width:425px; height:400px;">
             <img src="media/capsule_fig2/my_graph_022.png" height="200" width="900">
         </div>
 
+        {% elif number == '023.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_023.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.23}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.23}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.23}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.23}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_023.png" height="200" width="900">
+        </div>
+
+        {% elif number == '024.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_024.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.24}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.24}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.24}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.24}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_024.png" height="200" width="900">
+        </div>
+
+        {% elif number == '025.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_025.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.25}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.25}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.25}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.25}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_025.png" height="200" width="900">
+        </div>
+
+        % elif number == '026.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_026.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.26}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.26}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.26}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.26}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_026.png" height="200" width="900">
+        </div>
+
+        % elif number == '027.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_027.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.27}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.27}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.27}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.27}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_027.png" height="200" width="900">
+        </div>
+
+        % elif number == '028.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_028.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.28}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.28}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.28}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.28}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_028.png" height="200" width="900">
+        </div>
+
+        % elif number == '029.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_029.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.29}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.29}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.29}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.29}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_029.png" height="200" width="900">
+        </div>
+
+        % elif number == '030.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_030.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.30}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.30}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.30}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.30}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_030.png" height="200" width="900">
+        </div>
+
+        % elif number == '031.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_031.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.31}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.31}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.31}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.31}}</b></p>
+            </div>
+        </div>
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_031.png" height="200" width="900">
+        </div>
+
+        % elif number == '032.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_032.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.32}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.32}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.32}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.32}}</b></p>
+            </div>
+        </div>
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_032.png" height="200" width="900">
+        </div>
+
+        % elif number == '033.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_033.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.33}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.33}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.33}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.33}}</b></p>
+            </div>
+        </div>
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_030.png" height="200" width="900">
+        </div>
+
+        % elif number == '034.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_034.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.34}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.34}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.34}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.34}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_034.png" height="200" width="900">
+        </div>
+
+        % elif number == '035.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_035.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.35}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.35}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.35}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.35}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_035.png" height="200" width="900">
+        </div>
+
+        % elif number == '036.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_036.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.36}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.36}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.36}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.36}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_036.png" height="200" width="900">
+        </div>
+
+        % elif number == '037.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-left:80px; margin-top:30px; color:#7249AE;"><b>Histogram for input image</b></h5>
+            <img src="media/capsule_fig1/my_resmap_037.png" height="290" width="380">
+            <div style="margin-top:-250px; margin-left:450px; width:300px;">
+                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.37}}</b></p>
+                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.37}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.37}}</b></p>
+                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.37}}</b></p>
+            </div>
+        </div>;
+        <div style=" margin-top:-200px;  width:425px; height:400px;">
+            <img src="media/capsule_fig2/my_graph_037.png" height="200" width="900">
+        </div>
+
         {% endif %}
+    </div>
+
+
+    <div style="background-color:white; margin-left:200px; margin-top:30px; width:400px; height:200px; ">
+        <!--        <p class="text-black" style="margin-left:400px; Font-size:20px;"><b>Graph</b></p>-->
+<!--        <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>-->
+<!--        {% if number == '000.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.0}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.0}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.0}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.0}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '001.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.1}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.1}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.1}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.1}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '002.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.2}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.2}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.2}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.2}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '003.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.3}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.3}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.3}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.3}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '004.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.4}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.4}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.4}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.4}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '005.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.5}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.5}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.5}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.5}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '006.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.6}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.6}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.6}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.6}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash;            <div style="margin-top:-100px; margin-left:80px;">&ndash;&gt;-->
+<!--        &lt;!&ndash;                <p style="color:Black;"><b>lower_bound_iqr: {{lower_bound.6}}</b></p>&ndash;&gt;-->
+<!--        &lt;!&ndash;                <p style="color:Black;"><b>Upper Bound Iqr: {{upper_bound.6}}</b></p>&ndash;&gt;-->
+<!--        &lt;!&ndash;                <p style="color:Black;"><b>Input Img Iqr: {{input_img.6}}</b></p>&ndash;&gt;-->
+<!--        &lt;!&ndash;                <p style="color:Black;"><b>Lift Iqr: {{list_of_values.6}}</b></p>&ndash;&gt;-->
+<!--        &lt;!&ndash;            </div>&ndash;&gt;-->
+<!--        {% elif number == '007.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.7}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.7}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.7}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.7}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '008.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.8}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.8}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.8}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.8}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '009.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.9}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.9}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.9}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.9}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '010.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.10}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.10}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.10}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.10}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '011.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.11}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.11}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.11}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.11}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '012.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.12}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.12}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.12}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.12}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '013.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.13}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.13}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.13}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.13}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '014.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.14}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.14}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.14}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.14}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '015.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.15}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.15}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.15}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.15}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '016.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.16}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.16}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.16}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.16}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '017.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.17}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.17}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.17}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.17}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '018.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.18}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.18}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.18}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.18}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '019.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.19}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.19}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.19}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.19}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '020.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.20}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.20}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.20}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.20}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '021.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.21}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.21}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.21}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.21}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '022.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.22}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.22}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.22}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.22}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '023.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.23}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.23}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.23}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.23}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '024.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.24}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.24}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.24}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.24}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% elif number == '025.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.25}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.25}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.25}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.25}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '026.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.26}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.26}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.26}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.26}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '027.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.27}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.27}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.27}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.27}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '028.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.28}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.28}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.28}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.28}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '029.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.29}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.29}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.29}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.29}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '030.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.30}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.30}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.30}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.30}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '031.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.31}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.31}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.31}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.31}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '032.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.32}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.32}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.32}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.32}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '033.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.33}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.33}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.33}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.33}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '034.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.34}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.34}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.34}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.34}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '035.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.35}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.35}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.35}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.35}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '036.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.36}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.36}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.36}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.36}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        % elif number == '037.png' %}-->
+<!--        <div style="margin-left:20px; width:460px; height:400px; ">-->
+<!--            <div style="margin-top:-250px; margin-left:450px; width:300px;">-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Left: {{lower_bound_left.37}}</b></p>-->
+<!--                <p style="color:Black;"><b>Lower Bound Range Right: {{lower_bound_left.37}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Left: {{upper_bound_left.37}}</b></p>-->
+<!--                <p style="color:Black;"><b>Upper Bound Range Right: {{upper_bound_right.37}}</b></p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        {% endif %}-->
     </div>
     <!--    <img src="media/fig1/my_resmap_001.png" style="margin-left:10px;" height="200" width="300">-->
     <!--    <img src="media/fig1/my_resmap_002.png" style="margin-left:10px;" height="200" width="300">-->

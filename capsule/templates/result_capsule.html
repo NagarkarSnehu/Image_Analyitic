@@ -14,6 +14,44 @@ height: auto;
 overflow-x: hidden;
 ">
 
+<style>
+    #content11 {
+           overflow-y: scroll;
+           width: 830px;
+           height: 340px;
+        }
+
+    #wrapper11 {
+            display: grid;
+            grid-template-rows: 10px 1fr 10px;
+        }
+
+    #wrapper12 {
+            display: grid;
+            grid-template-rows: 39px 5fr 39px;
+        }
+
+    #wrapper13 {
+            display: grid;
+            grid-template-rows: 39px 5fr 39px;
+        }
+
+    #wrapper14 {
+            display: grid;
+            grid-template-rows: 39px 5fr 39px;
+        }
+
+     #wrapper15 {
+            display: grid;
+            grid-template-rows: 39px 5fr 39px;
+        }
+
+     #wrapper16 {
+            display: grid;
+            grid-template-rows: 39px 5fr 39px;
+        }
+</style>
+
 <script>
     window.onload = function(){
             console.log('inside the function')
@@ -34,9 +72,10 @@ overflow-x: hidden;
 <div style="padding-top:50px;">
     <button type="button" onclick="history.back()" style="display: none;" id="back-btn" ></button>
     <a href="#" style="color:white; margin-left:100px; margin-top:60px;" onclick="document.getElementById('back-btn').click()"  alt="Back"><b>BACK</b></a>
-    <p class="text-white" style="margin-top:20px; margin-left:500px;Font-size:20px;"><b>Image Analytics</b></p>
+    <p class="text-white" style="margin-top:20px; margin-left:500px;Font-size:20px;"><b>Image Analytics - Capsule</b></p>
     <div style="margin-left:100px; width:1100px; height:350px; background-color:white;">
         <div style="float:left;">
+            <h5 style="margin-left:120px; margin-top:10px; color:#7249AE;"><b>Pie Chart</b></h5>
             <img src="media/piechart/capsule_pie.png" height="300" width="300">
             <p style="margin-left:250px; margin-top:-200px; width:200px; color:#7249AE;"><strong>Uploaded Images: {{total}} </strong></p>
             <p style="margin-left:250px; width:200px; color:#7249AE;"><strong>Non-Defective: {{good}} </strong></p>
@@ -46,8 +85,12 @@ overflow-x: hidden;
         <!--            <img src="media/fig1/{{i}}" style="margin-left:50px;" height="200" width="300">-->
         <!--        {% endfor %}-->
         <div style="margin-left:200px;">
-            <img src="media/piechart/capsule_bar.png" height="300" width=300">
-            <img src="media/piechart/capsule_bar2.png" height="300" width=300">
+            <center>
+                <h5 style="margin-left:180px; margin-top:10px; color:#7249AE;"><b>Bar Chart</b></h5>
+                <h5 style="margin-left:250px;color:#7249AE; width:550px; font-size:12px;"><b>If lift range is 1 then image is <b style="color:#12ABDB;">Non-Defective</b>, above than 1 is <b style="color:#FF6327;">Defective</b></b></h5>
+            </center>
+            <img src="media/piechart/capsule_bar.png" height="270" width=320">
+            <img src="media/piechart/capsule_bar2.png" height="270" width=320">
         </div>
 <!--        <div style="margin-left:30px;">-->
 <!--            <img src="media/piechart/capsule_bar.png" height="300" width=300">-->
@@ -55,42 +98,43 @@ overflow-x: hidden;
     </div>
     <form method="POST" class="form-horizontal" action="result_capsule">
         {% csrf_token %}
-        <div style="display: flex; background-color:white; width:1100px; margin-top: 30px; margin-left:100px;">
+        <h4 style="color:white; margin-left:450px; font-size:18px;">(To know more detail of each model click on file Name)</h4>
+        <div id="content11" style="display: flex; background-color:white; width:1100px; margin-top: 30px; margin-left:100px; overflow-y: scroll; overflow-x:hidden;">
             <div class="design" style=" margin-left:10px; width:200px; height:auto;">
-                <p class="text-white" style="margin-left:-10px; width:300px; height:50px; background-color: #0070AD; "><b> File Name</b></p>
+                <p class="text-white" style="padding-top:10px; margin-left:-10px; width:300px; height:50px; background-color: #0070AD; "><b style="margin-left:30px; margin-top:10px;"> File Name</b></p>
                 {% for i in data %}
                 <a href="#"><div class="image" onclick="getNum('{{i.actual_lbl}}')">
-                    <p class="text-black" name="input_image" style="margin-top:45px;">{{i.actual_lbl}}</p>
+                    <p class="text-black" style="margin-left:30px;" name="input_image" id="wrapper12">{{i.actual_lbl}}</p>
                 </div></a>
                 {% endfor %}
             </div>
             <div class="design" style=" margin-left:30px; width:200px; height:auto;">
                 <center>
-                    <p class="text-white" style="margin-left:-10px; width:300px; height:50px; background-color:#0070AD; "><b>Input Images</b></p>
+                    <p class="text-white" style="padding-top:10px; margin-left:-50px; width:300px; height:50px; background-color:#0070AD; "><b style="margin-top:10px;">Input Images</b></p>
                     {% for i in images %}
-                    <img src="media/capsule/{{i}}" height="70" width="70"><br>
+                        <img src="media/capsule/{{i}}" id="wrapper11" height="70" width="70"><br>
                     {% endfor %}
                 </center>
             </div>
             <div class="design" style=" margin-left:50px; width:200px; height:auto;">
-                <p class="text-white" style="width:300px; height:50px; background-color: #0070AD; " ><b>Score(range-left)</b></p>
+                <p class="text-white" style="padding-top:10px; width:300px; height:50px; background-color: #0070AD; " ><b style="margin-top:10px;">Score(range-left)</b></p>
                 {% for i in data %}
-                <p class="text-black" style="margin-top:45px;">{{i.input_img_range_left}}</p>
+                <p class="text-black" id="wrapper13">{{i.input_img_range_left}}</p>
                 {% endfor %}
             </div>
             <div class="design" style=" margin-left:30px; width:200px; height:auto;">
-                <p class="text-white" style="width:300px; height:50px; background-color: #0070AD; " ><b>Score(range-right)</b></p>
+                <p class="text-white" style="padding-top:10px; width:300px; height:50px; background-color: #0070AD; " ><b style="margin-top:10px;">Score(range-right)</b></p>
                 {% for i in data %}
-                <p class="text-black" style="margin-top:45px;">{{i.input_img_range_right}}</p>
+                <p class="text-black" id="wrapper14">{{i.input_img_range_right}}</p>
                 {% endfor %}
             </div>
             <div class="design" style=" margin-left:50px; width:200px; height:auto;">
-                <p class="dropdown-content" style="color:white; width:130px; height:50px; background-color: #0070AD; "><b>Prediction</b></p>
+                <p class="dropdown-content" style="padding-top:10px; color:white; width:130px; height:50px; background-color: #0070AD; "><b style="margin-top:10px;">Prediction</b></p>
                 {% for i in data %}
                 {% if i.prediction_result == False %}
-                <p class="text" style="color:red; margin-top:45px;" name="result"><b>{{i.prediction}}</b></p>
+                <p class="text" style="color:red;" id="wrapper15" name="result"><b>{{i.prediction}}</b></p>
                 {% elif i.prediction_result == True %}
-                <p class="text" style="color:green; margin-top:45px;" name="result"><b>{{i.prediction}}</b></p>
+                <p class="text" style="color:green;" id="wrapper16" name="result"><b>{{i.prediction}}</b></p>
                 {% endif %}
                 {% endfor %}
             </div>
