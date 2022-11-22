@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Index</title>
+  <title>Intelligent Visual Inspection</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -41,7 +41,9 @@
     <nav id="navbar" class="navbar">
       <ul>
         {%if user.is_authenticated%}
-        <li><a class="nav-linkscrollto" href="{%url 'logout' %}">Logout</a></li>
+        <li><a class="nav-linkscrollto" style="margin-right:10px;" href="{%url 'select' %}">Select</a></li>
+        <li><a class="nav-linkscrollto" style="margin-right:100px;" href="{%url 'logout' %}">Logout</a></li>
+
 
         {%else%}
         <li><a class="nav-linkscrollto" href="{%url 'logout' %}">Logout</a></li>
@@ -59,7 +61,6 @@
       background-image: linear-gradient(3.47deg, #00649B 13.28%, #66A9CD 93.28%);
       background-repeat: no-repeat;
       background-position: center;
-      background-size: cover;
       background-size: cover;
       width: 100%;
       height: auto;">

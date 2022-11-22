@@ -1,4 +1,4 @@
-{% extends 'base2.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 
@@ -8,335 +8,680 @@
     <meta charset="UTF-8">
     <title>Details</title>
 </head>
-<body style="background-image: linear-gradient(to bottom, #003399 0%, #ff99cc 100%);
-height: auto;
+<body style="background-image: linear-gradient(3.47deg, #00649B 28.28%, #66A9CD 90.28%);
 overflow-x: hidden;
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-size:170%;
+max-height:700px;
 ">
+
+<style>
+    .center {
+      border: 3px solid;
+      text-align: center;
+    }
+</style>
 <div style="padding-top:50px;">
     <button type="button" onclick="history.back()" style="display: none;" id="back-btn" ></button>
     <a href="#" style="color:white; margin-left:150px; margin-top:60px;" onclick="document.getElementById('back-btn').click()"  alt="Back"><b>BACK</b></a>
     <!--    <p class="text-white" style="margin-top:50px; margin-left:600px;Font-size:20px;"><b>Details</b></p>-->
-    <div style="background-color:white; margin-left:200px; margin-top:30px; width:900px; height:400px; ">
+    <div style="background-color:white; margin-left:200px; margin-top:30px; width:900px; height:350px; ">
         <!--        <p class="text-black" style="margin-left:400px; Font-size:20px;"><b>Graph</b></p>-->
         {% if number == '000.png' %}
+
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_000.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.0}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.0}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.0}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.0}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_000.png" height="290" width="420">
         </div>
+
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_000.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_000.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '001.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_001.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.1}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.1}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.1}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.1}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_001.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_001.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_001.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '002.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_002.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.2}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.2}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.2}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.2}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_002.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_002.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_002.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '003.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_003.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.3}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.3}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.3}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.3}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_003.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_003.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_003.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '004.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_004.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.4}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.4}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.4}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.4}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_004.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_004.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_004.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '005.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_005.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.5}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.5}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.5}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.5}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_005.png" height="300" width="420">
+
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_005.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_005.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '006.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_006.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.6}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.6}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.6}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.6}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_006.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_006.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_006.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         <!--            <div style="margin-top:-100px; margin-left:80px;">-->
         <!--                <p style="color:Black;"><b>lower_bound_iqr: {{lower_bound.6}}</b></p>-->
         <!--                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.6}}</b></p>-->
         <!--                <p style="color:Black;"><b>Input Img range: {{input_img.6}}</b></p>-->
-        <!--                <p style="color:Black;"><b>prediction: {{list_of_values.6}}</b></p>-->
+        <!--                <p style="color:Black;"><b>Prediction: {{list_of_values.6}}</b></p>-->
         <!--            </div>-->
         {% elif number == '007.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_007.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.7}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.7}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.7}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.7}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_007.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_007.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_007.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '008.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_008.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.8}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.8}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.8}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.8}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_008.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_008.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_008.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '009.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_009.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.9}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.9}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.9}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.9}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_009.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_009.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_009.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '010.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_010.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.10}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.10}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.10}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.10}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_010.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_010.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_010.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '011.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_011.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.11}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.11}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.11}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.11}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_011.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_011.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_011.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '012.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_012.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.12}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.12}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.12}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.12}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_012.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_012.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_012.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '013.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_013.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.13}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.13}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.13}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.13}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_013.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_013.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_013.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '014.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_014.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.14}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.14}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.14}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.14}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_014.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_014.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_014.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '015.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_015.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.15}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.15}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.15}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.15}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_015.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_015.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_015.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '016.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_016.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.16}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.16}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.16}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.16}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_016.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
             <img src="media/transistor_fig2/my_graph_016.png" height="300" width="420">
         </div>
 
         {% elif number == '017.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_017.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.17}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.17}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.17}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.17}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_017.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_017.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_017.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '018.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_018.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.18}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.18}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.18}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.18}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_018.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_018.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_018.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '019.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_019.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.19}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.19}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.19}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.19}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_019.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_019.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_019.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '020.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_020.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.20}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.20}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.20}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.20}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_020.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_020.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_020.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% elif number == '021.png' %}
         <div style="margin-left:20px; width:460px; height:400px; ">
-            <img src="media/transistor_fig1/my_resmap_021.png" height="290" width="380">
-            <div style="margin-top:-50px; margin-left:45px;">
-                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.21}}</b></p>
-                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.21}}</b></p>
-                <p style="color:Black;"><b>Input Img range: {{input_img.21}}</b></p>
-                <p style="color:Black;"><b>prediction: {{list_of_values.21}}</b></p>
-            </div>
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_021.png" height="300" width="420">
         </div>
         <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
-            <img src="media/transistor_fig2/my_graph_021.png" height="300" width="420">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_021.png" style="margin-left:-40px;" height="300" width="460">
+        </div>
+
+        {% elif number == '024.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_024.png" height="300" width="420">
+        </div>
+        <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_024.png" style="margin-left:-40px;" height="300" width="460">
+        </div>
+
+        {% elif number == '025.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_025.png" height="300" width="420">
+        </div>
+        <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_025.png" style="margin-left:-40px;" height="300" width="460">
+        </div>
+
+        {% elif number == '026.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_026.png" height="300" width="420">
+        </div>
+        <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_026.png" style="margin-left:-40px;" height="300" width="460">
+        </div>
+
+        {% elif number == '027.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_027.png" height="300" width="420">
+        </div>
+        <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_027.png" style="margin-left:-40px;" height="300" width="460">
+        </div>
+
+        {% elif number == '028.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_028.png" height="300" width="420">
+        </div>
+        <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_028.png" style="margin-left:-40px;" height="300" width="460">
+        </div>
+
+        {% elif number == '029.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_021.png" height="300" width="420">
+        </div>
+        <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_029.png" style="margin-left:-40px;" height="300" width="460">
+        </div>
+
+        {% elif number == '030.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_030.png" style="margin-left:-40px;" height="300" width="460">
+        </div>
+        <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_030.png" style="margin-left:-40px;" height="300" width="460">
+        </div>
+
+        {% elif number == '031.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+            <img src="media/transistor_fig1/my_resmap_031.png" height="300" width="420">
+        </div>
+        <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+            <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+            <img src="media/transistor_fig2/my_graph_031.png" style="margin-left:-40px;" height="300" width="460">
         </div>
 
         {% endif %}
     </div>
-    <!--    <img src="media/fig1/my_resmap_001.png" style="margin-left:10px;" height="200" width="300">-->
-    <!--    <img src="media/fig1/my_resmap_002.png" style="margin-left:10px;" height="200" width="300">-->
-    <!--    <img src="media/fig1/my_resmap_003.png" style="margin-top:20px; margin-left:-60px;" height="200" width="300">-->
+    <div style="background-color:white; margin-left:200px; margin-top:30px; width:400px; height:200px; ">
+        <!--        <p class="text-black" style="margin-left:400px; Font-size:20px;"><b>Graph</b></p>-->
+        {% if number == '000.png' %}
+
+        <div style="margin-left:20px; width:900px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style="margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.0}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.0}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.0}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.0}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '001.png' %}
+        <div style="margin-left:20px;  width:900px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style="margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.1}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.1}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.1}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.1}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '002.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.2}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.2}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.2}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.2}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '003.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.3}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.3}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.3}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.3}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '004.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.4}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.4}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.4}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.4}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '005.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.5}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.5}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.5}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.5}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '006.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.6}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.6}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.6}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.6}}</b></p>
+            </div>
+        </div>
+
+        <!--            <div style="margin-top:-100px; margin-left:80px;">-->
+        <!--                <p style="color:Black;"><b>lower_bound_iqr: {{lower_bound.6}}</b></p>-->
+        <!--                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.6}}</b></p>-->
+        <!--                <p style="color:Black;"><b>Input Img range: {{input_img.6}}</b></p>-->
+        <!--                <p style="color:Black;"><b>Prediction: {{list_of_values.6}}</b></p>-->
+        <!--            </div>-->
+        {% elif number == '007.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.7}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.7}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.7}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.7}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '008.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.8}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.8}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.8}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.8}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '009.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.9}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.9}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.9}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.9}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '010.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.10}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.10}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.10}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.10}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '011.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.11}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.11}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.11}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.11}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '012.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.12}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.12}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.12}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.12}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '013.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.13}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.13}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.13}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.13}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '014.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.14}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.14}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.14}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.14}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '015.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.15}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.15}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.15}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.15}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '016.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.16}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.16}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.16}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.16}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '017.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.17}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.17}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.17}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.17}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '018.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.18}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.18}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.18}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.18}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '019.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.19}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.19}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.19}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.19}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '020.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.20}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.20}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.20}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.20}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '021.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.21}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.21}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.21}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.21}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '024.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.24}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.24}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.24}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.24}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '025.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.25}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.25}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.25}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.25}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '026.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.26}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.26}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.26}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.26}}</b></p>
+            </div>
+        </div>
+        {% elif number == '027.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.27}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.27}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.27}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.27}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '028.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.28}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.28}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.28}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.28}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '029.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.29}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.29}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.29}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.29}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '030.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.30}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.30}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.30}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.30}}</b></p>
+            </div>
+        </div>
+
+        {% elif number == '031.png' %}
+        <div style="margin-left:20px; width:460px; height:400px; ">
+            <h5 style="margin-top:30px; color:#7249AE;"><b>More information of each images</b></h5>
+            <div style=" margin-left:45px;">
+                <p style="color:Black;"><b>Lower Bound range: {{lower_bound.31}}</b></p>
+                <p style="color:Black;"><b>Upper Bound range: {{upper_bound.31}}</b></p>
+                <p style="color:Black;"><b>Input Img range: {{input_img.31}}</b></p>
+                <p style="color:Black;"><b>Prediction: {{prediction.31}}</b></p>
+            </div>
+        </div>
+
+        {% endif %}
+    </div>
+    <!--    <img src="media/transistor_fig1/my_resmap_001.png" style="margin-left:10px;" height="200" width="300">-->
+    <!--    <img src="media/transistor_fig1/my_resmap_002.png" style="margin-left:10px;" height="200" width="300">-->
+    <!--    <img src="media/transistor_fig1/my_resmap_003.png" style="margin-top:20px; margin-left:-60px;" height="200" width="300">-->
     <!--    <form method="POST" class="form-horizontal" action="result">-->
     <!--        {% csrf_token %}-->
     <!--        <div style="background-color:#8A8989; margin-top: 30px; margin-left:80px;">-->

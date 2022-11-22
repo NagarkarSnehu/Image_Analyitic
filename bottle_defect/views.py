@@ -406,7 +406,8 @@ def bottles_prediction(bottle_model,
         "lift_iqr":[],
         "actual_lbl": [],
         "prediction": [],
-        "prediction_result": []
+        "prediction_result": [],
+        "lift_range": []
     }
     plots = []
 
@@ -415,7 +416,7 @@ def bottles_prediction(bottle_model,
         idx += 1
         curr_temp_tbl = copy.deepcopy(temp_tbl)
 
-        fig1, ax = plt.subplots(1, 3, sharey=True)
+        fig1, ax = plt.subplots(1, 3, figsize=(9, 5))
         ax[0].imshow(input_img)
         ax[0].title.set_text("input("+lbl+")")
 
@@ -539,11 +540,16 @@ def bottles_prediction(bottle_model,
         final_stat_dict_bottle["input_img_range"].append(comparison_df.loc[0, 'range'])
 
         if (range_lower <= comparison_df.loc[0, 'range']) & (range_upper >= comparison_df.loc[0, 'range']):
-            final_stat_dict_bottle['prediction'].append('non-defective')
+            final_stat_dict_bottle['prediction'].append('Non-Defective')
             final_stat_dict_bottle['prediction_result'].append(1)
+            final_stat_dict_bottle['lift_range'].append(1)
         else:
-            final_stat_dict_bottle['prediction'].append('defective')
+            final_stat_dict_bottle['prediction'].append('Defective')
             final_stat_dict_bottle['prediction_result'].append(0)
+            bound_list=[range_lower, range_upper]
+            closest = min(bound_list, key=lambda x: abs(x - comparison_df.loc[0, 'range']))
+            lift_range=abs(comparison_df.loc[0, 'range']-closest)+1
+            final_stat_dict_bottle['lift_range'].append(lift_range)
 
     final_stat_bottle_df = pd.DataFrame(final_stat_dict_bottle)
     print('final_stat_bottle_df:', final_stat_bottle_df)
@@ -623,6 +629,9 @@ from keras.preprocessing import image
 
 import matplotlib.pyplot as plt
 from django.conf import settings
+import plotly.graph_objects as go
+import plotly.express as px
+import plotly.io as pio
 
 
 @login_required()
@@ -743,6 +752,8 @@ def upload_file(request):
             lower_bound = []
             upper_bound = []
             input_img = []
+            prediction = []
+            lift_range = []
             for i in table1:
                 list_of_values.append(i.get('prediction_result'))
                 request.session['list_of_values'] = list_of_values
@@ -758,6 +769,14 @@ def upload_file(request):
             for i in table1:
                 input_img.append(i.get('input_img_range'))
                 request.session['input_img'] = input_img
+
+            for i in table1:
+                prediction.append(i.get('prediction'))
+                request.session['prediction'] = prediction
+
+            for i in table1:
+                lift_range.append(i.get('lift_range'))
+                request.session['lift_range'] = lift_range
 
             print(lower_bound)
             print(upper_bound)
@@ -800,48 +819,70 @@ def upload_file(request):
             good = round(addition_of_true)
             bad = round(addition_of_false)
             plt_1 = plt.figure(figsize=(5, 5))
-            colors = ['green', 'red']
+            colors = ['#12ABDB', '#0070AD']
             plt.pie(y, labels=mylabels, colors=colors)
             plt.legend(['Non-Defective', 'Defective'])
             plt.show()
 
             plt_1.savefig("media/piechart/bottle_pie")
-            #
+
+            # pull is given as a fraction of the pie radius
+            # values =np.array(list_of_values)
+            # fig1 = go.Figure(data=[go.Pie(labels=labels, values=values,, pull=[0, 0, 0.2, 0])])
+            # fig1.show()
+            # fig1 = go.Figure(data=[go.Pie(labels=labels, values=values, pull=[0, 0, 0.2, 0])])
+            # fig1.show()
+
             import pandas as pd
             # x = round(list_of_values, 5)
 
             print('list_of_values:', list_of_values)
             print('list_of_files:', list_of_files)
             df = pd.DataFrame({
-                'list_of_values': list_of_values,
+                # 'list_of_values': list_of_values,
                 'Image': list_of_values,
-                'lower_bound': lower_bound,
-                'input_img': input_img,
-
+                # 'lower_bound': lower_bound,
+                'lift_range': lift_range,
+                'list_of_files': list_of_files,
             })
 
-            range1_list = [x for x in list_of_values if x <= 1]
-            range2_list = [x for x in list_of_values if x > 1]
-            df.plot(kind='line', y='input_img', figsize=(7, 7), color='green')
-            # df.plot(kind='bar', x=range2_list, y='Image', figsize=(7, 7), color='red')
+            # fig = px.bar(df, y='lift_range', x='list_of_files', text_auto='.2s',
+            #              title="Controlled text sizes, positions and angles")
+            # fig.update_traces(textfont_size=12, textangle=0, textposition="outside", cliponaxis=False)
+            # fig.write_image("media/piechart/bottle_new.jpeg")
+            # fig.write_image("media/bar_new", format='jpg')
+            # pio.write_image(fig, "media/piechart/bottle_new.png")
+            # fig.write_image("media/piechart/bottle_new", format='jpg')
+            # fig.savefig("media/piechart/bottle_bar")
+
+            col = []
+            for x in list_of_values:
+                if x == 1:
+                    col.append('#12ABDB')
+                else:
+                    col.append('#FF6327')
+
+            df.plot(kind='bar', y='lift_range', figsize=(7, 7), color=col)
+            plt.xlabel("Input Image", fontsize=14)
+            plt.ylabel("Lift Range", fontsize=14)
             plt.subplots_adjust(bottom=0.2)
             plt.savefig("media/piechart/bottle_bar")
-            #
+
             # import numpy as np
             # import matplotlib.pyplot as plt
             #
             # x = 'list_of_values'
             # y = 'Image'
             #
-            # range1_list = [x for x in list_of_values if x <= 1]
-            # range2_list = [x for x in list_of_values if x > 1]
-            #
+            # range1_list = [x for x in list_of_values if x == 1]
+            # range2_list = [x for x in list_of_values if x == 0]
+            # import ipdb
+            # ipdb.set_trace()
             # col = []
-            # for x in range1_list:
-            #     if x <= 1:
+            # for x in list_of_values:
+            #     if x == 1:
             #         col.append('green')
-            # for x in range2_list:
-            #     if x > 1:
+            #     else:
             #         col.append('red')
             #
             #     # elif i > '1':
@@ -849,8 +890,8 @@ def upload_file(request):
             #
             # # col looks like this: ['blue', 'blue', 'blue', 'blue', 'red', 'red', 'red', 'green', 'green', 'green']
             #
-            # plt.bar(x, y, color = col)
-            # plt.savefig("media/piechart/bar1")
+            # plt.bar(x, y, color=col)
+            # plt.savefig("media/bar11")
 
             # # importing matplotlib
             # import matplotlib.pyplot
@@ -871,6 +912,8 @@ def upload_file(request):
             print(input_image)
 
             print(data)
+            print('prediction:', prediction)
+            print('list_of_values:', list_of_values)
 
             context = {
                 'data': request.session.get('data'),
@@ -882,6 +925,8 @@ def upload_file(request):
                 'total': total,
                 'good': good,
                 'bad': bad,
+                'prediction': request.session.get('prediction'),
+                'fig': fig,
                 # 'data1': data1,
             }
 
@@ -910,9 +955,15 @@ def result(request):
             'upper_bound': request.session.get('upper_bound'),
             'input_img': request.session.get('input_img'),
             'list_of_values': request.session.get('list_of_values'),
+            'prediction': request.session.get('prediction'),
         }
         return render(request, 'detail.html', context)
     return render(request, 'result.html')
+
+
+@login_required
+def test(request):
+    return render(request, 'test.html')
 
 
 @login_required
@@ -924,6 +975,7 @@ def detail(request):
         'upper_bound': request.session.get('upper_bound'),
         'input_img': request.session.get('input_img'),
         'list_of_values': request.session.get('list_of_values'),
+        'prediction': request.session.get('prediction'),
     }
     return render(request, 'detail.html', context)
 

@@ -1,0 +1,180 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+
+<script>
+    window.onload = function(){
+        console.log('enter the function')
+        move()
+    }
+
+    {% comment %} window.setTimeout(function () {
+        location.href = "{% url 'test_model' %}";
+    }, 10000); // refresh/redirect after 5 seconds. {% endcomment %}
+
+    function move() {
+    var elem = document.getElementById("bar");
+    console.log('Enter function move')
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+      } else {
+        width++;
+        elem.style.width = width + '%';
+      }
+    }
+  }
+  </script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Dashboard</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="static/assets/img/capgemini-squareLogo.png" rel="icon">
+    <link href="static/assets/css/style-figma.css" rel="stylesheet">
+    <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="static/assets/css/style.css" rel="stylesheet">
+    <link href="static/assets/css_1/style-figma.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- =======================================================
+    * Template Name: Selecao - v4.9.1
+    * Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body style="background-image: linear-gradient(3.47deg, #00649B 28.28%, #66A9CD 90.28%);
+height: auto;
+overflow-x: hidden;
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-size:170%;
+max-height:700px;
+">
+
+<div style="padding-top:50px;">
+    <button type="button" onclick="history.back()" style="display: none;" id="back-btn" ></button>
+    <a href="#" style="color:white; margin-left:100px; margin-top:60px;" onclick="document.getElementById('back-btn').click()"  alt="Back"><b>BACK</b></a>
+    <p class="text-white" style="margin-top:20px; margin-left:500px;Font-size:20px;"><b>Image Analytics - Bottle</b></p>
+
+        <div style="margin-left:150px; width:960px; height:350px; background-color:white;">
+            <div style="float:left;">
+                <h5 style="margin-left:120px; margin-top:10px; color:#7249AE;"><b>Pie Chart</b></h5>
+                <img src="media/piechart/bottle_pie.png" height="300" width="300">
+                <p style="margin-left:300px; margin-top:-200px; width:200px; color:#7249AE;"><strong>Uploaded Images: {{total}} </strong></p>
+                <p style="margin-left:300px; width:200px; color:#7249AE;"><strong>Non-Defective: {{good}} </strong></p>
+                <p style="margin-left:300px; width:200px; color:#7249AE;"><strong>Defective: {{bad}} </strong></p>
+            </div>
+            <!--        {% for i in image %}-->
+            <!--            <img src="media/fig1/{{i}}" style="margin-left:50px;" height="200" width="300">-->
+            <!--        {% endfor %}-->
+            <div style="float:right;">
+                <h5 style="margin-left:150px; margin-top:10px; color:#7249AE;"><b>Bar Chart</b></h5>
+                <h5 style="margin-left:50px; color:#7249AE; width:400px; font-size:12px;"><b>If lift range is 1 then image is <b style="color:#12ABDB;">Non-Defective</b>, above than 1 is <b style="color:#FF6327;">Defective</b></b></h5>
+                <div class="active_bearing_div" style="width: 420px; height: auto;">
+                    <canvas id="bar1"></canvas>
+                </div>
+            </div>
+        </div>
+        <form method="POST" class="form-horizontal" action="test">
+            {% csrf_token %}
+            <div style=" display: flex;  background-color:white; width:960px; margin-top: 30px; margin-left:150px;">
+                <div style=" width:500px; height:50px; ">
+    <!--                <input  style="margin-left:30px; margin-top:10px; width: 108px; height: 30px; border-radius: 4px; align-self: stretch; box-sizing: border-box; border: 1px solid rgba(39, 41, 54, 0.45);" placeholder="Search">-->
+                    <input type="text" placeholder="Search.." name="search" style="margin-left:30px; margin-top:10px; width: 108px; height: 30px; border-radius: 4px; align-self: stretch; box-sizing: border-box; border: 1px solid rgba(39, 41, 54, 0.45);">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+                <div class="prediction_filter" style="margin-top:10px; width:500px; height:50px; ">
+    <!--                <input  style="margin-left:10px; margin-top:10px; width: 108px; height: 30px; border-radius: 4px; align-self: stretch; box-sizing: border-box; border: 1px solid rgba(39, 41, 54, 0.45);" placeholder="Filter"><img style="margin-left:-20px;  width:15px; height:8px; left: calc(50% - 12px/2); top: calc(50% - 6px/2); background: rgba(39, 41, 54, 0.45);" src="static/assets/img/Vector 1.png" >-->
+                    <select name="prediction_filter" onchange="myFunction()" id="prediction_filter" style="width: 108px; height: 30px;">
+                        <option value="2">All</option>
+                        <option value="0">Defective</option>
+                        <option value="1">Non-Defective</option>
+                    </select>
+                </div>
+                <div style="margin-left:500px; width:250px; height:50px; ">
+                    <input type="button" value="Download PDF File"  style="margin-left:-80px; margin-top:10px; width: 118px; height: 30px; border-radius: 4px; align-self: stretch; box-sizing: border-box; border: 1px solid rgba(39, 41, 54, 0.45);" placeholder="Download">
+                </div>
+            </div>
+            <div id="content11" style="display: flex;  background-color:white; width:960px; margin-top: 30px; margin-left:150px; overflow-y: scroll; overflow-x:hidden; ">
+                <div style=" width:220px; height:auto;">
+                    <h5 class="text-white" style="position:static; padding-top:10px; width:300px; height:52px; background-color: #0070AD;"><b style="margin-left:20px; ">File Name</b></h5>
+    <!--                <p class="text-white"  id="header" style="padding-top:10px; margin-left:-10px; width:300px; height:52px; background-color: #0070AD; "><b style="margin-left:30px;"> File Name</b></p>-->
+                    {% for i in data %}
+                    <a href="#"><div class="image" onclick="getNum('{{i.actual_lbl}}')">
+                        <p class="text-black" style="margin-left:30px;" name="input_image" id="wrapper12">{{i.actual_lbl}}</p>
+                    </div></a>
+                    {% endfor %}
+                </div>
+                <div style=" width:220px; height:auto;">
+                    <h5 class="text-white" style="position:static; padding-top:10px; width:300px; height:52px; background-color: #0070AD;"><b style="margin-left:80px; ">Input Images</b></h5>
+                    {% for i in images %}
+                    <img src="media/test/{{i}}" id="wrapper11" style="margin-left:100px;" height="70" width="70"><br>
+                    {% endfor %}
+                </div>
+                <div style=" width:220px; height:auto;">
+                    <h5 class="text-white" style="position:static; padding-top:10px; width:300px; height:52px; background-color: #0070AD;"><b style="margin-left:80px; ">Score(Range)</b></h5>
+                    {% for i in data %}
+                    <p class="text-black" id="wrapper13" style="margin-left:100px;">{{i.input_img_range}}</p>
+                    {% endfor %}
+                </div>
+                <div style=" width:220px; height:auto;" id="result">
+                    <h5 class="text-white" style="position:static; padding-top:10px; width:300px; height:52px; background-color: #0070AD;"><b style="margin-left:80px; ">Prediction</b></h5>
+                    {% for i in data %}
+                    {% if i.prediction_result == False %}
+                    <p class="text" style="color:red;margin-left:100px;" id="wrapper14"  name="result"><b>{{i.prediction}}</b></p>
+                    {% elif i.prediction_result == True %}
+                    <p class="text" style="color:green;margin-left:100px;" id="wrapper15" name="result"><b>{{i.prediction}}</b></p>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+        </form>
+</div>
+
+<!--  <h1 style="margin-top: 20px; text-align: center; font-size: 24px;">Dashboard</h1>-->
+<!--<div class="outer-dashboard" style="overflow: hidden;">-->
+<!--    <div class="dashboard-div-3" style="margin-top: 5px;">-->
+<!--        -->
+<!--        <div class="active_bearing_div" style="width: 500px; height: 400px;">-->
+<!--            <canvas id="bar2"></canvas>-->
+<!--        </div>-->
+<!--        <div class="active_bearing_div" style="width: 500px; height: 400px;">-->
+<!--            <canvas id="bar3"></canvas>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<script src="static/assets/js/custom-chart.js"></script>
+{% endblock %}
+</body>
+
+</html>

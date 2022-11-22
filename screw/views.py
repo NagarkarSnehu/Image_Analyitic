@@ -346,7 +346,8 @@ def screw_prediction(screw_model,
         "lift_iqr":[],
         "actual_lbl": [],
         "prediction": [],
-        "prediction_result": []
+        "prediction_result": [],
+        "lift_range": []
     }
     plots = []
 
@@ -355,7 +356,7 @@ def screw_prediction(screw_model,
     for input_img, gen_img, resmap, lbl in zip(curr_imgs, generated_images, residual_maps, labels):
         idx += 1
         curr_temp_tbl = copy.deepcopy(temp_tbl)
-        fig1, ax = plt.subplots(1, 3, sharey=True)
+        fig1, ax = plt.subplots(1, 3, figsize=(9, 5))
         #input_img = np.squeeze(input_img)
         ax[0].imshow(input_img)
         ax[0].title.set_text("input("+lbl+")")
@@ -475,11 +476,16 @@ def screw_prediction(screw_model,
         final_stat_dict_screw["input_img_range"].append(comparison_df.loc[0, 'range'])
 
         if (range_lower <= comparison_df.loc[0, 'range']) & (range_upper >= comparison_df.loc[0, 'range']):
-            final_stat_dict_screw['prediction'].append('non-defective')
+            final_stat_dict_screw['prediction'].append('Non-Defective')
             final_stat_dict_screw['prediction_result'].append(1)
+            final_stat_dict_screw['lift_range'].append(1)
         else:
-            final_stat_dict_screw['prediction'].append('defective')
+            final_stat_dict_screw['prediction'].append('Defective')
             final_stat_dict_screw['prediction_result'].append(0)
+            bound_list=[range_lower, range_upper]
+            closest = min(bound_list, key=lambda x: abs(x - comparison_df.loc[0, 'range']))
+            lift_range=abs(comparison_df.loc[0, 'range']-closest)+1
+            final_stat_dict_screw['lift_range'].append(lift_range)
 
     final_stat_screw_df = pd.DataFrame(final_stat_dict_screw)
     final_stat_screw_df["iqr_within_CI"] = (
@@ -536,10 +542,9 @@ def upload_screw(request):
         else:
             fs = FileSystemStorage(location='media/screw')
             for i in file_list:
-                path = os.listdir(settings.MEDIA_ROOT_TRANSISTOR)
+                path = os.listdir(settings.MEDIA_ROOT_SCREW)
                 try:
                     if i.name in path:
-                        # path.remove(i.name)
                         os.remove('media/screw/' + i.name)
                 except Exception as ex:
                     print(ex)
@@ -590,6 +595,8 @@ def upload_screw(request):
             lower_bound = []
             upper_bound = []
             input_img = []
+            lift_range = []
+            prediction = []
             for i in table1:
                 list_of_values.append(i.get('prediction_result'))
                 request.session['list_of_values'] = list_of_values
@@ -606,7 +613,15 @@ def upload_screw(request):
                 input_img.append(i.get('input_img_range'))
                 request.session['input_img'] = input_img
 
-            print(lower_bound)
+            for i in table1:
+                lift_range.append(i.get('lift_range'))
+                request.session['lift_range'] = lift_range
+
+            for i in table1:
+                prediction.append(i.get('prediction'))
+                request.session['prediction'] = prediction
+
+            print('lower bound:', lower_bound)
             print(upper_bound)
             print(input_img)
 
@@ -641,7 +656,7 @@ def upload_screw(request):
             good = round(addition_of_true)
             bad = round(addition_of_false)
             plt_1 = plt.figure(figsize=(5, 5))
-            colors = ['green', 'red']
+            colors = ['#12ABDB', '#0070AD']
             plt.pie(y, labels=mylabels, colors=colors)
             plt.legend(['Non-Defective', 'Defective'])
             plt.show()
@@ -658,11 +673,21 @@ def upload_screw(request):
                 'Image': list_of_values,
                 'lower_bound': lower_bound,
                 'input_img': input_img,
+                'lift_range': lift_range,
             })
+
+            col = []
+            for x in list_of_values:
+                if x == 1:
+                    col.append('#12ABDB')
+                else:
+                    col.append('#FF6327')
 
             range1_list = [x for x in list_of_values if x <= 1]
             range2_list = [x for x in list_of_values if x > 1]
-            df.plot(kind='line', y='input_img', figsize=(7, 7), color='green')
+            df.plot(kind='bar', y='lift_range', figsize=(7, 7), color=col)
+            plt.xlabel("Input Image", fontsize=14)
+            plt.ylabel("Lift Range", fontsize=14)
             # df.plot(kind='bar', x=range2_list, y='Image', figsize=(7, 7), color='red')
             plt.subplots_adjust(bottom=0.2)
             plt.savefig("media/piechart/screw_bar3")
@@ -679,6 +704,7 @@ def upload_screw(request):
                 'total': total,
                 'good': good,
                 'bad': bad,
+                'prediction': request.session.get('prediction'),
                 # 'data1': data1,
             }
             return render(request, 'result_screw.html', context)
@@ -704,6 +730,7 @@ def result_screw(request):
             'upper_bound': request.session.get('upper_bound'),
             'input_img': request.session.get('input_img'),
             'list_of_values': request.session.get('list_of_values'),
+            'prediction': request.session.get('prediction'),
         }
         return render(request, 'detail_screw.html', context)
     return render(request, 'result_screw.html')
@@ -712,11 +739,13 @@ def result_screw(request):
 @login_required
 def detail_screw(request):
     number = request.GET.get('search')
+    print('number:', number)
     context = {
         'number': number,
         'lower_bound': request.session.get('lower_bound'),
         'upper_bound': request.session.get('upper_bound'),
         'input_img': request.session.get('input_img'),
         'list_of_values': request.session.get('list_of_values'),
+        'prediction': request.session.get('prediction'),
     }
     return render(request, 'detail_screw.html', context)

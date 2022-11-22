@@ -1699,5 +1699,28 @@ comment-box{
 
  }
 
+.filter{
+    /* Input Field */
+
+    box-sizing: border-box;
+
+
+}
+
+.drop{
+    /* Vector 1 */
+
+
+    position: absolute;
+    width: 12px;
+    height: 6px;
+    left: calc(50% - 12px/2);
+    top: calc(50% - 6px/2);
+
+    /* Typography/On Surface/Medium Emphasis */
+
+    background: rgba(39, 41, 54, 0.45);
+}
+
 
 
