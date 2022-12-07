@@ -2,77 +2,14 @@
 {% load static %}
 {% block content %}
 
-<script>
-    window.onload = function(){
-        console.log('enter the function')
-        move()
-    }
-
-    {% comment %} window.setTimeout(function () {
-        location.href = "{% url 'test_model' %}";
-    }, 10000); // refresh/redirect after 5 seconds. {% endcomment %}
-
-    function move() {
-    var elem = document.getElementById("bar");
-    console.log('Enter function move')
-    var width = 1;
-    var id = setInterval(frame, 10);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-      } else {
-        width++;
-        elem.style.width = width + '%';
-      }
-    }
-  }
-  </script>
-
 <!DOCTYPE html>
 <html lang="en">
-
+<link href="static/assets/css/style-figma.css" rel="stylesheet">
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>Dashboard</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="static/assets/img/capgemini-squareLogo.png" rel="icon">
-    <link href="static/assets/css/style-figma.css" rel="stylesheet">
-    <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="static/assets/css/style.css" rel="stylesheet">
-    <link href="static/assets/css_1/style-figma.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-    <!-- =======================================================
-    * Template Name: Selecao - v4.9.1
-    * Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
 <body style="background-image: linear-gradient(3.47deg, #00649B 28.28%, #66A9CD 90.28%);
-height: auto;
 overflow-x: hidden;
 background-attachment: fixed;
 background-repeat: no-repeat;
@@ -80,100 +17,994 @@ background-size:170%;
 max-height:700px;
 ">
 
+<style>
+    #content11 {
+           overflow-y: scroll;
+           width: 830px;
+           height: 340px;
+        }
+
+    #wrapper11 {
+            display: grid;
+            grid-template-rows: 10px 1fr 10px;
+        }
+
+    #wrapper12 {
+            display: grid;
+            grid-template-rows: 39px 5fr 39px;
+        }
+
+    #wrapper13 {
+            display: grid;
+            grid-template-rows: 39px 5fr 39px;
+        }
+
+    #wrapper14 {
+            display: grid;
+            grid-template-rows: 39px 5fr 39px;
+        }
+
+    #wrapper15 {
+            display: grid;
+            grid-template-rows: 39px 5fr 39px;
+        }
+
+    div.sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        background-color: yellow;
+        padding: 20px;
+        font-size: 20px;
+      }
+</style>
+
+<script>
+    window.onload = function(){
+            console.log('inside the function')
+
+
+            data = {{data|safe}}
+            console.log('data is:' + data)
+    }
+
+    function getNum(i){
+        console.log('I am in')
+        a = i
+        console.log(a)
+        const toggle = document.getElementById('000.png');
+        const toggle1 = document.getElementById('001.png');
+        const toggle2 = document.getElementById('002.png');
+        const toggle3 = document.getElementById('003.png');
+        const toggle4 = document.getElementById('004.png');
+        const toggle5 = document.getElementById('005.png');
+        const toggle6 = document.getElementById('006.png');
+        const toggle7 = document.getElementById('007.png');
+        const toggle8 = document.getElementById('008.png');
+        const toggle9 = document.getElementById('009.png');
+        const toggle10 = document.getElementById('010.png');
+        const toggle11 = document.getElementById('011.png');
+        const toggle12 = document.getElementById('012.png');
+        const toggle13 = document.getElementById('013.png');
+        const toggle14 = document.getElementById('014.png');
+        const toggle15 = document.getElementById('015.png');
+        const toggle16 = document.getElementById('016.png');
+        const toggle17 = document.getElementById('017.png');
+        const toggle18 = document.getElementById('018.png');
+        const toggle19 = document.getElementById('019.png');
+        const toggle20 = document.getElementById('020.png');
+        const toggle21 = document.getElementById('021.png');
+        const toggle22 = document.getElementById('022.png');
+        const toggle23 = document.getElementById('023.png');
+        const toggle24 = document.getElementById('024.png');
+        const toggle25 = document.getElementById('025.png');
+        const toggle26 = document.getElementById('026.png');
+        const toggle27 = document.getElementById('027.png');
+        const toggle28 = document.getElementById('028.png');
+        const toggle29 = document.getElementById('029.png');
+        const toggle30 = document.getElementById('030.png');
+        const toggle31 = document.getElementById('031.png');
+        const toggle32 = document.getElementById('032.png');
+        const toggle33 = document.getElementById('033.png');
+        const toggle34 = document.getElementById('034.png');
+        const toggle35 = document.getElementById('035.png');
+        const toggle36 = document.getElementById('036.png');
+        const toggle37 = document.getElementById('037.png');
+        if (a=='000.png'){
+            console.log(a)
+            console.log(toggle)
+            toggle.style.visibility = 'visible';
+        } else if(a=='001.png'){
+            toggle.style.display = 'none';
+            toggle1.style.visibility = 'visible';
+        } else if(a=='002.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.visibility = 'visible';
+        } else if(a=='003.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.visibility = 'visible';
+        } else if(a=='004.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.visibility = 'visible';
+        } else if(a=='005.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.visibility = 'visible';
+        } else if(a=='006.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.visibility = 'visible';
+        } else if(a=='007.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.visibility = 'visible';
+        } else if(a=='008.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.visibility = 'visible';
+        } else if(a=='009.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.visibility = 'visible';
+        } else if(a=='010.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.visibility = 'visible';
+        } else if(a=='011.png'){
+            console.log(a)
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.visibility = 'visible';
+        } else if(a=='012.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.visibility = 'visible';
+        } else if(a=='013.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.visibility = 'visible';
+        } else if(a=='014.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.visibility = 'visible';
+        } else if(a=='015.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.visibility = 'visible';
+        } else if(a=='016.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.visibility = 'visible';
+        } else if(a=='017.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.visibility = 'visible';
+        } else if(a=='018.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.visibility = 'visible';
+        } else if(a=='019.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.visibility = 'visible';
+        } else if(a=='020.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.visibility = 'visible';
+        } else if(a=='021.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.visibility = 'visible';
+        } else if(a=='022.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.visibility = 'visible';
+        } else if(a=='023.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.visibility = 'visible';
+        } else if(a=='024.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.visibility = 'visible';
+        } else if(a=='025.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.visibility = 'visible';
+        } else if(a=='026.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.visibility = 'visible';
+        } else if(a=='027.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.display = 'none';
+            toggle27.style.visibility = 'visible';
+        } else if(a=='028.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.display = 'none';
+            toggle27.style.display = 'none';
+            toggle28.style.visibility = 'visible';
+        } else if(a=='029.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.display = 'none';
+            toggle27.style.display = 'none';
+            toggle28.style.display = 'none';
+            toggle29.style.visibility = 'visible';
+        } else if(a=='030.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.display = 'none';
+            toggle27.style.display = 'none';
+            toggle28.style.display = 'none';
+            toggle29.style.display = 'none';
+            toggle30.style.visibility = 'visible';
+        } else if(a=='031.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.display = 'none';
+            toggle27.style.display = 'none';
+            toggle28.style.display = 'none';
+            toggle29.style.display = 'none';
+            toggle30.style.display = 'none';
+            toggle31.style.visibility = 'visible';
+        } else if(a=='032.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.display = 'none';
+            toggle27.style.display = 'none';
+            toggle28.style.display = 'none';
+            toggle29.style.display = 'none';
+            toggle30.style.display = 'none';
+            toggle31.style.display = 'none';
+            toggle32.style.visibility = 'visible';
+        } else if(a=='033.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.display = 'none';
+            toggle27.style.display = 'none';
+            toggle28.style.display = 'none';
+            toggle29.style.display = 'none';
+            toggle30.style.display = 'none';
+            toggle31.style.display = 'none';
+            toggle32.style.display = 'none';
+            toggle33.style.visibility = 'visible';
+        } else if(a=='034.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.display = 'none';
+            toggle27.style.display = 'none';
+            toggle28.style.display = 'none';
+            toggle29.style.display = 'none';
+            toggle30.style.display = 'none';
+            toggle31.style.display = 'none';
+            toggle32.style.display = 'none';
+            toggle33.style.display = 'none';
+            toggle34.style.visibility = 'visible';
+        } else if(a=='035.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.display = 'none';
+            toggle27.style.display = 'none';
+            toggle28.style.display = 'none';
+            toggle29.style.display = 'none';
+            toggle30.style.display = 'none';
+            toggle31.style.display = 'none';
+            toggle32.style.display = 'none';
+            toggle33.style.display = 'none';
+            toggle34.style.display = 'none';
+            toggle35.style.visibility = 'visible';
+        } else if(a=='036.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.display = 'none';
+            toggle27.style.display = 'none';
+            toggle28.style.display = 'none';
+            toggle29.style.display = 'none';
+            toggle30.style.display = 'none';
+            toggle31.style.display = 'none';
+            toggle32.style.display = 'none';
+            toggle33.style.display = 'none';
+            toggle34.style.display = 'none';
+            toggle35.style.display = 'none';
+            toggle36.style.visibility = 'visible';
+        } else if(a=='037.png'){
+            toggle.style.display = 'none';
+            toggle1.style.display = 'none';
+            toggle2.style.display = 'none';
+            toggle3.style.display = 'none';
+            toggle4.style.display = 'none';
+            toggle5.style.display = 'none';
+            toggle6.style.display = 'none';
+            toggle7.style.display = 'none';
+            toggle8.style.display = 'none';
+            toggle9.style.display = 'none';
+            toggle10.style.display = 'none';
+            toggle11.style.display = 'none';
+            toggle12.style.display = 'none';
+            toggle13.style.display = 'none';
+            toggle14.style.display = 'none';
+            toggle15.style.display = 'none';
+            toggle16.style.display = 'none';
+            toggle17.style.display = 'none';
+            toggle18.style.display = 'none';
+            toggle19.style.display = 'none';
+            toggle20.style.display = 'none';
+            toggle21.style.display = 'none';
+            toggle22.style.display = 'none';
+            toggle23.style.display = 'none';
+            toggle24.style.display = 'none';
+            toggle25.style.display = 'none';
+            toggle26.style.display = 'none';
+            toggle27.style.display = 'none';
+            toggle28.style.display = 'none';
+            toggle29.style.display = 'none';
+            toggle30.style.display = 'none';
+            toggle31.style.display = 'none';
+            toggle32.style.display = 'none';
+            toggle33.style.display = 'none';
+            toggle34.style.display = 'none';
+            toggle35.style.display = 'none';
+            toggle36.style.display = 'none';
+            toggle37.style.visibility = 'visible';
+        }
+<!--        window.location.href = "{% url 'detail' %}" + '?search='+i-->
+<!--        console.log('clicked number' + i)-->
+    }
+
+
+</script>
 <div style="padding-top:50px;">
     <button type="button" onclick="history.back()" style="display: none;" id="back-btn" ></button>
-    <a href="#" style="color:white; margin-left:100px; margin-top:60px;" onclick="document.getElementById('back-btn').click()"  alt="Back"><b>BACK</b></a>
-    <p class="text-white" style="margin-top:20px; margin-left:500px;Font-size:20px;"><b>Image Analytics - Bottle</b></p>
-
-        <div style="margin-left:150px; width:960px; height:350px; background-color:white;">
-            <div style="float:left;">
-                <h5 style="margin-left:120px; margin-top:10px; color:#7249AE;"><b>Pie Chart</b></h5>
-                <img src="media/piechart/bottle_pie.png" height="300" width="300">
-                <p style="margin-left:300px; margin-top:-200px; width:200px; color:#7249AE;"><strong>Uploaded Images: {{total}} </strong></p>
-                <p style="margin-left:300px; width:200px; color:#7249AE;"><strong>Non-Defective: {{good}} </strong></p>
-                <p style="margin-left:300px; width:200px; color:#7249AE;"><strong>Defective: {{bad}} </strong></p>
+    <a href="#" style="color:white; margin-left:50px; margin-top:60px;" onclick="document.getElementById('back-btn').click()"  alt="Back"><b>BACK</b></a>
+    <form method="POST" class="form-horizontal" action="result">
+        {% csrf_token %}
+        <!--    <p class="text-white" style="margin-top:20px; margin-left:500px;Font-size:20px;"><b>Image Analytics - Bottle</b></p>-->
+        <div style="margin-left:150px; width:960px; height:580px; background-color:white;">
+            <div style="background-color:#01D1D0; height:150px; width:100px">
+                <center>
+                    <h5 style="padding-top:20px; color:white; font-family:ubuntu; font-size:18px;" ><b>Uploaded Image</b></h5>
+                    <h5 style="color:white; font-family:ubuntu; font-size:18px;">{{total}}</h5>
+                </center>
             </div>
-            <!--        {% for i in image %}-->
-            <!--            <img src="media/fig1/{{i}}" style="margin-left:50px;" height="200" width="300">-->
-            <!--        {% endfor %}-->
-            <div style="float:right;">
-                <h5 style="margin-left:150px; margin-top:10px; color:#7249AE;"><b>Bar Chart</b></h5>
-                <h5 style="margin-left:50px; color:#7249AE; width:400px; font-size:12px;"><b>If lift range is 1 then image is <b style="color:#12ABDB;">Non-Defective</b>, above than 1 is <b style="color:#FF6327;">Defective</b></b></h5>
-                <div class="active_bearing_div" style="width: 420px; height: auto;">
-                    <canvas id="bar1"></canvas>
+            <div style="background-color:#0F999C; height:150px; width:100px">
+                <center>
+                    <h5 style="padding-top:30px; color:white; font-family:ubuntu; font-size:18px;" ><b>Defective</b></h5>
+                    <h5 style="color:white; font-family:ubuntu; font-size:18px;">{{bad}}</h5>
+                </center>
+            </div>
+            <div style="background-color:#15636B; height:150px; width:100px">
+                <center>
+                    <h5 style="padding-top:20px; color:white; font-family:ubuntu; font-size:18px;" ><b>Non-Defective</b></h5>
+                    <h5 style="color:white; font-family:ubuntu; font-size:18px;">{{good}}</h5>
+                </center>
+            </div>
+            <div style="margin-top:-400px; margin-left:100px; height:300px; width:370px">
+                <center>
+                    <h5 style="margin-left:50px; margin-top:10px; font-family:ubuntu; font-size:18px; color:#7249AE;"><b>Distribution of Defective And Non-Defective using Pie Chart</b></h5>
+                </center>
+                <div >
+                    {% autoescape off %}
+                    {{ plot_div }}
+                    {% endautoescape %}
+                </div>
+                <!--            <img src="media/piechart/bottle_pie.png" height="400" width="400">-->
+            </div>
+            <div style="margin-top:-300px; margin-left:470px; height:270px; width:480px">
+                <center>
+                    <h5 style=" color:#7249AE; font-family:ubuntu; font-size:18px;"><b>Bar Chart</b></h5>
+                    <h5 style="margin-left:50px; color:#7249AE; font-family:ubuntu; font-size:15px; width:400px;"><b>If lift range is 1 then image is <b style="color:#12ABDB;">Non-Defective</b>, above than 1 is <b style="color:#FF6327;">Defective</b></b></h5>
+                </center>
+                <div style="height:200 width:450">
+                    {% autoescape off %}
+                    {{ fig }}
+                    {% endautoescape %}
                 </div>
             </div>
         </div>
-        <form method="POST" class="form-horizontal" action="test">
-            {% csrf_token %}
-            <div style=" display: flex;  background-color:white; width:960px; margin-top: 30px; margin-left:150px;">
-                <div style=" width:500px; height:50px; ">
-    <!--                <input  style="margin-left:30px; margin-top:10px; width: 108px; height: 30px; border-radius: 4px; align-self: stretch; box-sizing: border-box; border: 1px solid rgba(39, 41, 54, 0.45);" placeholder="Search">-->
-                    <input type="text" placeholder="Search.." name="search" style="margin-left:30px; margin-top:10px; width: 108px; height: 30px; border-radius: 4px; align-self: stretch; box-sizing: border-box; border: 1px solid rgba(39, 41, 54, 0.45);">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </div>
-                <div class="prediction_filter" style="margin-top:10px; width:500px; height:50px; ">
-    <!--                <input  style="margin-left:10px; margin-top:10px; width: 108px; height: 30px; border-radius: 4px; align-self: stretch; box-sizing: border-box; border: 1px solid rgba(39, 41, 54, 0.45);" placeholder="Filter"><img style="margin-left:-20px;  width:15px; height:8px; left: calc(50% - 12px/2); top: calc(50% - 6px/2); background: rgba(39, 41, 54, 0.45);" src="static/assets/img/Vector 1.png" >-->
-                    <select name="prediction_filter" onchange="myFunction()" id="prediction_filter" style="width: 108px; height: 30px;">
-                        <option value="2">All</option>
-                        <option value="0">Defective</option>
-                        <option value="1">Non-Defective</option>
-                    </select>
-                </div>
-                <div style="margin-left:500px; width:250px; height:50px; ">
-                    <input type="button" value="Download PDF File"  style="margin-left:-80px; margin-top:10px; width: 118px; height: 30px; border-radius: 4px; align-self: stretch; box-sizing: border-box; border: 1px solid rgba(39, 41, 54, 0.45);" placeholder="Download">
-                </div>
+
+        <h4 style="color:white; margin-left:450px; font-size:18px;">(To know more detail of each model click on file Name)</h4>
+        <div id="content11" style="display: flex;  background-color:white; width:960px; margin-top: 30px; margin-left:150px; overflow-y: scroll; overflow-x:hidden; ">
+            <div class="design" style=" margin-left:10px; width:200px; height:auto;">
+                <p class="text-white"  id="header" style="padding-top:10px; margin-left:-10px; width:300px; height:52px; background-color: #0070AD; "><b style="margin-left:50px;"> File Name</b></p>
+                {% for i in data %}
+                <a href="#"><div class="image" onclick="getNum('{{i.actual_lbl}}')">
+                    <p class="text-black" style="margin-left:50px;" name="input_image" id="wrapper12">{{i.actual_lbl}}</p>
+                </div></a>
+                {% endfor %}
             </div>
-            <div id="content11" style="display: flex;  background-color:white; width:960px; margin-top: 30px; margin-left:150px; overflow-y: scroll; overflow-x:hidden; ">
-                <div style=" width:220px; height:auto;">
-                    <h5 class="text-white" style="position:static; padding-top:10px; width:300px; height:52px; background-color: #0070AD;"><b style="margin-left:20px; ">File Name</b></h5>
-    <!--                <p class="text-white"  id="header" style="padding-top:10px; margin-left:-10px; width:300px; height:52px; background-color: #0070AD; "><b style="margin-left:30px;"> File Name</b></p>-->
-                    {% for i in data %}
-                    <a href="#"><div class="image" onclick="getNum('{{i.actual_lbl}}')">
-                        <p class="text-black" style="margin-left:30px;" name="input_image" id="wrapper12">{{i.actual_lbl}}</p>
-                    </div></a>
-                    {% endfor %}
-                </div>
-                <div style=" width:220px; height:auto;">
-                    <h5 class="text-white" style="position:static; padding-top:10px; width:300px; height:52px; background-color: #0070AD;"><b style="margin-left:80px; ">Input Images</b></h5>
+            <div class="design" style=" margin-left:50px; width:200px; height:auto;">
+                <center>
+                    <p class="text-white" id="header1" style="padding-top:10px; margin-left:-10px; width:300px; height:50px; background-color:#0070AD; "><b style="margin-left:-80px;">Input Images</b></p>
                     {% for i in images %}
-                    <img src="media/test/{{i}}" id="wrapper11" style="margin-left:100px;" height="70" width="70"><br>
+                    <img src="media/test/{{i}}" id="wrapper11" height="70" width="70"><br>
                     {% endfor %}
-                </div>
-                <div style=" width:220px; height:auto;">
-                    <h5 class="text-white" style="position:static; padding-top:10px; width:300px; height:52px; background-color: #0070AD;"><b style="margin-left:80px; ">Score(Range)</b></h5>
-                    {% for i in data %}
-                    <p class="text-black" id="wrapper13" style="margin-left:100px;">{{i.input_img_range}}</p>
-                    {% endfor %}
-                </div>
-                <div style=" width:220px; height:auto;" id="result">
-                    <h5 class="text-white" style="position:static; padding-top:10px; width:300px; height:52px; background-color: #0070AD;"><b style="margin-left:80px; ">Prediction</b></h5>
-                    {% for i in data %}
-                    {% if i.prediction_result == False %}
-                    <p class="text" style="color:red;margin-left:100px;" id="wrapper14"  name="result"><b>{{i.prediction}}</b></p>
-                    {% elif i.prediction_result == True %}
-                    <p class="text" style="color:green;margin-left:100px;" id="wrapper15" name="result"><b>{{i.prediction}}</b></p>
-                    {% endif %}
-                    {% endfor %}
-                </div>
+                </center>
+            </div>
+            <div class="design" style=" margin-left:50px; width:200px; height:auto;">
+                <p class="text-white" id="header2" style="padding-top:10px; width:300px; height:50px; background-color: #0070AD; " ><b>Score(range)</b></p>
+                {% for i in data %}
+                <p class="text-black" id="wrapper13">{{i.input_img_range}}</p>
+                {% endfor %}
+            </div>
+            <div class="design" style=" margin-left:50px; width:200px; height:auto;">
+                <p class="dropdown-content" id="header3" style="padding-top:10px; color:white; width:200px; height:50px; background-color: #0070AD; "><b>Prediction</b></p>
+                {% for i in data %}
+                {% if i.prediction_result == False %}
+                <p class="text" style="color:red;" id="wrapper14" name="result"><b>{{i.prediction}}</b></p>
+                {% elif i.prediction_result == True %}
+                <p class="text" style="color:green;" id="wrapper15" name="result"><b>{{i.prediction}}</b></p>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <!--        {% for i in data %}-->
+        <div id="{{i.actual_lbl}}" style="background-color:white; margin-left:150px; margin-top:30px; width:960px; height:350px; visibility:hidden">
+            <div style="margin-left:20px; width:460px; height:400px; ">
+                <h5 style="padding-top:10px; margin-left:150px; margin-top:30px; color:#7249AE;"><b>Input Images</b></h5>
+                <img src="media/fig1/my_resmap_{{i.actual_lbl}}" height="300" width="420">
             </div>
 
-        </form>
+            <div style="float:right; margin-top:-400px;  width:425px; height:400px;">
+                <h5 style="padding-top:10px; margin-left:70px;  color:#7249AE;"><b>Histogram For Five Good Images</b></h5>
+                <img src="media/fig2/my_graph_{{i.actual_lbl}}" style="margin-left:-40px;" height="300" width="460">
+            </div>
+
+            <!--                <div style="background-color:white; width:960px; height:auto;">-->
+            <!--                    <h5 style="color:#7249AE;"><b>More information of each images</b></h5>-->
+            <!--                    <p style="color:Black;"><b>Lower Bound range: {{i.lower_bound_range}}, Upper Bound range: {{i.upper_bound_range}}, Input Img range: {{i.input_img_range}}, Prediction: {{i.prediction}}</b></p>-->
+            <!--                </div>-->
+        </div>
+        <!--        {% endfor %}-->
+
+    </form>
 </div>
 
-<!--  <h1 style="margin-top: 20px; text-align: center; font-size: 24px;">Dashboard</h1>-->
-<!--<div class="outer-dashboard" style="overflow: hidden;">-->
-<!--    <div class="dashboard-div-3" style="margin-top: 5px;">-->
-<!--        -->
-<!--        <div class="active_bearing_div" style="width: 500px; height: 400px;">-->
-<!--            <canvas id="bar2"></canvas>-->
-<!--        </div>-->
-<!--        <div class="active_bearing_div" style="width: 500px; height: 400px;">-->
-<!--            <canvas id="bar3"></canvas>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<script src="static/assets/js/custom-chart.js"></script>
 {% endblock %}
 </body>
 

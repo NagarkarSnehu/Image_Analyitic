@@ -352,6 +352,9 @@ def plot_img_grid(batch_img_tensor, fig_size=(54, 6)):
     plt.tight_layout()
 
 
+from scipy import stats as st
+
+
 def bottles_prediction(bottle_model,
                        data_samples: np.array,
                        data_samples_input: np.array,
@@ -416,15 +419,15 @@ def bottles_prediction(bottle_model,
         idx += 1
         curr_temp_tbl = copy.deepcopy(temp_tbl)
 
-        fig1, ax = plt.subplots(1, 3, figsize=(9, 5))
+        fig1, ax = plt.subplots(1, 2, figsize=(9, 5))
         ax[0].imshow(input_img)
         ax[0].title.set_text("input("+lbl+")")
 
-        ax[1].imshow(gen_img)
-        ax[1].title.set_text("generated")
+        # ax[1].imshow(gen_img)
+        # ax[1].title.set_text("generated")
 
-        ax[2].imshow(resmap, cmap="plasma")
-        ax[2].title.set_text("resmap")
+        ax[1].imshow(resmap, cmap="plasma")
+        ax[1].title.set_text("resmap")
         # fig1.show()
         fig1.savefig("media/fig1/my_resmap_"+lbl)
 
@@ -447,7 +450,8 @@ def bottles_prediction(bottle_model,
 
         #ax2[0][0].imshow(resmap, cmap=COLOR_MAP)
         #pyplot.title.set_text("in_res")
-        ax2[0].hist(in_vals, bins=HISTOGRAM_BINS)
+        fitted_data, fitted_lambda = st.boxcox(in_vals)
+        ax2[0].hist(abs(fitted_data), bins=HISTOGRAM_BINS)
         #pyplot.hist(in_vals, bins=HISTOGRAM_BINS,alpha=0.1, density = True,histtype ='bar', label="in_res")
 
         five_random_indexes = [0, 1, 2, 3, 5]
@@ -472,11 +476,12 @@ def bottles_prediction(bottle_model,
 
             #ax2[0][idx].title.set_text(f"good_res_{idx}")
             #ax2[0][idx].imshow(g_resmap, cmap=COLOR_MAP)
-            pyplot.hist(vals, bins=HISTOGRAM_BINS,alpha=0.5, density = False,histtype ='step', label=f"good_res_{idx}")
+            fitted_data_good, fitted_lambda_good = st.boxcox(vals)
+            pyplot.hist(abs(fitted_data_good), bins=HISTOGRAM_BINS,histtype ='step', label=f"good_res_{idx}")
 
         #plots.append((fig2))
         #plt.show()
-        pyplot.legend(loc='upper right')
+        # pyplot.legend(loc='upper right')
         pyplot.show()
 
         fig2.savefig("media/fig2/my_graph_"+lbl)
@@ -633,6 +638,9 @@ import plotly.graph_objects as go
 import plotly.express as px
 import plotly.io as pio
 
+from plotly.offline import plot, offline
+from plotly.graph_objs import Bar, pie
+
 
 @login_required()
 def upload_file(request):
@@ -685,14 +693,15 @@ def upload_file(request):
 
                 list_of_files = os.listdir('media/test')
                 context['list_of_files'] = list_of_files
+                print(len(list_of_files))
 
                 # file = ('media/test/' + "url_{}".format(i))
 
             assessment_portfolio = request.session.get('assessment_portfolio')
             context["assessment_portfolio"] = assessment_portfolio
 
-            print(f"Imag url is {list_of_files}")
-            print(len(list_of_files))
+            # print(f"Imag url is {list_of_files}")
+
             bottle_imgs = get_img_dict(Path(r"./bottle/data"))
             print(bottle_imgs.keys())
             bottles_data_dict = create_in_pred_res_dict(bottle_model, bottle_imgs)
@@ -798,13 +807,24 @@ def upload_file(request):
             import numpy as np
 
             values =np.array(list_of_values)
-            labels = ['True', 'False']
+            myvalues = [0, 1]
+            labels = ['Non-Defective', 'Defective']
 
             sum_of_true = [x for x in values if x == 1]
             sum_of_false = [x for x in values if x == 0]
 
             addition_of_true = len(sum_of_true)
             addition_of_false = len(sum_of_false)
+
+            fig1 = go.Figure(data=[go.Pie(labels=labels, values=[addition_of_true, addition_of_false], pull=[0.1, 0.1])])
+            # fig1.update_layout(margin=dict(t=2, b=2, l=2, r=2))
+            fig1.update_layout(
+                autosize=False,
+                width=445,
+                height=450
+            )
+            fig1.update_traces(marker=dict(colors=['#12ABDB', '#0070AD']))
+            plot_div = offline.plot(fig1, output_type='div')
 
             # for i in sum_of_true:
             #     addition_of_true = addition_of_true + i
@@ -826,11 +846,19 @@ def upload_file(request):
 
             plt_1.savefig("media/piechart/bottle_pie")
 
+
+            # fig1.show()
+
             # pull is given as a fraction of the pie radius
             # values =np.array(list_of_values)
             # fig1 = go.Figure(data=[go.Pie(labels=labels, values=values,, pull=[0, 0, 0.2, 0])])
             # fig1.show()
             # fig1 = go.Figure(data=[go.Pie(labels=labels, values=values, pull=[0, 0, 0.2, 0])])
+            # fig1 = plot([pie(labels=labels, values=values, colors=colors,)],
+            #             output_type='div', image_height=50, image_width=300,)
+            # trace = go.Pie(labels=labels, values=values,)
+            # data = [trace]
+            # fig1 = go.Figure(data = data)
             # fig1.show()
 
             import pandas as pd
@@ -849,6 +877,8 @@ def upload_file(request):
             # fig = px.bar(df, y='lift_range', x='list_of_files', text_auto='.2s',
             #              title="Controlled text sizes, positions and angles")
             # fig.update_traces(textfont_size=12, textangle=0, textposition="outside", cliponaxis=False)
+
+
             # fig.write_image("media/piechart/bottle_new.jpeg")
             # fig.write_image("media/bar_new", format='jpg')
             # pio.write_image(fig, "media/piechart/bottle_new.png")
@@ -860,7 +890,12 @@ def upload_file(request):
                 if x == 1:
                     col.append('#12ABDB')
                 else:
-                    col.append('#FF6327')
+                    col.append('#0070AD')
+
+            fig = plot([Bar(x=list_of_files, y=lift_range, marker={'color': col},
+                            name='test',
+                            opacity=0.8, )],
+                       output_type='div', image_height=20, image_width=320,)
 
             df.plot(kind='bar', y='lift_range', figsize=(7, 7), color=col)
             plt.xlabel("Input Image", fontsize=14)
@@ -914,6 +949,8 @@ def upload_file(request):
             print(data)
             print('prediction:', prediction)
             print('list_of_values:', list_of_values)
+            image_count = os.listdir('media/test')
+            image_total = len(image_count)
 
             context = {
                 'data': request.session.get('data'),
@@ -926,7 +963,10 @@ def upload_file(request):
                 'good': good,
                 'bad': bad,
                 'prediction': request.session.get('prediction'),
-                # 'fig': fig,
+                'image_count':image_count,
+                'fig1': fig1,
+                'plot_div': plot_div,
+                'fig': fig,
                 # 'data1': data1,
             }
 
@@ -978,6 +1018,11 @@ def detail(request):
         'prediction': request.session.get('prediction'),
     }
     return render(request, 'detail.html', context)
+
+
+@login_required
+def prac(request):
+    return render(request, 'prac.html')
 
 
 @login_required

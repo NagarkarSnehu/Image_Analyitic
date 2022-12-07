@@ -285,6 +285,9 @@ def create_images_batch_from_dict(input_gen_res_data_dict):
     return all_merged_data, all_merged_labels
 
 
+from scipy import stats as st
+
+
 def transistor_prediction(transistor_model,
                           data_samples: np.array,
                           data_samples_input: np.array,
@@ -349,15 +352,15 @@ def transistor_prediction(transistor_model,
         idx += 1
         curr_temp_tbl = copy.deepcopy(temp_tbl)
 
-        fig1, ax = plt.subplots(1, 3, figsize=(9, 5))
+        fig1, ax = plt.subplots(1, 2, figsize=(9, 5))
         ax[0].imshow(input_img)
         ax[0].title.set_text("input("+lbl+")")
 
-        ax[1].imshow(gen_img)
-        ax[1].title.set_text("generated")
+        # ax[1].imshow(gen_img)
+        # ax[1].title.set_text("generated")
 
-        ax[2].imshow(resmap, cmap=COLOR_MAP)
-        ax[2].title.set_text("resmap")
+        ax[1].imshow(resmap, cmap=COLOR_MAP)
+        ax[1].title.set_text("resmap")
         fig1.savefig("media/transistor_fig1/my_resmap_"+lbl)
         # fig1.show()
 
@@ -380,7 +383,8 @@ def transistor_prediction(transistor_model,
 
         #ax2[0][0].imshow(resmap, cmap=COLOR_MAP)
         #ax2[0][0].title.set_text("in_res")
-        ax2[0].hist(in_vals, bins=HISTOGRAM_BINS)
+        fitted_data, fitted_lambda = st.boxcox(in_vals)
+        ax2[0].hist(abs(fitted_data), bins=HISTOGRAM_BINS)
 
         five_random_indexes = np.random.choice(np.arange(transistor_data_dict["good"][0].shape[0]), size=5)
         good_examples = transistor_data_dict["good"][0][five_random_indexes]
@@ -406,11 +410,12 @@ def transistor_prediction(transistor_model,
             #ax2[0][idx].title.set_text(f"g_res_{idx}")
             #ax2[0][idx].imshow(g_resmap, cmap=COLOR_MAP)
             #ax2[1][idx].hist(vals, bins=HISTOGRAM_BINS)
-            pyplot.hist(vals, bins=HISTOGRAM_BINS,alpha=0.5, density = False,histtype ='step', label=f"good_res_{idx}")
+            fitted_data_good, fitted_lambda_good = st.boxcox(vals)
+            pyplot.hist(abs(fitted_data_good), bins=HISTOGRAM_BINS,histtype ='step', label=f"good_res_{idx}")
 
         #plots.append((fig1, fig2))
         #plt.show()
-        pyplot.legend(loc='upper right')
+        # pyplot.legend(loc='upper right')
         pyplot.show()
 
         fig2.savefig("media/transistor_fig2/my_graph_"+lbl)
@@ -491,7 +496,14 @@ model_path = f"{os.getcwd()}\\transistor/model/mvtecCAE_b8_e2.hdf5"
 tra_model, info, _ = load_model_HDF5(model_path)
 tra_model.summary()
 
+import matplotlib.pyplot as plt
 from django.conf import settings
+import plotly.graph_objects as go
+import plotly.express as px
+import plotly.io as pio
+
+from plotly.offline import plot, offline
+from plotly.graph_objs import Bar, pie
 
 
 @login_required
@@ -631,13 +643,24 @@ def upload_transistor(request):
             import numpy as np
 
             values =np.array(list_of_values)
-            labels = ['True', 'False']
+            myvalues = [0, 1]
+            labels = ['Non-Defective', 'Defective']
 
             sum_of_true = [x for x in values if x == 1]
             sum_of_false = [x for x in values if x == 0]
 
             addition_of_true = len(sum_of_true)
             addition_of_false = len(sum_of_false)
+
+            fig1 = go.Figure(data=[go.Pie(labels=labels, values=[addition_of_true, addition_of_false], pull=[0.1, 0.1])])
+            # fig1.update_layout(margin=dict(t=2, b=2, l=2, r=2))
+            fig1.update_layout(
+                autosize=False,
+                width=445,
+                height=450
+            )
+            fig1.update_traces(marker=dict(colors=['#12ABDB', '#0070AD']))
+            plot_div = offline.plot(fig1, output_type='div')
 
             total = round(addition_of_true + addition_of_false)
             y = np.array([addition_of_true, addition_of_false])
@@ -672,7 +695,12 @@ def upload_transistor(request):
                 if x == 1:
                     col.append('#12ABDB')
                 else:
-                    col.append('#FF6327')
+                    col.append('#0070AD')
+
+            fig = plot([Bar(x=list_of_files, y=lift_range, marker={'color': col},
+                            name='test',
+                            opacity=0.8, )],
+                       output_type='div', image_height=50, image_width=320,)
 
             range1_list = [x for x in list_of_values if x <= 1]
             range2_list = [x for x in list_of_values if x > 1]
@@ -714,6 +742,8 @@ def upload_transistor(request):
                 'good': good,
                 'bad': bad,
                 'prediction': request.session.get('prediction'),
+                'fig': fig,
+                'plot_div': plot_div,
                 # 'data1': data1,
             }
             return render(request, 'result_transistor.html', context)
