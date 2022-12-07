@@ -84,6 +84,24 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+<<<<<<< Updated upstream
+=======
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mssql',
+#         'NAME': 'toad',
+#         'USER': 'toad',
+#         'PASSWORD': 'Blast@123',
+#         'HOST': 'toadai.database.windows.net',
+#         'PORT': '1433',
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 17 for SQL Server',
+#         },
+#     }
+# }
+
+>>>>>>> Stashed changes
 LOGIN_REDIRECT_URL = 'login'
 HOME_URL = 'login'
 LOGIN_URL = 'login'

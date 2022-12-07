@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
 import tensorflow.keras.backend as K
+from pygments.lexers import go
 from tensorflow import keras
 from matplotlib import pyplot
 import matplotlib
@@ -292,6 +293,9 @@ def create_images_batch_from_dict(input_gen_res_data_dict):
     return all_merged_data, all_merged_labels
 
 
+from scipy import stats as st
+
+
 def screw_prediction(screw_model,
                      data_samples: np.array,
                      data_samples_input: np.array,
@@ -356,22 +360,22 @@ def screw_prediction(screw_model,
     for input_img, gen_img, resmap, lbl in zip(curr_imgs, generated_images, residual_maps, labels):
         idx += 1
         curr_temp_tbl = copy.deepcopy(temp_tbl)
-        fig1, ax = plt.subplots(1, 3, figsize=(9, 5))
+        fig1, ax = plt.subplots(1, 2, figsize=(8, 3))
         #input_img = np.squeeze(input_img)
         ax[0].imshow(input_img)
         ax[0].title.set_text("input("+lbl+")")
         #gen_img=np.squeeze(gen_img)
-        ax[1].imshow(gen_img)
+        # ax[1].imshow(gen_img)
+        #
+        # ax[1].title.set_text("generated")
 
-        ax[1].title.set_text("generated")
-
-        ax[2].imshow(resmap, cmap=COLOR_MAP)
-        ax[2].title.set_text("resmap")
+        ax[1].imshow(resmap, cmap=COLOR_MAP)
+        ax[1].title.set_text("resmap")
 
         fig1.savefig("media/screw_fig1/my_resmap_"+lbl)
         #fig1.show()
 
-        fig2, ax2 = plt.subplots(1, 2, figsize=(9, 3))
+        fig2, ax2 = plt.subplots(1, 2, figsize=(8, 3))
 
         in_resmap = resmap.flatten()
         in_vals = in_resmap[in_resmap > VALS_FILTER]
@@ -389,7 +393,8 @@ def screw_prediction(screw_model,
 
         #ax2[0][0].imshow(resmap, cmap=COLOR_MAP)
         #ax2[0][0].title.set_text("in_res")
-        ax2[0].hist(in_vals, bins=HISTOGRAM_BINS)
+        fitted_data, fitted_lambda = st.boxcox(in_vals)
+        ax2[0].hist(abs(fitted_data), bins=HISTOGRAM_BINS)
 
         five_random_indexes = np.random.choice(np.arange(screw_data_dict["good"][0].shape[0]), size=5)
         good_examples = screw_data_dict["good"][0][five_random_indexes]
@@ -417,10 +422,10 @@ def screw_prediction(screw_model,
             #ax2[0][idx].title.set_text(f"g_res_{idx}")
             #ax2[0][idx].imshow(g_resmap, cmap=COLOR_MAP)
             #ax2[1][idx].hist(vals, bins=HISTOGRAM_BINS)
+            fitted_data_good, fitted_lambda_good = st.boxcox(vals)
+            pyplot.hist(abs(fitted_data_good), bins=HISTOGRAM_BINS,histtype ='step', label=f"good_res_{idx}")
 
-            pyplot.hist(vals, bins=HISTOGRAM_BINS,alpha=0.5, density = False,histtype ='step', label=f"good_res_{idx}")
-
-        pyplot.legend(loc='upper right')
+        # pyplot.legend(loc='upper right')
         pyplot.show()
 
         fig2.savefig("media/screw_fig2/my_graph_"+lbl)
@@ -503,7 +508,15 @@ model_path = f"{os.getcwd()}\\screw/model/mvtecCAE_b8_e3.hdf5"
 screw_model, info, _ = load_model_HDF5(model_path)
 screw_model.summary()
 
+
+import matplotlib.pyplot as plt
 from django.conf import settings
+import plotly.graph_objects as go
+import plotly.express as px
+import plotly.io as pio
+
+from plotly.offline import plot, offline
+from plotly.graph_objs import Bar, pie
 
 
 def upload_screw(request):
@@ -641,13 +654,24 @@ def upload_screw(request):
             import numpy as np
 
             values =np.array(list_of_values)
-            labels = ['True', 'False']
+            myvalues = [0, 1]
+            labels = ['Non-Defective', 'Defective']
 
             sum_of_true = [x for x in values if x == 1]
             sum_of_false = [x for x in values if x == 0]
 
             addition_of_true = len(sum_of_true)
             addition_of_false = len(sum_of_false)
+
+            fig1 = go.Figure(data=[go.Pie(labels=labels, values=[addition_of_true, addition_of_false], pull=[0.1, 0.1])])
+            # fig1.update_layout(margin=dict(t=2, b=2, l=2, r=2))
+            fig1.update_layout(
+                autosize=False,
+                width=445,
+                height=450
+            )
+            fig1.update_traces(marker=dict(colors=['#12ABDB', '#0070AD']))
+            plot_div = offline.plot(fig1, output_type='div')
 
             total = round(addition_of_true + addition_of_false)
             y = np.array([addition_of_true, addition_of_false])
@@ -681,8 +705,18 @@ def upload_screw(request):
                 if x == 1:
                     col.append('#12ABDB')
                 else:
-                    col.append('#FF6327')
+                    col.append('#0070AD')
 
+            fig = plot([Bar(x=list_of_files, y=lift_range, marker={'color': col},
+                            name='test',
+                            opacity=0.8)],
+                       output_type='div', image_height=30, image_width=340,)
+
+            df.plot(kind='bar', y='lift_range', figsize=(7, 7), color=col)
+            plt.xlabel("Input Image", fontsize=14)
+            plt.ylabel("Lift Range", fontsize=14)
+            plt.subplots_adjust(bottom=0.2)
+            plt.savefig("media/piechart/bottle_bar")
             range1_list = [x for x in list_of_values if x <= 1]
             range2_list = [x for x in list_of_values if x > 1]
             df.plot(kind='bar', y='lift_range', figsize=(7, 7), color=col)
@@ -705,6 +739,8 @@ def upload_screw(request):
                 'good': good,
                 'bad': bad,
                 'prediction': request.session.get('prediction'),
+                'plot_div': plot_div,
+                'fig': fig,
                 # 'data1': data1,
             }
             return render(request, 'result_screw.html', context)

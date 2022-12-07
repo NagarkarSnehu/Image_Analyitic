@@ -289,6 +289,9 @@ def create_images_batch_from_dict(input_gen_res_data_dict):
     return all_merged_data, all_merged_labels
 
 
+from scipy import stats as st
+
+
 def capsules_prediction(cap_model,
                         data_samples: np.array,
                         data_samples_input: np.array,
@@ -378,15 +381,15 @@ def capsules_prediction(cap_model,
         gen_img = gen_img[IMG_CROP_DIM[0]:IMG_CROP_DIM[1], :, :]
         resmap = resmap[IMG_CROP_DIM[0]:IMG_CROP_DIM[1], :]
 
-        fig1, ax1 = plt.subplots(1, 3, figsize=(7, 5))
+        fig1, ax1 = plt.subplots(1, 2, figsize=(7, 5))
         ax1[0].imshow(input_img)
         ax1[0].title.set_text("input("+lbl+")")
 
-        ax1[1].imshow(gen_img)
-        ax1[1].title.set_text("generated")
+        # ax1[1].imshow(gen_img)
+        # ax1[1].title.set_text("generated")
 
-        ax1[2].imshow(resmap, cmap="plasma") # plasma, inferno, cviridis
-        ax1[2].title.set_text("resmap")
+        ax1[1].imshow(resmap, cmap="plasma") # plasma, inferno, cviridis
+        ax1[1].title.set_text("resmap")
 
         fig1.savefig("media/capsule_fig1/my_resmap_"+lbl)
         # fig1.show()
@@ -421,12 +424,14 @@ def capsules_prediction(cap_model,
         curr_temp_tbl["right_max"].append(in_vals_right.max())
 
         #ax2[0][0].imshow(in_left_resmap, cmap="plasma")
+        fitted_data_left, fitted_lambda_left = st.boxcox(in_vals_left)
         ax2[0].title.set_text("in_res_l")
-        ax2[0].hist(in_vals_left, bins=HISTOGRAM_BINS)
+        ax2[0].hist(abs(fitted_data_left), bins=HISTOGRAM_BINS)
 
         #ax2[0][1].imshow(in_right_resmap, cmap="plasma")
+        fitted_data_right, fitted_lambda_right = st.boxcox(in_vals_right)
         ax2[1].title.set_text("in_res_r")
-        ax2[1].hist(in_vals_right, bins=HISTOGRAM_BINS)
+        ax2[1].hist(abs(fitted_data_right), bins=HISTOGRAM_BINS)
 
         five_random_indexes = np.random.choice(np.arange(capsules_data_dict["good"][0].shape[0]), size=5)
         good_examples = capsules_data_dict["good"][0][five_random_indexes]
@@ -463,15 +468,18 @@ def capsules_prediction(cap_model,
             curr_temp_tbl["right_50"].append(np.quantile(vals_right, 0.5))
             curr_temp_tbl["right_75"].append(np.quantile(vals_right, 0.75))
             curr_temp_tbl["right_max"].append(vals_right.max())
-            vals_left_list.append(vals_left)
-            vals_right_list.append(vals_right)
+            fitted_data_good_left, fitted_lambda_good_left = st.boxcox(vals_left)
+            vals_left_list.append(abs(fitted_data_good_left))
+            fitted_data_good_right, fitted_lambda_good_right = st.boxcox(vals_right)
+            vals_right_list.append(abs(fitted_data_good_right))
             labels_left_list.append(f"g_res_{idx}_l")
             labels_right_list.append(f"g_res_{idx}_r")
 
         ax2[2].hist(vals_left_list, bins=HISTOGRAM_BINS,label=labels_left_list,histtype ='step')
-        ax2[2].legend(loc='upper right')
+        # ax2[2].legend(loc='upper right')
+
         ax2[3].hist(vals_right_list, bins=HISTOGRAM_BINS,label=labels_right_list,histtype ='step')
-        ax2[3].legend(loc='upper right')
+        # ax2[3].legend(loc='upper right')
 
         fig2.savefig("media/capsule_fig2/my_graph_"+lbl)
         # AVERAGE OF LAST 5
@@ -602,6 +610,12 @@ cap_model, info, _ = load_model_HDF5(model_path)
 cap_model.summary()
 
 from django.conf import settings
+import plotly.graph_objects as go
+import plotly.express as px
+import plotly.io as pio
+
+from plotly.offline import plot, offline
+from plotly.graph_objs import Bar, pie
 
 
 def upload_capsule(request):
@@ -746,13 +760,24 @@ def upload_capsule(request):
             list_of_values = list_of_values_right
             print(list_of_values)
             values =np.array(list_of_values)
-            labels = ['True', 'False']
+            myvalues = [0, 1]
+            labels = ['Non-Defective', 'Defective']
 
             sum_of_true = [x for x in values if x == 1]
             sum_of_false = [x for x in values if x == 0]
 
             addition_of_true = len(sum_of_true)
             addition_of_false = len(sum_of_false)
+
+            fig1 = go.Figure(data=[go.Pie(labels=labels, values=[addition_of_true, addition_of_false], pull=[0.1, 0.1])])
+            # fig1.update_layout(margin=dict(t=2, b=2, l=2, r=2))
+            fig1.update_layout(
+                autosize=False,
+                width=445,
+                height=450
+            )
+            fig1.update_traces(marker=dict(colors=['#12ABDB', '#0070AD']))
+            plot_div = offline.plot(fig1, output_type='div')
 
             total = round(addition_of_true + addition_of_false)
             y = np.array([addition_of_true, addition_of_false])
@@ -774,12 +799,7 @@ def upload_capsule(request):
             print('list_of_values:', list_of_values)
             print('list_of_files:', list_of_files)
 
-            col_left = []
-            for x in list_of_values:
-                if x == 1:
-                    col_left.append('#12ABDB')
-                else:
-                    col_left.append('#FF6327')
+
             df = pd.DataFrame({
                 'list_of_values': list_of_values,
                 'Image': list_of_values,
@@ -788,6 +808,18 @@ def upload_capsule(request):
                 'lift_range_left': lift_range_left,
 
             })
+
+            col_left = []
+            for x in list_of_values:
+                if x == 1:
+                    col_left.append('#12ABDB')
+                else:
+                    col_left.append('#0070AD')
+
+            fig = plot([Bar(x=list_of_files, y=list_of_values_left, marker={'color': col_left},
+                            name='test',
+                            opacity=0.8, )],
+                       output_type='div', image_height=30, image_width=340,)
 
             range1_list = [x for x in list_of_values if x <= 1]
             range2_list = [x for x in list_of_values if x > 1]
@@ -804,6 +836,11 @@ def upload_capsule(request):
                     col_right.append('#12ABDB')
                 else:
                     col_right.append('#FF6327')
+
+            fig2 = plot([Bar(x=list_of_files, y=list_of_values_right, marker={'color': col_right},
+                            name='test',
+                            opacity=0.8, )],
+                       output_type='div', image_height=50, image_width=300,)
 
             df = pd.DataFrame({
                 'list_of_values': list_of_values,
@@ -836,6 +873,9 @@ def upload_capsule(request):
                 'upper_bound_left': request.session.get('upper_bound_left'),
                 'lower_bound_right': request.session.get('lower_bound_right'),
                 'upper_bound_right': request.session.get('upper_bound_right'),
+                'plot_div': plot_div,
+                'fig': fig,
+                'fig2': fig2,
             }
         return render(request, 'result_capsule.html', context)
     return render(request, 'upload_capsule.html')

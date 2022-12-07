@@ -11,6 +11,7 @@ urlpatterns = [
     path('upload_file', bottle_views.upload_file, name='upload_file'),
     path('result', bottle_views.result, name='result'),
     path('detail', bottle_views.detail, name='detail'),
+    path('prac', bottle_views.prac, name='prac'),
     path('test', bottle_views.test, name='test'),
     # path('upload_transistor', transistor_view.upload_transistor, name='upload_transistor'),
     path('logout', bottle_views.logout_user, name='logout'),
