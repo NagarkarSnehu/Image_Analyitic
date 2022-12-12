@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'toad'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9D90F400A3DF4A44A38D50D650573239 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_315BD209D3D149709A72EEAE7D346888 }}
