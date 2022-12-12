@@ -84,8 +84,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-<<<<<<< Updated upstream
-=======
+
 
 # DATABASES = {
 #     'default': {
@@ -101,7 +100,6 @@ DATABASES = {
 #     }
 # }
 
->>>>>>> Stashed changes
 LOGIN_REDIRECT_URL = 'login'
 HOME_URL = 'login'
 LOGIN_URL = 'login'
